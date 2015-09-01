@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: foundation/default
+title: sandbox.es
 ---
 
 <div class="home">
@@ -20,4 +21,19 @@ layout: default
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
+</div>
+
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+
+    {% for post in site.posts %}
+    <li>
+      <span>{{ post.date | date_to_string }}</span>
+      &raquo;
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+
+  </ul>
 </div>

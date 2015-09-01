@@ -1,8 +1,18 @@
-/* Foundation was made by ZURB, an interaction design and design strategy firm in Campbell, CA */
-/* zurb.com */
-/* humanstxt.org */
+/* TEAM */
+  Developer: Jesús López Alonso
+  Contact: jesus [at] sandbox.es
+  Twitter:  @jeslopalo
+  Site: https://about.me/jeslopalo
+  From: Las Rozas de Madrid, Spain
+
+/* THANKS */
+  Opensource community
 
 /* SITE */
+  Last update:2015/09/01
+  Language: English / Castellano
+  Doctype: HTML5
+  IDE: IntelliJ IDEA, Vim
   Standards: HTML5, CSS3
-  Components: jQuery, Orbit, Reveal
-  Software: Coda, Textmate, Git
+  Components: jQuery, Foundation, Modernizr, etc.
+  Software: Git (Github), Linux, Jekyll, Grunt.js, bower.js, sass, Markdown, Ruby

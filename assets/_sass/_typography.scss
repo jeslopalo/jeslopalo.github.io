@@ -49,3 +49,34 @@ a:active {
   color: darken( $ci-1, 20% );
 }
 
+/* Typography for Articles
+------------------------------------------------------------------- */
+
+.subheadline {
+  font-size: rem-calc(16);
+  margin: 0;
+  text-transform: uppercase;
+}
+.teaser {
+  font-size: rem-calc(20);
+  font-style: italic;
+  color: lighten($body-font-color, 40%);
+}
+.big-teaser {
+  font-style: italic; font-weight: 300;
+}
+.big-teaser a {
+  font-style: italic; font-weight: 400;
+}
+
+/* Smaller Fontsize for Bigteaser on small devices */
+@media only screen {
+  .big-teaser {
+    font-size: rem-calc(20);
+  }
+}
+@media only screen and (min-width: 40.063em) {
+  .big-teaser         {
+    font-size: rem-calc(29);
+  }
+}

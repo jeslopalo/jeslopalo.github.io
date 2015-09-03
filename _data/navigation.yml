@@ -2,6 +2,10 @@
   url: "/"
   side: left
 
+- title: flash-messages
+  url: "http://sandbox.es/flash-messages/"
+  side: left
+
 #- title: Getting Started
 #  url: "/getting-started/"
 #  side: left

@@ -1,6 +1,6 @@
 # Site settings
 title: sandbox.es
-email: jeslopalo sandbox es
+email: jesus@sandbox.es
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -11,4 +11,32 @@ twitter_username: jeslopalo
 github_username:  jeslopalo
 
 # Build settings
+permalink: /:categories/:title/
+excerpt_separator: "<!--more-->"
+include: ['.htaccess']
+# Exclude these files from your production _site
+exclude:
+    - .sass-cache
+    - Gemfile
+    - Gemfile.lock
+    - LICENSE
+    - README.md
+    - INSTALL.md
+    - node_modules
+
 markdown: kramdown
+kramdown:
+  input: GFM
+
+highlighter: pygments
+
+#      _____
+#     / ___/____ ___________
+#     \__ \/ __ `/ ___/ ___/
+#    ___/ / /_/ (__  |__  )     More › http://sass-lang.com/
+#   /____/\__,_/____/____/      More › http://jekyllrb.com/docs/assets/#sassscss
+#
+sass:
+    style: :compressed
+    sass_dir: assets/_sass
+

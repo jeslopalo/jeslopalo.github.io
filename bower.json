@@ -1,5 +1,5 @@
 {
-  "name": "foundation-libsass-template",
+  "name": "sandboxes-site",
   "dependencies": {
     "foundation": "zurb/bower-foundation"
   }

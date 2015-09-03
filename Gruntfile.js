@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        includePaths: ['bower_components/foundation/scss']
+        includePaths: ['assets/bower_components/foundation/scss']
       },
       dist: {
         options: {
@@ -12,7 +12,7 @@ module.exports = function(grunt) {
           sourceMap: true
         },
         files: {
-          'css/app.css': 'scss/app.scss'
+          'assets/css/main.css': 'assets/css/main.scss'
         }
       }
     },
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
 
       sass: {
-        files: 'scss/**/*.scss',
+        files: 'assets/_sass/**/*.scss',
         tasks: ['sass']
       }
     }

@@ -1,0 +1,51 @@
+/* TOC – Typography
+
+Check typography variables › _3_typography_settings.scss
+
+- Links
+- Customize Foundation Typography
+- Headlines
+- Images
+- Lists
+- Tables
+- Code
+- Quotes
+- Typography for Articles
+- Smaller Fontsize for Bigteaser on small devices
+- Additional typographical elements
+- Footnotes
+- Icon Font
+
+*/
+
+a.site-title {
+  font-size: 40px !important;
+  font-family: 'Oleo Script' !important;
+  font-weight: 700 !important;
+
+  color: #555555;
+}
+
+/* Links
+------------------------------------------------------------------- */
+@import "colors.settings";
+
+a,
+a:link {}
+
+a:visited {
+  border-bottom: $grey-2;
+}
+
+a:hover {
+  color: darken( $ci-1, 10% );
+}
+
+a:focus {
+  color: lighten( $ci-1, 20% );
+}
+
+a:active {
+  color: darken( $ci-1, 20% );
+}
+

@@ -1,0 +1,19 @@
+- name: Twitter
+  url: http://twitter.com/jeslopalo
+  class: icon-twitter
+  title: "Texting..."
+
+- name: GitHub
+  url: http://github.com/jeslopalo
+  class: icon-github
+  title: "Coding..."
+
+- name: Linkedin
+  url: https://es.linkedin.com/in/jeslopalo/es
+  class: icon-linkedin
+  title: "Working..."
+
+- name: Lastfm
+  url: http://www.last.fm/user/jeslopalo
+  class: icon-lastfm
+  title: "Listening..."

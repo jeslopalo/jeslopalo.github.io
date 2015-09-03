@@ -4,15 +4,19 @@
   {% include foundation/head.html %}
 
   <body>
+    {% unless page.skip_boilerplate %}
+      {% include foundation/header.html %}
+    {% endunless %}
 
-    {% include foundation/header.html %}
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
       </div>
     </div>
 
-    {% include foundation/footer.html %}
+    {% unless page.skip_boilerplate %}
+      {% include foundation/footer.html %}
+    {% endunless %}
 
     {% include foundation/scripts.html %}
   </body>

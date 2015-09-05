@@ -1,5 +1,6 @@
 /* TOC – Color Variables
 
+- Palette
 - Basics
 - Corporate Identity Colorpalette
 - Foundation Color Variables
@@ -10,20 +11,24 @@
 
 */
 
+/* Palette
+------------------------------------------------------------------- */
+$theme-orange: #E85A32;
+$theme-lightkhaki: #FAF9F1;
+$theme-khaki: #E9E7C5;
+$theme-darkgray: #303030;
 
 
 /* Basics
-------------------------------------------------------------------- */
-
 $text-color:       	#111;
 $body-font-color: 	$text-color;
-$body-bg: 			#fdfdfd;
+$body-bg: 			#E9E7C5;
+------------------------------------------------------------------- */
 
 
 
 /* Corporate Identity Colorpalette
    https://color.adobe.com/de/Flat-Design-Colors-v2-color-theme-4341903/
-------------------------------------------------------------------- */
 
 $ci-1: #334D5C;		// dark turquoise
 $ci-2: #45B29D;		// turquoise
@@ -31,11 +36,11 @@ $ci-3: #EFC94C;		// yellow
 $ci-4: #E27A3F;		// orange
 $ci-5: #DF4949;		// red
 $ci-6: #A1D044;     // green
+------------------------------------------------------------------- */
 
 
 
 /* Foundation Color Variables
-------------------------------------------------------------------- */
 
 $primary-color: $ci-1;
 $secondary-color: $ci-6;
@@ -43,6 +48,7 @@ $alert-color: $ci-5;
 $success-color: $ci-6;
 $warning-color: $ci-4;
 $info-color: $ci-1;
+------------------------------------------------------------------- */
 
 
 
@@ -69,7 +75,6 @@ $grey-16: #0B0B0B;
 
 
 /* Topbar-Navigation
-------------------------------------------------------------------- */
 
 $topbar-bg-color: #fff;
 
@@ -98,11 +103,11 @@ $topbar-menu-link-color: #000;
 $topbar-menu-icon-color: #000;
 $topbar-menu-link-color-toggled: $ci-6;
 $topbar-menu-icon-color-toggled: $ci-6;
+------------------------------------------------------------------- */
 
 
 
 /* Footer
-------------------------------------------------------------------- */
 
 $footer-bg: $grey-8;
 $footer-color: #fff;
@@ -112,11 +117,11 @@ $footer-link-color: $ci-6;
 $subfooter-bg: $grey-13;
 $subfooter-color: $grey-8;
 $subfooter-link-color: $grey-8;
+------------------------------------------------------------------- */
 
 
 
 /* Code
-------------------------------------------------------------------- */
 
 $code-background-color: scale-color($secondary-color, $lightness: 70%);
 
@@ -148,3 +153,4 @@ $highlight-name-tag: #000080;
 $highlight-text-whitespace: #bbbbbb;
 $highlight-literal-string-regex: #009926;
 $highlight-literal-string-symbol: #990073;
+------------------------------------------------------------------- */

@@ -18,17 +18,33 @@ Check typography variables › _3_typography_settings.scss
 
 */
 
-a.site-title {
+@import "colors.settings";
+
+@import "../bower_components/foundation/scss/foundation/functions";
+
+/* Font awesome settings
+------------------------------------------------------------------- */
+$fa-font-path: "../fonts/font-awesome-4.4.0/fonts";
+@import "../fonts/font-awesome-4.4.0/scss/font-awesome";
+
+
+/* Logo
+------------------------------------------------------------------- */
+.site-title {
   font-size: 40px !important;
   font-family: 'Oleo Script' !important;
   font-weight: 700 !important;
 
-  color: #555555;
+  a, a:visited {
+    color: $theme-khaki !important;
+  }
+  a:hover, a:focus, a:active {
+    color: lighten($theme-khaki, 5%) !important;
+    text-decoration: none;
+  }
 }
 
 /* Links
-------------------------------------------------------------------- */
-@import "colors.settings";
 
 a,
 a:link {}
@@ -48,6 +64,7 @@ a:focus {
 a:active {
   color: darken( $ci-1, 20% );
 }
+------------------------------------------------------------------- */
 
 /* Typography for Articles
 ------------------------------------------------------------------- */

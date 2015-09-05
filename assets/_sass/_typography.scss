@@ -17,7 +17,16 @@ Check typography variables › _3_typography_settings.scss
 - Icon Font
 
 */
+
 @import "colors.settings";
+
+@import "../bower_components/foundation/scss/foundation/functions";
+
+/* Font awesome settings
+------------------------------------------------------------------- */
+$fa-font-path: "../fonts/font-awesome-4.4.0/fonts";
+@import "../fonts/font-awesome-4.4.0/scss/font-awesome";
+
 
 /* Logo
 ------------------------------------------------------------------- */
@@ -27,16 +36,15 @@ Check typography variables › _3_typography_settings.scss
   font-weight: 700 !important;
 
   a, a:visited {
-    color: $grey-9 !important;
+    color: $theme-khaki !important;
   }
   a:hover, a:focus, a:active {
-    color: $ci-5 !important;
+    color: lighten($theme-khaki, 5%) !important;
     text-decoration: none;
   }
 }
 
 /* Links
-------------------------------------------------------------------- */
 
 a,
 a:link {}
@@ -56,6 +64,7 @@ a:focus {
 a:active {
   color: darken( $ci-1, 20% );
 }
+------------------------------------------------------------------- */
 
 /* Typography for Articles
 ------------------------------------------------------------------- */

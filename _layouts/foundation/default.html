@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="es">
 
   {% include foundation/head.html %}
 
-  <body>
+  <body id="top-of-page" class="{{ page.format }}">
     {% unless page.skip_boilerplate %}
       {% include foundation/header.html %}
     {% endunless %}
@@ -17,8 +17,6 @@
     {% unless page.skip_boilerplate %}
       {% include foundation/footer.html %}
     {% endunless %}
-
-    {% include foundation/scripts.html %}
   </body>
 
 </html>

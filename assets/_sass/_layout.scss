@@ -1,93 +1,5 @@
-/**
- * Site header
-.site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
-
-    // Positioning context for the mobile navigation icon
-    position: relative;
-}
- */
-/*
-.site-title {
-    font-size: 26px;
-    line-height: 56px;
-    letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
-
-    &,
-    &:visited {
-        color: $grey-color-dark;
-    }
-}
-
-.site-nav {
-    float: right;
-    line-height: 56px;
-
-    .menu-icon {
-        display: none;
-    }
-
-    .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-
-        // Gaps between nav items, but not on the first one
-        &:not(:first-child) {
-            margin-left: 20px;
-        }
-    }
-
-    @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: 30px;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-        .trigger {
-            clear: both;
-            display: none;
-        }
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
-
-        .page-link {
-            display: block;
-            padding: 5px 10px;
-        }
-    }
-}
-*/
-
 @import "colors.settings";
+@import "../bower_components/foundation/scss/foundation/functions";
 
 /* Navigation
 ------------------------------------------------------------------- */
@@ -105,17 +17,26 @@
 
 /* Jump to top
 ------------------------------------------------------------------- */
+$up-to-top-icon-size: rem-calc(20);
+
 #up-to-top {
     position: fixed;
-    bottom: 20px;
+    bottom: 12px;
     right: 2%;
     z-index: 100;
 
+    vertical-align: baseline;
     a {
-        font-size: 24px;
+        display: block;
+
+        font-size: $up-to-top-icon-size;
         color: $theme-orange;
-        padding: 15px;
+
+        height: $up-to-top-icon-size * 2;
+        width: $up-to-top-icon-size * 2;
+        padding: 4px 0;
         border-radius: 50%;
+        @extend .text-center;
 
         &:hover {
             background: transparentize($theme-orange, 0.7);

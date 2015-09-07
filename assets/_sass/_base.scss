@@ -1,3 +1,5 @@
+@import "settings";
+
 /**
  * Reset some basic elements
  */
@@ -14,12 +16,12 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font-family: $base-font-family;
+    font-family: $body-font-family;
     font-size: $base-font-size;
     line-height: $base-line-height;
-    font-weight: 300;
-    color: $text-color;
-    background-color: $background-color;
+    font-weight: $body-font-weight;
+    color: $body-font-color;
+    background-color: $theme-background;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -87,7 +89,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /**
  * Links
- */
 a {
     color: $brand-color;
     text-decoration: none;
@@ -101,6 +102,7 @@ a {
         text-decoration: underline;
     }
 }
+ */
 
 
 

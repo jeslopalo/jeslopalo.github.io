@@ -1,4 +1,5 @@
 @import "colors.settings";
+@import "settings";
 
 /* Syntax highlighting styles
 ------------------------------------------------------------------- */
@@ -15,7 +16,7 @@
     }
 
     > pre code {
-        font-size: 15px;
+        font-size: $code-font-size;
         background-color: transparent;
         border: 0;
         border-radius: 3px;

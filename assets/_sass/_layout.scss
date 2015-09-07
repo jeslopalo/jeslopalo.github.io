@@ -1,4 +1,5 @@
-    @import "colors.settings";
+@import "colors.settings";
+@import "settings";
 @import "../bower_components/foundation/scss/foundation/functions";
 
 /* Navigation
@@ -116,12 +117,13 @@ $up-to-top-icon-size: rem-calc(20);
 
 /**
  * Page content
+ */
 .page-content {
     padding: $spacing-unit 0;
 }
 
 .page-heading {
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .post-list {
@@ -142,12 +144,12 @@ $up-to-top-icon-size: rem-calc(20);
     display: block;
     font-size: 24px;
 }
- */
 
 
 
 /**
  * Posts
+ */
 .post-header {
     margin-bottom: $spacing-unit;
 }
@@ -189,4 +191,3 @@ $up-to-top-icon-size: rem-calc(20);
         }
     }
 }
- */

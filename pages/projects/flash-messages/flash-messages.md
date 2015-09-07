@@ -88,7 +88,7 @@ You can download the latest version directly from GitHub:
 
 #### Building from sources
 You can build the latest version directly from source. Just run:
-{% highlight xml %}
+{% highlight bash %}
 $ mkdir flash-messages-repository
 $ cd flash-messages-repository
 $ git clone https://github.com/jeslopalo/flash-messages.git

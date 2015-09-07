@@ -19,6 +19,7 @@ Check typography variables › _3_typography_settings.scss
 */
 
 @import "colors.settings";
+@import "settings";
 
 @import "../bower_components/foundation/scss/foundation/functions";
 
@@ -43,28 +44,11 @@ $fa-font-path: "../fonts/font-awesome-4.4.0/fonts";
     text-decoration: none;
   }
 }
-
-/* Links
-
-a,
-a:link {}
-
-a:visited {
-  border-bottom: $grey-2;
-}
-
-a:hover {
-  color: darken( $ci-1, 10% );
-}
-
-a:focus {
-  color: lighten( $ci-1, 20% );
-}
-
-a:active {
-  color: darken( $ci-1, 20% );
-}
+/* Typography for inline code
 ------------------------------------------------------------------- */
+code {
+  font-size: $code-font-size;
+}
 
 /* Typography for Articles
 ------------------------------------------------------------------- */

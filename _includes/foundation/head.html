@@ -17,7 +17,7 @@
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}"/>
 
     <!-- Google fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Oleo+Script:700|Fredericka+the+Great|Rock+Salt' rel='stylesheet' type='text/css' media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script:700|Roboto:300,100,700|Fredericka+the+Great|Rock+Salt' rel='stylesheet' type='text/css' media="screen">
     {% comment %}
     <!--
         <script src="{{ site.url }}{{ site.baseurl }}/assets/js/modernizr.min.js"></script>
@@ -38,8 +38,8 @@
     -->
     {% endcomment %}
 
-    <!-- Search Engine Optimization -->
     {% if page.noindex == true %}
+    <!-- Search Engine Optimization -->
     <meta name="robots" content="noindex"/>{% endif %}
 
     <link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt"/>

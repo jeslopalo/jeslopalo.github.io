@@ -1,11 +1,26 @@
-/**
- * Syntax highlighting styles
- */
+@import "colors.settings";
+
+/* Syntax highlighting styles
+------------------------------------------------------------------- */
+
 .highlight {
-    background: #fff;
+    background: $highlight-background;
     @extend %vertical-rhythm;
 
-    > pre { padding: 0 .5em; background-color: #F8F8F8 }
+    > pre {
+        @extend code;
+
+        padding: 4px 8px;
+        overflow-x: scroll;
+    }
+
+    > pre code {
+        font-size: 15px;
+        background-color: transparent;
+        border: 0;
+        border-radius: 3px;
+        padding: 0;
+    }
 
     .c     { color: #998; font-style: italic } // Comment
     .err   { color: #a61717; background-color: #e3d2d2 } // Error

@@ -18,7 +18,7 @@ permalink: "/projects/flash-messages/"
 # Flash!
 When applying the [Post/Redirect/Get](http://kcy.me/15fxw) pattern in web application development, I run always into the same problem: __how to communicate the result to the user after the redirection__.
 
-While it is a known problem and it has been resolved in other platforms (like Ruby), Java does not seem to provide a simple and elegant solution.
+While it is a known problem and it has been resolved in other platforms (like Rails), Java does not seem to provide a simple and elegant solution.
 
 *flash-messages* is an easy way to communicate flash messages after a redirection in Java web applications.
 
@@ -89,8 +89,6 @@ You can download the latest version directly from GitHub:
 #### Building from sources
 You can build the latest version directly from source. Just run:
 {% highlight bash %}
-$ mkdir flash-messages-repository
-$ cd flash-messages-repository
 $ git clone https://github.com/jeslopalo/flash-messages.git
 $ cd flash-messages
 $ mvn clean package
@@ -100,7 +98,7 @@ $ mvn clean package
 *flash-messages* is configured using **spring** [JavaConfig](http://kcy.me/15fuu). It has been tested with versions greater or equal than **3.2.6.RELEASE**.
 
 #### Default configuration
-In order to obtain the default configuration, just add ```@EnableFlashMessages``` to a ```@Configuration``` class (the same with ```@EnableWebMvc``` should be enough).
+In order to obtain the default configuration, just add ```@EnableFlashMessages``` in a ```@Configuration``` class (the same with ```@EnableWebMvc``` should be enough).
 {% highlight java %}
 import es.sandbox.ui.messages.spring.config.annotation.EnableFlashMessages;
    

@@ -16,27 +16,11 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}"/>
 
+
+    <script src="{{ '/assets/bower_components/modernizr/modernizr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
+
     <!-- Google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Oleo+Script:700|Roboto:300,100,700|Fredericka+the+Great|Rock+Salt' rel='stylesheet' type='text/css' media="screen">
-    {% comment %}
-    <!--
-        <script src="{{ site.url }}{{ site.baseurl }}/assets/js/modernizr.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
-        <script>
-            WebFont.load({
-                google: {
-                    families: ['Lato:400,700,400italic:latin', 'Volkhov::latin']
-                }
-            });
-        </script>
-
-        <noscript>
-            <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Volkhov' rel='stylesheet'
-                  type='text/css'/>
-        </noscript>
-    -->
-    {% endcomment %}
 
     {% if page.noindex == true %}
     <!-- Search Engine Optimization -->

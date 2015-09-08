@@ -265,10 +265,10 @@ $code-color: $theme-darkgray;
 $code-font-family: $font-family-monospace;
 $code-font-weight: $font-weight-light;
 $code-font-size: rem-calc(14px);
-$code-background-color: $highlight-background;
+$code-background-color: $inline-code-background;
 $code-border-size: 1px;
 $code-border-style: solid;
-$code-border-color: scale-color($highlight-background, $lightness: -10%);
+$code-border-color: scale-color($inline-code-background, $lightness: -10%);
 $code-padding: 0 rem-calc(5);
 
 // We use these to style anchors

@@ -46,7 +46,72 @@ $up-to-top-icon-size: rem-calc(20);
     }
 }
 
+/* Footer
+------------------------------------------------------------------- */
+#footer-content {
+    p, li {
+        font-size: rem-calc(13);
+        font-weight: 300;
+    }
+}
+
+#footer {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    background: $theme-footer-background;
+    color: $theme-footer-color;
+
+    a {
+        color: $theme-footer-link-color;
+    }
+
+    h4, h5 {
+        letter-spacing: 1px;
+        color: #fff;
+        text-transform: uppercase;
+    }
+}
+
+/* Subfooter
+------------------------------------------------------------------- */
+
+#subfooter {
+    background: $theme-subfooter-background;
+    color: $theme-subfooter-color;
+    padding-top: 30px;
+    padding-bottom: 10px;
+}
+#subfooter-left ul.inline-list {
+    float: left;
+}
+#subfooter .credits a {
+    color: $theme-subfooter-link-color;
+    border: 0;
+    text-transform: uppercase;
+    &:hover {
+        color: #fff;
+    }
+}
+
+#subfooter .social-icons li a {
+    font-size: rem-calc(30);
+    display: block;
+//    padding-top: 5px;
+    width: rem-calc(40);
+    height: rem-calc(40);
+//    border-radius: 50%;
+    color: $theme-subfooter-color;
+//    background: $theme-subfooter-background;
+    text-align: center;
+}
+#subfooter .social-icons li a:hover {
+//    background: $theme-subfooter-background;
+    color: $theme-subfooter-color-hover;
+}
+
+
 /* Site footer
+
 .site-footer {
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;

@@ -30,4 +30,18 @@ $(document).ready(function(){
     });
 
     $(window).scroll();
+
+    //Sticky footer
+    $(window).bind("load resize", function () {
+        var footer = $("#footer-content");
+        var pos = footer.position();
+        var height = $(window).height();
+        height = height - pos.top;
+        height = height - footer.height();
+        if (height > 0) {
+            footer.css({
+                'margin-top': height + 'px'
+            });
+        }
+    });
 });

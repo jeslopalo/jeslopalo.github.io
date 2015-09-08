@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="es">
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
 
   {% include foundation/head.html %}
 

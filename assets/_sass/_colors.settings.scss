@@ -20,6 +20,14 @@ $theme-khaki: #E9E7C5;
 $theme-darkgray: #303030;
 $theme-background: $theme-lightkhaki;
 
+$theme-footer-background: lighten($theme-darkgray, 10%);
+$theme-footer-color: white;
+$theme-footer-link-color: orange;
+
+$theme-subfooter-background: $theme-darkgray;
+$theme-subfooter-color: $theme-khaki;
+$theme-subfooter-color-hover: $theme-lightkhaki;
+$theme-subfooter-link-color: orange;
 
 /* Basics
 $text-color:       	#111;

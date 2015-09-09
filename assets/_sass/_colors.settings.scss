@@ -22,12 +22,12 @@ $theme-background: $theme-lightkhaki;
 
 $theme-footer-background: lighten($theme-darkgray, 10%);
 $theme-footer-color: white;
-$theme-footer-link-color: orange;
+$theme-footer-link-color: $theme-orange;
 
 $theme-subfooter-background: $theme-darkgray;
-$theme-subfooter-color: $theme-khaki;
+$theme-subfooter-color: lighten($theme-darkgray, 10%);
 $theme-subfooter-color-hover: $theme-lightkhaki;
-$theme-subfooter-link-color: orange;
+$theme-subfooter-link-color: $theme-orange;
 
 /* Basics
 $text-color:       	#111;

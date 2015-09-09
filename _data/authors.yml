@@ -5,11 +5,11 @@
 # 3. Change default post/page authors in config.yml
 #
 # Resource › http://blog.sorryapp.com/blogging-with-jekyll/2014/02/06/adding-authors-to-your-jekyll-site.html
-
 jeslopalo:
-  name: "Jesus Lopez"
+  name: "Jesús López"
   siterole: "webmaster, developer, copywriter, designer"
   uri: https://about.me/jeslopalo
   email: jesus@sandbox.es
   twitter: "@jeslopalo"
   location: Las Rozas de Madrid, Spain
+#

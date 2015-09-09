@@ -1,11 +1,6 @@
-<div id="up-to-top">
-    <a href="#top-of-page"><i class="fa fa-chevron-up"></i></a>
-</div>
-
 <footer id="footer-content">
     <div id="footer">
         <div class="row">
-
             <div class="medium-6 large-5 columns">
                 <h5 class="shadow-black">{{ site.data.language.info_website }}</h5>
 
@@ -17,7 +12,7 @@
 
 
             <div class="small-6 medium-3 large-3 large-offset-1 columns">
-                {% for service_item in site.data.services %}
+                {% for service_item in site.dCreatedata.services %}
                 {% if forloop.first == true %}
                 <h5 class="shadow-black">{{ service_item.menu_name }}</h5>
                 {% endif %}
@@ -57,18 +52,25 @@
         <nav class="row">
             <section id="subfooter-left" class="b30 small-12 medium-6 columns credits">
                 <p>
+                    Created with &hearts;
+                    by&nbsp;<a href="{{ site.data.authors[site.author].uri }}">{{ site.data.authors[site.author].name | replace: ' ', '&nbsp;' }}</a>
+                    with&nbsp;<a href="http://jekyllrb.com/" target="_blank">Jekyll</a>
                 </p>
             </section>
 
-            <section id="subfooter-right" class="small-12 medium-6 columns social-icons">
+            <section id="subfooter-right" class="small-11 medium-5 columns social-icons">
                 <ul class="inline-list">
                     {% for social_item in site.data.socialmedia %}
                     <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
                     {% endfor %}
                 </ul>
             </section>
+
+            <div id="up-to-top">
+                <a href="#top-of-page"><i class="fa fa-chevron-up"></i></a>
+            </div>
         </nav>
-    </div><!-- /#subfooter -->
+    </div>
 
 </footer>
 

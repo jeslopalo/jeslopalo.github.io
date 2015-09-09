@@ -3,7 +3,7 @@
 
   {% include foundation/head.html %}
 
-  <body id="top-of-page" class="{{ page.format }}">
+  <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
     {% unless page.skip_boilerplate %}
       {% include foundation/header.html %}
     {% endunless %}

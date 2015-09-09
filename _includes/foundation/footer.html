@@ -12,7 +12,7 @@
 
 
             <div class="small-6 medium-3 large-3 large-offset-1 columns">
-                {% for service_item in site.dCreatedata.services %}
+                {% for service_item in site.data.services %}
                 {% if forloop.first == true %}
                 <h5 class="shadow-black">{{ service_item.menu_name }}</h5>
                 {% endif %}
@@ -52,9 +52,9 @@
         <nav class="row">
             <section id="subfooter-left" class="b30 small-12 medium-6 columns credits">
                 <p>
-                    Created with &hearts;
+                    /* Created with &hearts;
                     by&nbsp;<a href="{{ site.data.authors[site.author].uri }}">{{ site.data.authors[site.author].name | replace: ' ', '&nbsp;' }}</a>
-                    with&nbsp;<a href="http://jekyllrb.com/" target="_blank">Jekyll</a>
+                    with&nbsp;<a href="http://jekyllrb.com/" target="_blank">Jekyll</a> */
                 </p>
             </section>
 

@@ -35,6 +35,47 @@ highlighter: pygments
 #   /____/\__,_/____/____/      More › http://jekyllrb.com/docs/assets/#sassscss
 #
 sass:
-    style: :compressed
+    style: compressed
     sass_dir: assets/_sass
 
+
+
+# Used › default.html front-matter and comress.html
+# Options › http://jch.penibelst.de
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: []
+  profile: false
+  ignore:
+    envs: [development]
+
+
+#
+#       ____       ____            ____
+#      / __ \___  / __/___ ___  __/ / /_
+#     / / / / _ \/ /_/ __ `/ / / / / __/
+#    / /_/ /  __/ __/ /_/ / /_/ / / /_
+#   /_____/\___/_/  \__,_/\__,_/_/\__/
+#
+# Default Settings
+
+defaults:
+  -
+    scope:
+      path: "" 				# an empty string here means all files in the project
+      type: "pages"
+    values:
+      show_meta: false 	    # Hide metadata for all pages
+      # sidebar:    		# Possible values › left, right › by default there will be no sidebar
+      comments: false
+      author: jeslopalo     # Default author for pages
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      show_meta: true       # Show metadata for all posts
+      # sidebar:            # Possible values › left, right › by default there will be no sidebar
+      comments: false
+      author: jeslopalo     # Default author for posts

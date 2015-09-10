@@ -196,11 +196,11 @@ $up-to-top-icon-size: rem-calc(20);
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    padding: $spacing-unit*1.5 0;
 }
 
 .page-heading {
-    font-size: 40px;
+    font-size: rem-calc(44);
 }
 
 .post-list {

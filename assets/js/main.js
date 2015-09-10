@@ -1,8 +1,8 @@
 $(document).foundation();
 
 $(document).ready(function(){
-    var scrollThreshold= 100;
 
+    var scrollThreshold= 100;
     // hide or show #up-to-top first
     if( $(window).scrollTop() > scrollThreshold ) {
         $("#up-to-top").fadeIn();

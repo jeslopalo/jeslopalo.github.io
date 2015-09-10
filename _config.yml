@@ -8,6 +8,9 @@ url: "http://sandbox.es" # the base hostname & protocol for your site
 
 author: jeslopalo
 
+services:
+  disqus_shortname: sandboxes
+
 # Build settings
 permalink: /:categories/:title/
 excerpt_separator: "<!--more-->"
@@ -48,7 +51,7 @@ compress_html:
   endings: []
   profile: false
   ignore:
-    envs: [development]
+    envs: [development, local]
 
 
 #

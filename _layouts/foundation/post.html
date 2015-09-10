@@ -10,6 +10,10 @@ layout: foundation/default
 
   <article class="post-content">
     {{ content }}
+
+    {% if page.comments == true %}
+    {% include foundation/comments.html %}
+    {% endif %}
   </article>
 
 </div>

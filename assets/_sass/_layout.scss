@@ -103,7 +103,9 @@ $up-to-top-icon-size: rem-calc(20);
     }
 
     .social-icons {
-
+        li {
+            margin-left: rem-calc(10px);
+        }
         li a {
             font-size: rem-calc(30);
             display: block;

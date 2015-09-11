@@ -1,0 +1,138 @@
+/* Footer
+------------------------------------------------------------------- */
+
+.full-width {
+  max-width: 1400px;
+}
+
+// footer CSS
+
+#footer {
+
+  background: $theme-footer-background;
+  color: $theme-footer-color;
+
+  padding: 1rem 4rem;
+  text-align: center;
+
+  i {
+    font-size: 100px;
+  }
+
+  h4 {
+    color: $theme-footer-color;
+    font-family: $font-family-sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 2.5rem;
+    margin-bottom: 10px;
+
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: .8rem;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  #footer {
+    .columns:nth-child(n+2) {
+      border-left: 1px solid $theme-darkgray;
+      min-height: 180px;
+    }
+  }
+}
+
+.footer-links {
+  list-style-type: none;
+  margin-left: 0;
+  a {
+    color: $theme-footer-link-color;
+    font-weight: 300;
+    font-size: .8rem;
+
+    &:hover {
+      color: $theme-footer-color-hover;
+    }
+  }
+  li {
+    margin-top: .5rem;
+  }
+}
+
+/*
+#footer-content {
+  p, li {
+    font-size: rem-calc(13);
+    font-weight: 300;
+  }
+}
+
+#footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background: $theme-footer-background;
+  color: $theme-footer-color;
+
+  a {
+    color: $theme-footer-link-color;
+  }
+
+  h4, h5 {
+    letter-spacing: 1px;
+    color: #fff;
+    text-transform: uppercase;
+  }
+}
+*/
+
+/* Subfooter
+------------------------------------------------------------------- */
+
+#subfooter {
+  background: $theme-subfooter-background;
+  color: lighten($theme-subfooter-color, 20%);
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  section p {
+    margin-bottom: 0;
+    margin-top: 6px;
+    font-family: "Rock Salt";
+    font-size: rem-calc(10px);
+  }
+
+  .credits a {
+    color: $theme-subfooter-link-color;
+    border: 0;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  #subfooter-right ul.inline-list {
+    @extend .right;
+
+    margin-bottom: 0;
+  }
+
+  .social-icons {
+    li {
+      margin-left: rem-calc(10px);
+    }
+    li a {
+      font-size: rem-calc(30);
+      display: block;
+      color: $theme-subfooter-color;
+      text-align: center;
+
+      &:hover {
+        color: $theme-subfooter-color-hover;
+      }
+    }
+  }
+
+}

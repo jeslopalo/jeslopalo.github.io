@@ -20,12 +20,13 @@ $theme-khaki: #E9E7C5;
 $theme-darkgray: #303030;
 $theme-background: $theme-lightkhaki;
 
-$theme-footer-background: lighten($theme-darkgray, 10%);
-$theme-footer-color: white;
-$theme-footer-link-color: $theme-orange;
+$theme-footer-background: lighten($theme-darkgray, 13%);
+$theme-footer-color: $theme-khaki;
+$theme-footer-color-hover: $theme-lightkhaki;
+$theme-footer-link-color: $theme-khaki;
 
 $theme-subfooter-background: $theme-darkgray;
-$theme-subfooter-color: lighten($theme-darkgray, 10%);
+$theme-subfooter-color: lighten($theme-darkgray, 13%);
 $theme-subfooter-color-hover: $theme-lightkhaki;
 $theme-subfooter-link-color: $theme-orange;
 

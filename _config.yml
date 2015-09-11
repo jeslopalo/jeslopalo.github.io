@@ -70,6 +70,7 @@ defaults:
       type: "pages"
     values:
       show_meta: false 	    # Hide metadata for all pages
+#      permalink: /:title/
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for pages
@@ -79,6 +80,7 @@ defaults:
       type: "posts"
     values:
       show_meta: true       # Show metadata for all posts
+      permalink: /blog/:year/:month/:day/:title/
       # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts

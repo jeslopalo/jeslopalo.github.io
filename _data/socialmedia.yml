@@ -1,8 +1,3 @@
-- name: Twitter
-  url: http://twitter.com/jeslopalo
-  class: fa fa-twitter-square
-  title: "Texting..."
-
 - name: GitHub
   url: http://github.com/jeslopalo
   class: fa fa-github-square
@@ -13,12 +8,17 @@
   class: fa fa-linkedin-square
   title: "Working..."
 
-- name: StackOverflow
-  url: http://stackoverflow.com/users/1570710/jeslopalo?tab=profile
-  class: fa fa-stack-overflow
-  title: "Asking..."
+- name: Twitter
+  url: http://twitter.com/jeslopalo
+  class: fa fa-twitter-square
+  title: "Texting..."
 
 - name: Lastfm
   url: http://www.last.fm/user/jeslopalo
   class: fa fa-lastfm-square
   title: "Listening..."
+
+- name: StackOverflow
+  url: http://stackoverflow.com/users/1570710/jeslopalo?tab=profile
+  class: fa fa-stack-overflow
+  title: "Asking..."

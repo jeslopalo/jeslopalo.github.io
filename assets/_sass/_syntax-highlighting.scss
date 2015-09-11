@@ -79,6 +79,7 @@
 
     background: $highlight-code-background;
     border-radius: 10px 10px 0 0;
+    line-height: 120%;
 
     > pre {
         padding: ($spacing-unit/2.5) ($spacing-unit/2);
@@ -86,7 +87,7 @@
     }
 
     > pre code {
-        font-size: $code-font-size;
+        font-size: $code-font-size/1.1;
         color: $highlight-code-color;
 
         background-color: transparent;

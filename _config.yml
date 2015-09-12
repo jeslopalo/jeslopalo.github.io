@@ -14,7 +14,8 @@ services:
   disqus_shortname: sandboxes
 
 # Build settings
-permalink: "/:categories/:title/"
+#permalink: "/:categories/:title/"
+permalink: "/blog/:year/:month/:day/:title/"
 excerpt_separator: "<!--more-->"
 include: ['.htaccess']
 # Exclude these files from your production _site
@@ -82,7 +83,7 @@ defaults:
       type: "posts"
     values:
       show_meta: true       # Show metadata for all posts
-      permalink: "/blog/:year/:month/:day/:title/"
+#      permalink: "/blog/:year/:month/:day/:title/"
       # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts

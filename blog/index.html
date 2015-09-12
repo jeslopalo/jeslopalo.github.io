@@ -8,7 +8,7 @@ title: "Blog"
     {% for post in site.posts %}
     <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+        {% include foundation/categories.inline.html categories=post.categories %}
         <h2>
             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>

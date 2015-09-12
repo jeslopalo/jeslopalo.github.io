@@ -158,6 +158,16 @@ $up-to-top-icon-size: rem-calc(20);
     font-size: 24px;
 }
 
+.post-category {
+    font-size: $small-font-size;
+    font-weight: 400;
+    color: $theme-orange;
+    font-style: italic;
+
+    background-color: $theme-khaki; //lighten($theme-khaki, 5%); //lighten($theme-darkgray, 40%);
+    border-radius: 3px;
+    padding: 3px 6px;
+}
 
 
 /**

@@ -1,3 +1,5 @@
+@import "../bower_components/foundation/scss/foundation/functions";
+
 /* Footer
 ------------------------------------------------------------------- */
 
@@ -6,7 +8,7 @@
   background: $theme-footer-background;
   color: $theme-footer-color;
 
-  padding: 1rem 4rem;
+  padding: rem-calc(8);
   text-align: center;
 
   i {
@@ -57,32 +59,6 @@
   }
 }
 
-/*
-#footer-content {
-  p, li {
-    font-size: rem-calc(13);
-    font-weight: 300;
-  }
-}
-
-#footer {
-  padding-top: 30px;
-  padding-bottom: 20px;
-  background: $theme-footer-background;
-  color: $theme-footer-color;
-
-  a {
-    color: $theme-footer-link-color;
-  }
-
-  h4, h5 {
-    letter-spacing: 1px;
-    color: #fff;
-    text-transform: uppercase;
-  }
-}
-*/
-
 /* Subfooter
 ------------------------------------------------------------------- */
 
@@ -128,5 +104,4 @@
       }
     }
   }
-
 }

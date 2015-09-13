@@ -164,7 +164,8 @@ $up-to-top-icon-size: rem-calc(20);
     color: $theme-orange;
     font-style: italic;
 
-    background-color: $theme-khaki; //lighten($theme-khaki, 5%); //lighten($theme-darkgray, 40%);
+//    background-color: $theme-khaki; //lighten($theme-khaki, 5%); //lighten($theme-darkgray, 40%);
+    background-color: darken($theme-background, 5%);
     border-radius: 3px;
     padding: 3px 6px;
 }

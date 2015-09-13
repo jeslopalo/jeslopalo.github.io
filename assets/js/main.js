@@ -45,3 +45,7 @@ $(document).ready(function(){
         }
     });
 });
+
+$(function() {
+   $("time.timeago").timeago();
+});

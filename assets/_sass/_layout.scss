@@ -139,6 +139,11 @@ $up-to-top-icon-size: rem-calc(20);
     font-size: rem-calc(44);
 }
 
+.page-meta {
+    font-size: $small-font-size;
+    color: $grey-color;
+}
+
 .post-list {
     margin-left: 0;
     list-style: none;
@@ -164,7 +169,6 @@ $up-to-top-icon-size: rem-calc(20);
     color: $theme-orange;
     font-style: italic;
 
-//    background-color: $theme-khaki; //lighten($theme-khaki, 5%); //lighten($theme-darkgray, 40%);
     background-color: darken($theme-background, 5%);
     border-radius: 3px;
     padding: 3px 6px;

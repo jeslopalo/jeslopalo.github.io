@@ -1,6 +1,9 @@
 {
   "name": "sandboxes-site",
   "dependencies": {
-    "foundation": "zurb/bower-foundation"
+    "foundation": "~5.5.2",
+    "jquery": "~2.1.4",
+    "jquery-timeago": "timeago#~1.4.2",
+    "modernizr": "~2.8.3"
   }
 }

@@ -70,6 +70,9 @@
   background-color: $theme-footer-background !important;
 
   time {
+    display: block;
+    text-align: right;
+    
     font-style: italic;
     font-family: $body-font-family;
     font-size: rem-calc(13px);

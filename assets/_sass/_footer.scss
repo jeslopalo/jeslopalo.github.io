@@ -65,8 +65,8 @@
 
   font-size: rem-calc(10px);
   font-family: $font-family-monospace;
-
   color: #fff;
+
   background-color: $theme-footer-background !important;
 
   time {
@@ -77,7 +77,6 @@
   }
 
   a {
-  //    color: saturate($theme-footer-color-hover, 50%);
     color: $theme-footer-color;
     font-style: italic;
 
@@ -101,15 +100,6 @@
       }
     }
   }
-
-//  > code {
-//    color: $theme-footer-color;
-//    background-color: $theme-footer-background;
-//    font-style: italic;
-//    font-size: rem-calc(10);
-//    border: 0;
-//    padding: 0;
-//  }
 }
 
 /* Subfooter

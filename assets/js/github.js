@@ -54,12 +54,6 @@ function composeMessage(pushEvent) {
     });
     message+="</ul>";
     return message;
-
-    /*
-     pushed to {{{branchLink}}}{{{repoLink}}}<br>\
-     <ul class="gha-commits">{{#payload.commits}}<li><small>{{{committerGravatar}}} {{{shaLink}}} {{message}}</small></li>{{/payload.commits}}</ul>\
-     <small class="gha-message-commits">{{{commitsMessage}}}</small>
-     */
 }
 
 function githubLastCommit(username, selector) {

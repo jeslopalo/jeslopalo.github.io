@@ -20,10 +20,14 @@ function trim(comment, size) {
     return comment;
 }
 
+function userLink(username) {
+    return "<a href='https://github.com/" + username + "'>" + username + "</a>";
+}
+
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
-    message+= "<div>" + pushEvent.actor.login + " pushed to " + branch(pushEvent) + " at " + pushEvent.repo.name + "</div>";
+    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branch(pushEvent) + " at " + pushEvent.repo.name + "</div>";
     message+= "<ul id='commits'>";
 
     $.each(pushEvent.payload.commits, function(index, commit) {

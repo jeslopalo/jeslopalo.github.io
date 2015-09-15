@@ -1,15 +1,4 @@
 
-function branch(pushEvent) {
-    // Get the branch name if it exists.
-    if (pushEvent.payload.ref) {
-        if (pushEvent.payload.ref.substring(0, 11) === 'refs/heads/') {
-            return pushEvent.payload.ref.substring(11);
-        } else {
-            return pushEvent.payload.ref;
-        }
-    }
-}
-
 function trim(comment, size) {
 
     if (comment != null) {
@@ -22,6 +11,17 @@ function trim(comment, size) {
 
 function userLink(username) {
     return "<a href='https://github.com/" + username + "'>" + username + "</a>";
+}
+
+function branch(pushEvent) {
+    // Get the branch name if it exists.
+    if (pushEvent.payload.ref) {
+        if (pushEvent.payload.ref.substring(0, 11) === 'refs/heads/') {
+            return pushEvent.payload.ref.substring(11);
+        } else {
+            return pushEvent.payload.ref;
+        }
+    }
 }
 
 function branchLink(pushEvent) {
@@ -37,6 +37,12 @@ function repositoryLink(pushEvent) {
     return "<a href='" + url + "'>" + pushEvent.repo.name + "</a>"
 }
 
+function commitLink(pushEvent, commit) {
+    var url= "https://github.com/" + pushEvent.repo.name + "/commit/" + commit.sha;
+
+    return "<a href='" + url + "'>" + commit.sha.substring(0, 6) + "</a>"
+}
+
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
@@ -44,7 +50,7 @@ function composeMessage(pushEvent) {
     message+= "<ul id='commits'>";
 
     $.each(pushEvent.payload.commits, function(index, commit) {
-        message+= "<li><span class='sha'>" + commit.sha.substring(0, 6) + "</span> <span title='" + commit.message + "'>" + trim(commit.message, 35) + "</span></li>";
+        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span> <span title='" + commit.message + "'>" + trim(commit.message, 35) + "</span></li>";
     });
     message+="</ul>";
     return message;

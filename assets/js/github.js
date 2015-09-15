@@ -31,10 +31,16 @@ function branchLink(pushEvent) {
     return "<a href='" + url + "'>" + branchName + "</a>"
 }
 
+function repositoryLink(pushEvent) {
+    var url= "https://github.com/" + pushEvent.repo.name;
+
+    return "<a href='" + url + "'>" + pushEvent.repo.name + "</a>"
+}
+
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
-    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branchLink(pushEvent) + " at " + pushEvent.repo.name + "</div>";
+    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branchLink(pushEvent) + " at " + repositoryLink(pushEvent) + "</div>";
     message+= "<ul id='commits'>";
 
     $.each(pushEvent.payload.commits, function(index, commit) {

@@ -24,10 +24,17 @@ function userLink(username) {
     return "<a href='https://github.com/" + username + "'>" + username + "</a>";
 }
 
+function branchLink(pushEvent) {
+    var branchName= branch(pushEvent);
+    var url= "https://github.com/" + pushEvent.repo.name + "/tree/" + branchName;
+
+    return "<a href='" + url + "'>" + branchName + "</a>"
+}
+
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
-    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branch(pushEvent) + " at " + pushEvent.repo.name + "</div>";
+    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branchLink(pushEvent) + " at " + pushEvent.repo.name + "</div>";
     message+= "<ul id='commits'>";
 
     $.each(pushEvent.payload.commits, function(index, commit) {

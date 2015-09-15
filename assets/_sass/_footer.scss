@@ -65,6 +65,8 @@
 
   font-size: rem-calc(10px);
   font-family: $font-family-monospace;
+
+  color: #fff;
   background-color: $theme-footer-background !important;
 
   time {
@@ -75,11 +77,13 @@
   }
 
   a {
-    font-weight: $font-weight-bold;
+  //    color: saturate($theme-footer-color-hover, 50%);
     color: $theme-footer-color;
+    font-style: italic;
 
     &:hover {
       color: $theme-footer-color-hover;
+      text-decoration: underline;
     }
   }
 
@@ -91,8 +95,8 @@
       font-size: rem-calc(9px);
 
 
-      span.sha {
-        color: lighten($theme-footer-color, 10%);
+      span.sha a {
+        color: $theme-orange;
         font-weight: $font-weight-bold;
       }
     }

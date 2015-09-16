@@ -63,7 +63,7 @@
 #github-activity {
   text-align: left;
 
-  font-size: rem-calc(10px);
+  font-size: 11px;
   font-family: $font-family-monospace;
   color: #fff;
 
@@ -71,12 +71,14 @@
 
   time {
     display: block;
-    text-align: right;
-    
+    color: $grey-6;
+
     font-style: italic;
     font-family: $body-font-family;
-    font-size: rem-calc(13px);
-    color: $grey-6;
+    font-size: 13px;
+
+    text-align: right;
+    margin-right: 13px * 2;
   }
 
   a {
@@ -94,7 +96,7 @@
     padding: 0;
 
     li {
-      font-size: rem-calc(9px);
+      font-size: 11px;
 
 
       span.sha a {

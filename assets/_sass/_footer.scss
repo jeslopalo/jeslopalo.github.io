@@ -60,14 +60,17 @@
   }
 }
 
+
+/* Github activity
+------------------------------------------------------------------- */
+$github-activity-font-size: 12px;
+$github-activity-color: $grey-4;
+
 #github-activity {
   text-align: left;
 
-  font-size: 11px;
-  font-family: $font-family-monospace;
-  color: #fff;
-
-  background-color: $theme-footer-background !important;
+  font-size: $github-activity-font-size;
+  color: $github-activity-color;
 
   time {
     display: block;
@@ -75,33 +78,37 @@
 
     font-style: italic;
     font-family: $body-font-family;
-    font-size: 13px;
+    font-size: $github-activity-font-size + 1;
 
     text-align: right;
-    margin-right: 13px * 2;
+    margin-right: $github-activity-font-size + 1;
+  }
+
+  .prompt {
+    font-weight: $font-weight-bold;
   }
 
   a {
-    color: $theme-footer-color;
+    color: $github-activity-color;
     font-style: italic;
 
     &:hover {
-      color: $theme-footer-color-hover;
+      color: $github-activity-color;
       text-decoration: underline;
     }
   }
 
   ul#commits {
-    margin: 0 0 0 20px;
+    margin: 0;
     padding: 0;
 
     li {
-      font-size: 11px;
-
+      font-size: $github-activity-font-size;
+      list-style: none;
 
       span.sha a {
-        color: $theme-orange;
         font-weight: $font-weight-bold;
+        margin-right: $github-activity-font-size / 2;
       }
     }
   }

@@ -46,11 +46,11 @@ function commitLink(pushEvent, commit) {
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
-    message+= "<div>" + userLink(pushEvent.actor.login) + " pushed to " + branchLink(pushEvent) + " at " + repositoryLink(pushEvent) + "</div>";
-    message+= "<ul id='commits'>";
+    message+= "<div><span class='prompt'>" + repositoryLink(pushEvent) + " $ </span>git log --oneline</div>";
 
+    message+= "<ul id='commits'>";
     $.each(pushEvent.payload.commits, function(index, commit) {
-        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span> <span title='" + commit.message + "'>" + trim(commit.message, 35) + "</span></li>";
+        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span>&nbsp;<span title='" + commit.message + "'>" + trim(commit.message, 35) + "</span></li>";
     });
     message+="</ul>";
     return message;

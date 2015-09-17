@@ -7,17 +7,10 @@ sitemap:
 @import "../_sass/colors.settings";
 @import "../_sass/settings";
 
-// Our variables
-//$base-font-family: Helvetica, Arial, sans-serif;
-//$base-font-family: "Roboto", sans-serif;
-//$base-font-size:   16px;
-//$small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
 
 $spacing-unit:     30px;
 
-//$text-color:       #111;
-//$background-color: #fdfdfd;
 $brand-color:      $theme-orange;
 
 $grey-color:       #828282;
@@ -52,6 +45,5 @@ $on-laptop:        800px;
 "../_sass/layout",
 "../_sass/foundation",
 "../_sass/typography",
-//"../_sass/typography.settings",
 "../_sass/syntax-highlighting"
 ;

@@ -4,6 +4,7 @@
     "foundation": "~5.5.2",
     "jquery": "~2.1.4",
     "jquery-timeago": "timeago#~1.4.2",
-    "modernizr": "~2.8.3"
+    "modernizr": "~2.8.3",
+    "twitter-fetcher": "~13.1.0"
   }
 }

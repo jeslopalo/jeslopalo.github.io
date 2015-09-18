@@ -51,4 +51,10 @@ $(function() {
 
     jQuery.timeago.settings.allowFuture = true;
     $("time.timeago").timeago();
+
+    window.setTimeout(function(){
+        $(".twitter-timeline").contents().find(".e-entry-title").css("font-family", "sans-serif");
+        $(".twitter-timeline").contents().find(".tweet").css("font-family", "sans-serif");
+        $(".twitter-timeline").contents().find(".u-photo").css("display" , "none");
+    }, 1500);
 });

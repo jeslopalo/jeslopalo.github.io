@@ -45,3 +45,10 @@ $(document).ready(function(){
         }
     });
 });
+
+$(function() {
+    githubLastCommit("jeslopalo", "#github-activity");
+
+    jQuery.timeago.settings.allowFuture = true;
+    $("time.timeago").timeago();
+});

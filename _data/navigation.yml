@@ -7,6 +7,10 @@
   url: "/projects/flash-messages/"
   side: right
 
+- title: Blog
+  url: "/blog/"
+  side: right
+
 - title: "About"
   url: "/about/"
   side: right

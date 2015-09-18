@@ -1,0 +1,17 @@
+---
+layout: foundation/default
+title: "Blog"
+---
+<h1 class="page-heading">Posts</h1>
+
+<ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+        <time class="post-meta timeago" datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+        {% include foundation/categories.inline.html categories=post.categories %}
+        <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+    </li>
+    {% endfor %}
+</ul>

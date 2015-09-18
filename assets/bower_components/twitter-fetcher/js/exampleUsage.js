@@ -49,7 +49,7 @@
  *     to manipulate them yourself before outputting. If you specify
  *     this parameter you must output data yourself!
  * @param object.showInteraction [boolean] Set false if you don't want links
- *     for reply, retweet and favourite to show.
+ *     for reply, retweet and favourite to show.'<'
  * @param object.showImages [boolean] Set true if you want images from tweet
  *     to show.
  * @param object.linksInNewWindow [boolean] Set false if you don't want links

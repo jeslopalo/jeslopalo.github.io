@@ -17,18 +17,8 @@
   }
 }
 
-@mixin clearfix {
-
-  &:after {
-
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
 
 // Common styles
-
 %awesome {
 
   font-family: 'Fontawesome';
@@ -79,9 +69,9 @@
   .author {
     text-align: right;
     margin: 0 13px;
-    
+
     a {
-//      color: $grey-6;
+      //      color: $grey-6;
       font-weight: $font-weight-bold;
       font-style: italic;
     }
@@ -185,8 +175,6 @@
     display: block;
     font-family: $body-font-family;
 
-//    margin: 0 0 10px;
-//    padding: 0 20px;
     font-size: 12px;
     text-align: right;
     margin-right: 13px;

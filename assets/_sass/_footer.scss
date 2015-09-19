@@ -10,9 +10,9 @@
   background: $theme-footer-background;
   color: $theme-footer-color;
 
-  padding: rem-calc(16) rem-calc(8);
+  padding: $spacing-unit 8px;
   text-align: center;
-
+  
   i {
     font-size: rem-calc(100);
   }

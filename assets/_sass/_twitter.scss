@@ -58,6 +58,8 @@
 }
 
 #twitter-last-tweet {
+  font-size: 12px;
+  text-align: justify;
 
   li {
     position: relative;
@@ -74,30 +76,20 @@
   }
 
   // Top section: image + user
-  .user {
-
+  .author {
+    text-align: right;
+    margin: 0 13px;
+    
     a {
-      color: $grey-6;
+//      color: $grey-6;
       font-weight: $font-weight-bold;
       font-style: italic;
-
-      // Target name
-      span[data-scribe="element:name"] {
-      }
-
-      // Target username (@screen-name)
-      span[data-scribe="element:screen_name"] {
-      }
-
-      img[data-scribe="element:avatar"] {
-        display: none;
-      }
     }
   }
 
   // Tweet content
   .tweet {
-    margin: 0;
+    margin: 0 13px;
 
     a {
       text-decoration: none;
@@ -190,13 +182,14 @@
   // Posted ON formating
   .timePosted {
     color: $grey-6;
-    font-style: italic;
+    display: block;
     font-family: $body-font-family;
 
-    margin: 0 0 10px;
-    padding: 0 20px;
+//    margin: 0 0 10px;
+//    padding: 0 20px;
     font-size: 12px;
     text-align: right;
+    margin-right: 13px;
 
     a, a:hover, a:active, a:visited {
       color: $grey-6;
@@ -206,6 +199,7 @@
 
     &:before {
       font-family: 'Fontawesome';
+      font-style: normal;
       -webkit-font-smoothing: antialiased;
       content: '\f017';
       padding-right: 4px;

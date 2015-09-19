@@ -82,6 +82,14 @@ $github-activity-color: $theme-footer-color;
 
     text-align: right;
     margin-right: $github-activity-font-size + 1;
+
+    &:before {
+      font-family: 'Fontawesome';
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      content: '\f017';
+      padding-right: 4px;
+    }
   }
 
   .prompt {

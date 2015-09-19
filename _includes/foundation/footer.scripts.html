@@ -20,13 +20,13 @@
     function handleLastTweet(tweets) {
         if(tweets.length == 1) {
             var timePosted= $("<div>" + tweets[0] + "</div>").find("p.timePosted a").text();
-            var tweetUrl= $("<div>" + tweets[0] + "</div>").find("p.timePosted a[href]").val();
+            var tweetUrl= $("<div>" + tweets[0] + "</div>").find("p.timePosted a").attr("href");
 
             var tweet= $("<div>" + tweets[0] + "</div>").find("p.tweet");
             var user= "<div class='author'><a href='https://twitter.com/jeslopalo'>@jeslopalo</a></div>";
 
             $('#twitter-last-tweet')
-                    .append("<time class='timePosted timeago' datetime='" + timePosted + "'><a href='" + tweetUrl + "'>" + timePosted + "</a></time>")
+                    .append("<a href='" + tweetUrl + "'><time class='timePosted timeago' datetime='" + timePosted + "'>" + timePosted + "</time></a>")
                     .append(tweet)
                     .append(user);
 

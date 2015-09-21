@@ -47,7 +47,8 @@ $(document).ready(function(){
 });
 
 $(function() {
-    githubLastCommit("jeslopalo", "#github-activity");
+    //githubLastCommit("jeslopalo", "#github-activity");
+    githubLastCommit("jeslopalo", "#github-last-push");
 
     jQuery.timeago.settings.allowFuture = true;
     $("time.timeago").timeago();

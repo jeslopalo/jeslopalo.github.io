@@ -1,54 +1,20 @@
 <footer id="footer-content">
     <div id="footer">
-{% comment %}
-<!--
-        <div class="row">
-            <div class="small-12 medium-6 large-6 columns">
-                <i class="fa fa-code"></i>
-                <h4>Github activity</h4>
-                <div id="github-activity">
-
-                </div>
-            </div>
-            <div class="small-12 medium-6 large-6 columns">
-                <i class="fa fa-terminal"></i>
-                <h4>Last tweet</h4>
-                <div id="twitter-last-tweet" class="twitter-timeline">
-
-                </div>
-            </div>
-            <div class="small-6 medium-3 large-2 columns">
-                <h4>Work With Me</h4>
-                <ul class="footer-links">
-                    <li><a href="#">What I Do</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Blog</a></li>
-                </ul>
-            </div>
-            <div class="small-12 medium-3 large-2 columns">
-                <h4>Follow Me</h4>
-                <ul class="footer-links">
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Dribbble</a></li>
-                </ul>
-            </div>
-        </div>
--->
-{% endcomment %}
         <div class="row">
             <div class="social-activity">
                 <i class="fa fa-code"></i>
                 <h4>Github activity</h4>
+
                 <div id="github-last-push" class="social-activity-content">
-                    <!-- github activity -->
+                    {% comment %} Github activity {% endcomment %}
                 </div>
             </div>
             <div class="social-activity">
                 <i class="fa fa-terminal"></i>
                 <h4>Last tweet</h4>
+
                 <div id="twitter-last-tweet" class="social-activity-content">
-                    <!-- twitter activity -->
+                    {% comment %} Twitter activity {% endcomment %}
                 </div>
             </div>
         </div>
@@ -65,7 +31,8 @@
             <section id="subfooter-right" class="small-10 medium-4 medium-offset-1 columns end social-icons">
                 <ul class="inline-list">
                     {% for social_item in site.data.socialmedia %}
-                    <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}" title="{{ social_item.title }}"></a></li>
+                    <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}"
+                           title="{{ social_item.title }}"></a></li>
                     {% endfor %}
                 </ul>
             </section>

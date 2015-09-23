@@ -28,7 +28,7 @@
 
             $('#twitter-last-tweet')
                     .append("<a href='" + tweetUrl + "'><time class='timePosted timeago' datetime='" + timePosted + "'>" + timePosted + "</time></a>")
-                    .append("<div>" + tweet + "</div>")
+                    .append("<div class='tweet'>" + tweet + "</div>")
                     .append(user);
 
             if(jQuery.timeago) {

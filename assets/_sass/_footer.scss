@@ -41,7 +41,7 @@
 
 /* Github activity
 ------------------------------------------------------------------- */
-$social-activity-font-size: 12px;
+$social-activity-font-size: 13px;
 $social-activity-color: $theme-footer-color;
 
 .social-activity {
@@ -75,6 +75,16 @@ $social-activity-color: $theme-footer-color;
       }
     }
 
+    a {
+      color: $social-activity-color;
+      font-style: italic;
+
+      &:hover, &:active, &:visited {
+        color: $social-activity-color;
+        text-decoration: underline;
+      }
+    }
+
     // For twitter
     .author {
       text-align: right;
@@ -89,33 +99,11 @@ $social-activity-color: $theme-footer-color;
     .tweet {
       margin: 0 13px;
       font-size: $social-activity-font-size;
-
-      a {
-        text-decoration: none;
-      }
-
-      a[data-scribe="element:url"] {
-        color: $theme-footer-link-color;
-      }
-
-      a[data-scribe="element:hashtag"] {
-        color: $theme-footer-link-color;
-      }
     }
 
     // For github
     .prompt {
       font-weight: $font-weight-bold;
-    }
-
-    a {
-      color: $social-activity-color;
-      font-style: italic;
-
-      &:hover {
-        color: $social-activity-color;
-        text-decoration: underline;
-      }
     }
 
     ul#commits {

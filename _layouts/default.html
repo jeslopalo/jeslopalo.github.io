@@ -1,0 +1,25 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+
+{% include head.html %}
+
+<body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
+{% unless page.skip_boilerplate %}
+    {% include header.html %}
+{% endunless %}
+
+<div class="page-content">
+    <div class="wrapper">
+        {{ content }}
+    </div>
+</div>
+
+{% unless page.skip_boilerplate %}
+    {% include footer.html %}
+{% endunless %}
+</body>
+
+</html>

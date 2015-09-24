@@ -1,5 +1,5 @@
 ---
-layout: foundation/page
+layout: page
 title: "Flash messages"
 teaser: "An easy way to send &amp; show <b>flash messages</b>"
 permalink: "/projects/flash-messages/"

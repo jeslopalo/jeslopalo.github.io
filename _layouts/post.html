@@ -1,5 +1,5 @@
 ---
-layout: foundation/default
+layout: default
 ---
 <div class="post">
 
@@ -9,7 +9,7 @@ layout: foundation/default
       <time class="timeago" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
       {% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
       {% if page.categories %} •
-        {% include foundation/categories.inline.html categories=page.categories %}
+        {% include categories.inline.html categories=page.categories %}
       {% endif %}
     </p>
   </header>
@@ -18,7 +18,7 @@ layout: foundation/default
     {{ content }}
 
     {% if page.comments == true %}
-    {% include foundation/comments.html %}
+    {% include comments.html %}
     {% endif %}
   </article>
 

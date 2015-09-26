@@ -30,9 +30,11 @@
   }
 }
 
+/*
 .post-header {
   margin-bottom: $spacing-unit;
 }
+*/
 
 .post-title {
   font-size: 42px;
@@ -45,7 +47,7 @@
 }
 
 .post-content {
-  padding: $spacing-unit/2 0;
+  padding: $spacing-unit 0;
 }
 
 .post-list {

@@ -8,21 +8,22 @@
   }
 
   &.transparent {
-    background-color: transparent;
+//    background-color: transparent;
     position: fixed;
-    z-index: 30;
+    z-index: 1;
 
     &.transparent * {
-      background-color: transparent;
+//      background-color: transparent;
     }
 
     .top-bar .divider {
-      border-color: transparent;
+//      border-color: transparent;
     }
   }
 
   &.opaque {
-    opacity: .95;
+    opacity: .97;
+    background-color: $theme-orange;
   }
 }
 

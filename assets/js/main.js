@@ -1,6 +1,35 @@
 $(document).foundation();
 
-$(document).ready(function(){
+
+function animateNavbar() {
+
+    var masthead = $('.masthead').add('.masthead-home');
+
+    if(masthead.length == 0) {
+        setOpacity(true);
+        $('main').animate({ 'padding-top': '80px' }, 500);
+    }
+    else{
+        $(window).scroll(function() {
+            setOpacity( $(window).scrollTop() > 80 );
+        });
+        setOpacity( $(window).scrollTop() > 80 );
+    }
+
+}
+
+
+function setOpacity(opaque) {
+    if (opaque) {
+        $('#navigation').addClass('opaque').removeClass('transparent');
+
+    } else {
+        $('#navigation').removeClass('opaque').addClass('transparent');
+    }
+}
+
+//
+function upToTopButton() {
 
     var scrollThreshold= 100;
     // hide or show #up-to-top first
@@ -30,8 +59,11 @@ $(document).ready(function(){
     });
 
     $(window).scroll();
+}
 
-    //Sticky footer
+//Sticky footer
+function stickyFooter() {
+
     $(window).bind("load resize", function () {
         var footer = $("#footer-content");
         var pos = footer.position();
@@ -44,12 +76,37 @@ $(document).ready(function(){
             });
         }
     });
-});
+}
 
-$(function() {
-    //githubLastCommit("jeslopalo", "#github-activity");
-    githubLastCommit("jeslopalo", "#github-last-push");
+//Main min height
+function mainMinHeight() {
 
+    $(window).bind("load resize", function () {
+        var main = $("main");
+        var navigationHeight= $("#navigation").height();
+        var windowHeight= $(window).height();
+
+        var height= windowHeight - navigationHeight;
+        if ( height > 0 ) {
+            main.css({
+                "min-height" : height + "px"
+            });
+        }
+    });
+}
+
+//
+function activateTimeAgo() {
     jQuery.timeago.settings.allowFuture = true;
     $("time.timeago").timeago();
+}
+
+$(function() {
+    animateNavbar();
+    upToTopButton();
+    mainMinHeight();
+
+    stickyFooter();
+    githubLastCommit("jeslopalo", "#github-last-push");
+    activateTimeAgo();
 });

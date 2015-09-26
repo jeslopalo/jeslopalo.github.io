@@ -1,0 +1,31 @@
+#navigation {
+  //  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .2);
+  //  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2);
+  border-top: 5px solid $grey-color-dark;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &.transparent {
+    background-color: transparent;
+    position: fixed;
+    z-index: 30;
+
+    &.transparent * {
+      background-color: transparent;
+    }
+
+    .top-bar .divider {
+      border: 0;
+    }
+  }
+
+  &.opaque {
+    opacity: .95;
+  }
+}
+
+body.f-topbar-fixed {
+  padding-top: 0;
+}

@@ -1,48 +1,47 @@
-<footer id="footer-content">
-    <div id="footer">
-        <div class="row">
-            <div class="social-activity">
-                <i class="fa fa-code"></i>
-                <h4>Github activity</h4>
+<div id="footer">
+    <div class="row">
+        <div class="social-activity">
+            <i class="fa fa-code"></i>
+            <h4>Github activity</h4>
 
-                <div id="github-last-push" class="social-activity-content">
-                    {% comment %} Github activity {% endcomment %}
-                </div>
+            <div id="github-last-push" class="social-activity-content">
+                {% comment %} Github activity {% endcomment %}
             </div>
-            <div class="social-activity">
-                <i class="fa fa-terminal"></i>
-                <h4>Last tweet</h4>
+        </div>
+        <div class="social-activity">
+            <i class="fa fa-terminal"></i>
+            <h4>Last tweet</h4>
 
-                <div id="twitter-last-tweet" class="social-activity-content">
-                    {% comment %} Twitter activity {% endcomment %}
-                </div>
+            <div id="twitter-last-tweet" class="social-activity-content">
+                {% comment %} Twitter activity {% endcomment %}
             </div>
         </div>
     </div>
+</div>
 
-    <div id="subfooter">
-        <nav class="row">
-            <section id="subfooter-left" class="small-12 medium-4 columns credits">
-                <p class="created-by">
-                    /* Created by&nbsp;<a href="{{ site.data.authors[site.author].uri }}">{{ site.data.authors[site.author].name | replace: ' ', '&nbsp;' }}</a> */
-                </p>
-            </section>
+<div id="subfooter">
+    <nav class="row">
+        <section id="subfooter-left" class="small-12 medium-4 columns credits">
+            <p class="created-by">
+                /* Created by&nbsp;<a href="{{ site.data.authors[site.author].uri }}">{{ site.data.authors[site.author].name | replace: ' ', '&nbsp;' }}</a> */
+            </p>
+        </section>
 
-            <section id="subfooter-right" class="small-10 medium-4 medium-offset-1 columns end social-icons">
-                <ul class="inline-list">
-                    {% for social_item in site.data.socialmedia %}
-                    <li><a href="{{ social_item.url }}" target="_blank" class="{{ social_item.class }}"
-                           title="{{ social_item.title }}"></a></li>
-                    {% endfor %}
-                </ul>
-            </section>
+        <section id="subfooter-right" class="small-10 medium-4 medium-offset-1 columns end social-icons">
+            <ul class="inline-list">
+                {% for social_item in site.data.socialmedia %}
+                <li>
+                    <a href="{{ social_item.url }}"
+                       target="_blank"
+                       class="{{ social_item.class }}"
+                       title="{{ social_item.title }}"></a>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
 
-            <div id="up-to-top">
-                <a href="#top-of-page"><i class="fa fa-chevron-up"></i></a>
-            </div>
-        </nav>
-    </div>
-
-</footer>
-
-{% include footer.scripts.html %}
+        <div id="up-to-top">
+            <a href="#top-of-page"><i class="fa fa-chevron-up"></i></a>
+        </div>
+    </nav>
+</div>

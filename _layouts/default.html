@@ -3,23 +3,24 @@ layout: compress
 ---
 <!DOCTYPE html>
 <html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+    <head>
+        {% include head.html %}
+    </head>
 
-{% include head.html %}
+    <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
+        {% unless page.skip_boilerplate %}
+            {% include navigation.html %}
+        {% endunless %}
 
-<body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
-{% unless page.skip_boilerplate %}
-    {% include header.html %}
-{% endunless %}
+        <main role="main">
+            {{ content }}
+        </main>
 
-<div class="page-content">
-    <div class="wrapper">
-        {{ content }}
-    </div>
-</div>
-
-{% unless page.skip_boilerplate %}
-    {% include footer.html %}
-{% endunless %}
-</body>
-
+        {% unless page.skip_boilerplate %}
+        <footer id="footer-content" role="contentinfo">
+            {% include footer.html %}
+        </footer>
+        {% include footer.scripts.html %}
+        {% endunless %}
+    </body>
 </html>

@@ -79,7 +79,7 @@ function stickyFooter() {
 }
 
 //Main min height
-function mainMinHeight() {
+function mainMinHeight(padding_corrector) {
 
     $(window).bind("load resize", function () {
         var main = $("main");
@@ -89,7 +89,7 @@ function mainMinHeight() {
         var height= windowHeight - navigationHeight;
         if ( height > 0 ) {
             main.css({
-                "min-height" : height + "px"
+                "min-height" : (height + padding_corrector) + "px"
             });
         }
     });
@@ -104,7 +104,7 @@ function activateTimeAgo() {
 $(function() {
     animateNavbar();
     upToTopButton();
-    mainMinHeight();
+    mainMinHeight(29);
 
     stickyFooter();
     githubLastCommit("jeslopalo", "#github-last-push");

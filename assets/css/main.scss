@@ -37,6 +37,13 @@ $on-laptop:        800px;
     }
 }
 
+$transition-duration: .5s;
+@mixin transition-background($transition-duration) {
+    -webkit-transition: background $transition-duration ease-out;
+    -moz-transition: background $transition-duration ease-out;
+    -o-transition: background $transition-duration ease-out;
+    transition: background $transition-duration ease-out;
+}
 
 
 // Import partials

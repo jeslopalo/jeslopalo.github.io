@@ -8,23 +8,28 @@
   &.transparent {
     position: fixed;
     z-index: 1;
+    @include transition-background(.5s);
   }
 
   &.opaque {
     background-color: $theme-orange;
+    @include transition-background(.5s);
 
-    .top-bar {
+    .top-bar .top-bar-section {
       ul li {
         &.active a {
           background-color: $grey-color-dark;
+          @include transition-background(.9s);
         }
         & a:hover, & a:active {
           background-color: $theme-darkgray;
+          @include transition-background(.9s);
         }
       }
 
       .divider {
         border-color: lighten($theme-orange, 5%);
+        @include transition-background(.9s);
       }
     }
   }

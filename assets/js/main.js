@@ -61,6 +61,7 @@ function upToTopButton() {
     $(window).scroll();
 }
 
+/*
 //Sticky footer
 function stickyFooter() {
 
@@ -77,7 +78,9 @@ function stickyFooter() {
         }
     });
 }
+*/
 
+/*
 //Main min height
 function mainMinHeight(padding_corrector) {
 
@@ -94,6 +97,7 @@ function mainMinHeight(padding_corrector) {
         }
     });
 }
+*/
 
 //
 function activateTimeAgo() {
@@ -104,9 +108,9 @@ function activateTimeAgo() {
 $(function() {
     animateNavbar();
     upToTopButton();
-    mainMinHeight(29);
+    //mainMinHeight(29);
 
-    stickyFooter();
+    //stickyFooter();
     githubLastCommit("jeslopalo", "#github-last-push");
     activateTimeAgo();
 });

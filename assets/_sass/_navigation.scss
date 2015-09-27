@@ -26,11 +26,6 @@
           @include transition-background(.9s);
         }
       }
-
-      .divider {
-        border-color: lighten($theme-orange, 5%);
-        @include transition-background(.9s);
-      }
     }
   }
 }

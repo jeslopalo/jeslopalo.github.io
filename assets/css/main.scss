@@ -37,6 +37,8 @@ $on-laptop:        800px;
     }
 }
 
+// Using background transitions
+// @include transition-background(1s);
 $transition-duration: .5s;
 @mixin transition-background($transition-duration) {
     -webkit-transition: background $transition-duration ease-out;

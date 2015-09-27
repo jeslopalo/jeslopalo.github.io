@@ -61,43 +61,6 @@ function upToTopButton() {
     $(window).scroll();
 }
 
-/*
-//Sticky footer
-function stickyFooter() {
-
-    $(window).bind("load resize", function () {
-        var footer = $("#footer-content");
-        var pos = footer.position();
-        var height = $(window).height();
-        height = height - pos.top;
-        height = height - footer.height();
-        if (height > 0) {
-            footer.css({
-                'margin-top': height + 'px'
-            });
-        }
-    });
-}
-*/
-
-/*
-//Main min height
-function mainMinHeight(padding_corrector) {
-
-    $(window).bind("load resize", function () {
-        var main = $("main");
-        var navigationHeight= $("#navigation").height();
-        var windowHeight= $(window).height();
-
-        var height= windowHeight - navigationHeight;
-        if ( height > 0 ) {
-            main.css({
-                "min-height" : (height + padding_corrector) + "px"
-            });
-        }
-    });
-}
-*/
 
 //
 function activateTimeAgo() {
@@ -108,9 +71,6 @@ function activateTimeAgo() {
 $(function() {
     animateNavbar();
     upToTopButton();
-    //mainMinHeight(29);
-
-    //stickyFooter();
     githubLastCommit("jeslopalo", "#github-last-push");
     activateTimeAgo();
 });

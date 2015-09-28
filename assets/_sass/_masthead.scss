@@ -100,7 +100,7 @@
     }
 
     @include media-query($small-breakpoint) {
-      @include background-size(900px auto);
+      @include background-size(1100px auto);
     }
 
     z-index: 1;

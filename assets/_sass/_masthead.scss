@@ -82,8 +82,26 @@
     position: absolute;
     opacity: 0.3;
     background-repeat: no-repeat;
-    background-position: center;
-    @include background-size(cover);
+    background-position: center top;
+    background-attachment: fixed;
+
+    @include background-size(100% auto);
+
+    @include media-query($xlarge-breakpoint) {
+      @include background-size(2100px auto);
+    }
+
+    @include media-query($large-breakpoint) {
+      @include background-size(1600px auto);
+    }
+
+    @include media-query($medium-breakpoint) {
+      @include background-size(1300px auto);
+    }
+
+    @include media-query($small-breakpoint) {
+      @include background-size(900px auto);
+    }
 
     z-index: 1;
   }

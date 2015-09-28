@@ -9,6 +9,14 @@
     position: fixed;
     z-index: 1;
     @include background-transition(.5s);
+
+    .top-bar .top-bar-section {
+      ul li {
+        &.active a {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
   }
 
   &.opaque {

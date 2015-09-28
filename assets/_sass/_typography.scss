@@ -59,14 +59,17 @@ code {
   margin: 0;
   text-transform: uppercase;
 }
+
 .teaser {
   font-size: rem-calc(20);
   font-style: italic;
   color: lighten($body-font-color, 40%);
 }
+
 .big-teaser {
   font-style: italic; font-weight: 300;
 }
+
 .big-teaser a {
   font-style: italic; font-weight: 400;
 }

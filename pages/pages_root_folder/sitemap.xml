@@ -2,6 +2,9 @@
 permalink: /sitemap.xml
 title: 'Site map for robots'
 layout: null
+
+sitemap:
+ exclude: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 {% comment %}

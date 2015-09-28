@@ -1,0 +1,26 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html class="no-js" lang="{% if site.language == nil %}en{% else %}{{ site.language }}{% endif %}">
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
+        {% unless page.skip_boilerplate %}
+            {% include navigation.html %}
+        {% endunless %}
+
+        <main role="main">
+            {{ content }}
+        </main>
+
+        {% unless page.skip_boilerplate %}
+        <footer id="footer-content" role="contentinfo">
+            {% include footer.html %}
+        </footer>
+        {% include footer.scripts.html %}
+        {% endunless %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+#navigation {
+  border-top: 5px solid $grey-color-dark;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &.transparent {
+    position: fixed;
+    z-index: 1;
+    @include background-transition(.5s);
+  }
+
+  &.opaque {
+    background-color: $theme-orange;
+    @include background-transition(.5s);
+
+    .top-bar .top-bar-section {
+      ul li {
+        &.active a {
+          background-color: $grey-color-dark;
+          @include background-transition(.9s);
+        }
+        & a:hover, & a:active {
+          background-color: $theme-darkgray;
+          @include background-transition(.9s);
+        }
+      }
+    }
+  }
+}
+
+body.f-topbar-fixed {
+  padding-top: 0;
+}

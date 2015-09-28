@@ -50,7 +50,7 @@ function composeMessage(pushEvent) {
 
     message+= "<ul id='commits'>";
     $.each(pushEvent.payload.commits, function(index, commit) {
-        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span>&nbsp;<span title='" + commit.message + "'>" + trim(commit.message, 35) + "</span></li>";
+        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span>&nbsp;<span title='" + _.escape(commit.message) + "'>" + _.escape(trim(commit.message, 50)) + "</span></li>";
     });
     message+="</ul>";
     return message;

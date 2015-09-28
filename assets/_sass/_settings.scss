@@ -1404,8 +1404,8 @@ $code-padding: 0 rem-calc(5);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-$topbar-bg-color: $theme-orange;
-$topbar-bg: $topbar-bg-color;
+$topbar-bg-color: transparent;
+$topbar-bg: transparent;
 
 // Height and margin
 $topbar-height: rem-calc(56);
@@ -1419,16 +1419,16 @@ $topbar-margin-bottom: 0;
 $topbar-link-color: $theme-khaki;
 
 // $topbar-link-color-hover: $white;
-$topbar-link-color-active: $theme-lightkhaki;
-$topbar-link-color-active-hover: $theme-lightkhaki;
+$topbar-link-color-active: white;
+$topbar-link-color-active-hover: white;
 //$topbar-link-weight: $font-weight-bold;
 $topbar-link-font-size: rem-calc(13);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-hover: $jet;
-// $topbar-link-bg-color-hover: $charcoal;
-$topbar-link-bg-active: $theme-darkgray;
-$topbar-link-bg-active-hover: scale-color($theme-darkgray, $lightness: 10%);
+$topbar-link-bg: transparent;
+$topbar-link-bg-hover: transparent;
+$topbar-link-bg-color-hover: transparent;
+$topbar-link-bg-active: transparent;
+$topbar-link-bg-active-hover: transparent;
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: ($topbar-height / 3);
@@ -1438,7 +1438,7 @@ $topbar-link-bg-active-hover: scale-color($theme-darkgray, $lightness: 10%);
 // $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
-// $topbar-dropdown-bg: $oil;
+$topbar-dropdown-bg: transparent;
 // $topbar-dropdown-link-color: $white;
 // $topbar-dropdown-link-color-hover: $topbar-link-color-hover;
 // $topbar-dropdown-link-bg: $oil;

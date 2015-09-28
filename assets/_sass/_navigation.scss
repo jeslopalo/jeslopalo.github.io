@@ -5,10 +5,37 @@
     text-decoration: none;
   }
 
+  .top-bar.expanded {
+    .title-area {
+      background-color: transparentize($theme-orange, .1);
+    }
+    .top-bar-section {
+      ul {
+        li.divider {
+          background-color: lighten($grey-color-dark, 2%);
+        }
+        li {
+          background-color: transparentize($grey-color-dark, .1);
+        }
+        li.active, li a:hover, li a:active {
+          background-color: $grey-color-dark;
+        }
+      }
+    }
+  }
+
   &.transparent {
     position: fixed;
     z-index: 1;
     @include background-transition(.5s);
+
+    .top-bar .top-bar-section {
+      ul li {
+        &.active a {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
   }
 
   &.opaque {

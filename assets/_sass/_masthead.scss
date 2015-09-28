@@ -81,13 +81,10 @@
     display: block;
     position: absolute;
     opacity: 0.3;
-    background-image: url('/assets/images/header/lego-1500x500.jpeg');
     background-repeat: no-repeat;
     background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    @include background-size(cover);
+
     z-index: 1;
   }
 

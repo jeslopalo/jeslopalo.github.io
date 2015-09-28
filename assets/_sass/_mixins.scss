@@ -1,0 +1,31 @@
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+// Using background transitions
+// @include background-transition(1s);
+$transition-duration: .5s;
+@mixin background-transition($transition-duration) {
+  -webkit-transition: background $transition-duration ease-out;
+  -moz-transition: background $transition-duration ease-out;
+  -o-transition: background $transition-duration ease-out;
+  transition: background $transition-duration ease-out;
+}
+
+// Using background size
+// @include background-size();
+@mixin background-size($size) {
+  -webkit-background-size: $size;
+  -moz-background-size: $size;
+  -o-background-size: $size;
+  background-size: $size;
+}

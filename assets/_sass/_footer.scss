@@ -99,6 +99,7 @@ $social-activity-color: $theme-footer-color;
     .tweet {
       margin: 0 13px;
       font-size: $social-activity-font-size;
+      overflow-x: hidden;
     }
 
     // For github

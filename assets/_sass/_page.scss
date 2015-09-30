@@ -1,7 +1,6 @@
+/* Pages
+------------------------------------------------------------------- */
 
-/**
- * Page content
- */
 .page {
   margin-bottom: $spacing-unit;
 
@@ -30,18 +29,8 @@
   }
 }
 
-/*
-.page-header {
-  margin-bottom: $spacing-unit;
-}
-*/
-
 .page-content {
   padding: $spacing-unit 0;
-}
-
-.page-heading {
-  font-size: rem-calc(44);
 }
 
 .page-meta {

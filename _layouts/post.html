@@ -15,15 +15,17 @@ layout: default
         <div class="wrapper">
 
             <p class="post-meta">
+                {% include author.inline.html author=page.author size=20 %}
+
                 {% if page.date %}
-                <time class="timeago" datetime="{{ page.date | date_to_xmlschema }}">
+                (<time class="timeago" datetime="{{ page.date | date_to_xmlschema }}">
                     {{ page.date | date: "%b %-d, %Y" }}
-                </time> •
+                </time>)
                 {% endif %}
 
-                {% if page.author %}{{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
+                {% if page.meta %} {{ page.meta }}{% endif %}
                 {% if page.categories %}
-                    • {% include categories.inline.html categories=page.categories %}
+                    {% include categories.inline.html categories=page.categories %}
                 {% endif %}
             </p>
 

@@ -86,21 +86,14 @@
     background-attachment: fixed;
 
     @include background-size(100% auto);
-
     @include media-query($xlarge-breakpoint) {
       @include background-size(2100px auto);
     }
-
     @include media-query($large-breakpoint) {
       @include background-size(1600px auto);
     }
-
     @include media-query($medium-breakpoint) {
       @include background-size(1300px auto);
-    }
-
-    @include media-query($small-breakpoint) {
-      @include background-size(auto 100%);
     }
 
     z-index: 1;

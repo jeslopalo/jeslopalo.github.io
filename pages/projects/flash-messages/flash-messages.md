@@ -3,6 +3,7 @@ layout: page
 title: "Flash messages"
 date:   2014-11-13 17:13:00+02:00
 teaser: "An easy way to send &amp; show <b>flash messages</b>"
+language: en
 permalink: "/projects/flash-messages/"
 ---
 

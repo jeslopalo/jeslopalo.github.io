@@ -9,6 +9,7 @@ url: "http://sandbox.es" # the base hostname & protocol for your site
 author: jeslopalo
 
 timezone: Europe/Madrid
+language: es
 
 services:
   disqus_shortname: sandboxes

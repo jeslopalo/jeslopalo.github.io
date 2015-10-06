@@ -2,22 +2,19 @@
 layout: default
 ---
 <article class="page">
-    <header class="page-header">
-        <div class="masthead">
-            <div class="gradient"></div>
-            <div class="content-background" style="background-image: url('{{ page.masthead.image }}');"></div>
-            <div class="description">
-                <div class="container">
-                    {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
-                    <h1>{{ page.title }}</h1>
 
-                    {% if page.teaser %}
-                    <p class="teaser" itemprop="description">
-                        {{ page.teaser }}
-                    </p>
-                    {% endif %}
-                </div>
-            </div>
+    <header class="masthead">
+        <div class="gradient"></div>
+        <div class="content-background" style="background-image: url('{{ page.masthead.image }}');"></div>
+        <div class="description">
+            {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
+            <h1>{{ page.title }}</h1>
+
+            {% if page.teaser %}
+            <p class="teaser" itemprop="description">
+                {{ page.teaser }}
+            </p>
+            {% endif %}
         </div>
     </header>
 
@@ -25,17 +22,25 @@ layout: default
         <div class="wrapper">
 
             <p class="page-meta">
+                {% include author.inline.html author=page.author size=20 %}
+
                 {% if page.date %}
-                <time class="timeago" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+                (<time class="timeago" datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%b %-d, %Y" }}
+                </time>)
                 {% endif %}
-                {% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}
-                {% if page.categories %} •
+
+                {% if page.meta %} {{ page.meta }}{% endif %}
+                {% if page.categories %}
                     {% include categories.inline.html categories=page.categories %}
                 {% endif %}
             </p>
 
-            <div itemprop="articleSection">{{ content }}</div>
+            <div itemprop="articleSection">
+                {{ content }}
+            </div>
 
         </div>
     </div>
+
 </article>

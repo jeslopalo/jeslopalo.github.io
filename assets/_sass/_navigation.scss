@@ -7,7 +7,9 @@
 
   .top-bar.expanded {
     .title-area {
-      background-color: transparentize($theme-orange, .1);
+      @include background-transition(.5s);
+
+      background-color: $theme-orange;
     }
     .top-bar-section {
       ul {
@@ -15,7 +17,8 @@
           background-color: lighten($grey-color-dark, 2%);
         }
         li {
-          background-color: transparentize($grey-color-dark, .1);
+          @include background-transition(1s);
+          background-color: transparentize($grey-color-dark, .05);
         }
         li.active, li a:hover, li a:active {
           background-color: $grey-color-dark;

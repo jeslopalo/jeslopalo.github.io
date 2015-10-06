@@ -34,6 +34,9 @@ $fa-font-path: "../fonts/font-awesome-4.4.0/fonts";
 ------------------------------------------------------------------- */
 .site-title {
   font-size: 40px !important;
+  @include media-query($small-breakpoint) {
+    font-size: 30px !important;
+  }
   font-family: 'Oleo Script' !important;
   font-weight: 700 !important;
 
@@ -55,7 +58,10 @@ code {
 ------------------------------------------------------------------- */
 
 .subheadline {
-  font-size: rem-calc(16);
+  @extend .text-center;
+
+  font-size: 18px !important;
+
   margin: 0;
   text-transform: uppercase;
 }
@@ -81,7 +87,7 @@ code {
   }
 }
 @media only screen and (min-width: 40.063em) {
-  .big-teaser         {
+  .big-teaser {
     font-size: rem-calc(29);
   }
 }

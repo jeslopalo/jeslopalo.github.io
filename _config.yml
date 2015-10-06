@@ -71,6 +71,7 @@ defaults:
       path: "" 				# an empty string here means all files in the project
       type: "pages"
     values:
+      language: es
       masthead:
         image: "/assets/images/header/lego-1500x500.jpeg"
       show_meta: false 	    # Hide metadata for all pages
@@ -82,6 +83,7 @@ defaults:
       path: ""
       type: "posts"
     values:
+      language: es
       masthead:
         image: "/assets/images/header/lego-1500x500.jpeg"
       show_meta: true       # Show metadata for all posts

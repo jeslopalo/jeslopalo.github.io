@@ -5,6 +5,7 @@ Parameter: size
 
 {% if include.author %}
 <img
+        class="author-avatar"
         src="http://www.gravatar.com/avatar/{{ site.data.authors[include.author].gravatarId }}.jpg?s={{ include.size }}"
         title="{{ site.data.authors[include.author].name }}" />&nbsp;{{ include.author }}
 {% endif %}

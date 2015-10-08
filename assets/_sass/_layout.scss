@@ -73,6 +73,30 @@ img.paragraph-image {
 ------------------------------------------------------------------- */
 @import "footer";
 
+/* Table of contents
+------------------------------------------------------------------- */
+#markdown-toc {
+  @extend .hide-for-small-only;
+  @extend .right;
+
+  border: 1px solid darken(whitesmoke, 25%);
+  background-color: whitesmoke;
+
+  margin: 0 0 10px 20px;
+  padding: 15px;
+
+  ul {
+    margin-left: 15px;
+  }
+
+  li {
+    list-style: none;
+    margin-left: 0px;
+
+    font-size: 13px;
+  }
+}
+
 /* Pages
 ------------------------------------------------------------------- */
 @import "page";

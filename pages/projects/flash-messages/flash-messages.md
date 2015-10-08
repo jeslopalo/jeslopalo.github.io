@@ -11,13 +11,16 @@ permalink: "/projects/flash-messages/"
 
 [![Download](https://api.bintray.com/packages/jeslopalo/sandbox-maven-repository/flash-messages/images/download.svg) ](https://bintray.com/jeslopalo/sandbox-maven-repository/flash-messages/_latestVersion) [![Build Status](https://travis-ci.org/jeslopalo/flash-messages.svg?branch=master)](https://travis-ci.org/jeslopalo/flash-messages) [![Coverage Status](https://coveralls.io/repos/jeslopalo/flash-messages/badge.png?branch=master)](https://coveralls.io/r/jeslopalo/flash-messages?branch=master) [![Coverity Scan Build Status](https://scan.coverity.com/projects/2142/badge.svg?branch=master)](https://scan.coverity.com/projects/2142?branch=master) [![Project Stats](https://www.ohloh.net/p/flash-messages/widgets/project_thin_badge.gif)](https://www.ohloh.net/p/flash-messages)
 
+* TOC
+{:toc}
+
 When applying the [Post/Redirect/Get](http://kcy.me/15fxw) pattern in web application development, I run always into the same problem: __how to communicate the result to the user after the redirection__.
 
 While it is a known problem and it has been resolved in other platforms (like Rails), Java does not seem to provide a simple and elegant solution.
 
 *flash-messages* is an easy way to communicate flash messages after a redirection in Java web applications.
 
-Today, you can use *flash-messages* in applications which use **spring-mvc** as web framework and **Jstl** to render views. 
+Today, you can use *flash-messages* in applications which use **spring-mvc** as web framework and **Jstl** to render views.
 
 In future releases, it will be possible to use it in **JavaEE** applications and possibly with another view technologies like **Thymeleaf** or **Freemarker**.
 

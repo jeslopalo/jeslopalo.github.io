@@ -2,7 +2,7 @@
 ------------------------------------------------------------------- */
 
 .post {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   h2 {
     font-size: 32px;
@@ -30,14 +30,8 @@
 }
 
 .post-content {
-  padding: $spacing-unit 0;
+  padding: $spacing-unit/2 0;
 }
-
-.post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
-
 
 /* Posts list
 ------------------------------------------------------------------- */
@@ -54,12 +48,17 @@
 }
 
 .post-list {
+  margin-top: $spacing-unit;
   margin-left: 0;
   list-style: none;
 
   > li {
     margin-bottom: $spacing-unit;
   }
+}
+
+.post-list-element-time {
+  @extend %timeinfo;
 }
 
 .post-link {

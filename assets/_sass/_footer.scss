@@ -56,23 +56,12 @@ $social-activity-color: $theme-footer-color;
     margin: 0 $spacing-unit/3 0 $spacing-unit/3;
 
     time {
+      @extend %timeinfo;
+
       display: block;
-      color: $grey-6;
-
-      font-style: italic;
-      font-family: $body-font-family;
-      font-size: $social-activity-font-size + 1;
-
       text-align: right;
       margin-right: $social-activity-font-size + 1;
-
-      &:before {
-        font-family: 'Fontawesome';
-        font-style: normal;
-        -webkit-font-smoothing: antialiased;
-        content: '\f017';
-        padding-right: 4px;
-      }
+      font-size: $social-activity-font-size + 1;
     }
 
     a {

@@ -2,7 +2,7 @@
 ------------------------------------------------------------------- */
 
 .page {
-  margin-bottom: $spacing-unit;
+  margin-bottom: $spacing-unit * 2;
 
   h2 {
     font-size: 32px;
@@ -30,10 +30,5 @@
 }
 
 .page-content {
-  padding: $spacing-unit 0;
-}
-
-.page-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
+  padding: $spacing-unit/2 0;
 }

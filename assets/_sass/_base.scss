@@ -129,6 +129,9 @@ blockquote {
   }
 }
 
+/**
+ * Timeinfo
+ */
 %timeinfo {
   color: $grey-6;
 
@@ -143,6 +146,8 @@ blockquote {
     content: '\f017';
     padding-right: 2px;
   }
+
+  margin-right: 13px;
 }
 
 /**

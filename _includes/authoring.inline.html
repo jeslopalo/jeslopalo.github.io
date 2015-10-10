@@ -1,0 +1,38 @@
+{% comment %}
+Parameter: article
+{% endcomment %}
+
+{% if include.article.author or include.article.date or include.article.meta or include.article.categories %}
+<div class="authoring">
+    {% assign avatar_size = 40 %}
+    {% if include.article.author %}
+    <div class="authoring-avatar">
+        <img
+            src="http://www.gravatar.com/avatar/{{ site.data.authors[include.article.author].gravatarId }}.jpg?s={{ avatar_size }}"
+            title="{{ site.data.authors[include.article.author].name }}" />
+    </div>
+    {% endif %}
+
+    <div class="authoring-info">
+        {% if include.article.author %}
+        <span class="authoring-author">{{ site.data.authors[include.article.author].name }}</span>
+        {% endif %}
+
+        {% if include.article.date %}
+        <span class="authoring-time">
+            <time class="timeago" datetime="{{ include.article.date | date_to_xmlschema }}">
+                {{ include.article.date | date: "%b %-d, %Y" }}
+            </time>
+        </span>
+        {% endif %}
+    </div>
+<!--
+    <div>
+        {% if include.article.meta %} {{ include.article.meta }}{% endif %}
+        {% if include.article.categories %}
+            {% include categories.inline.html categories=include.article.categories %}
+        {% endif %}
+    </div>
+-->
+</div>
+{% endif %}

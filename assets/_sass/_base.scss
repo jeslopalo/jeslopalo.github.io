@@ -129,6 +129,22 @@ blockquote {
   }
 }
 
+%timeinfo {
+  color: $grey-6;
+
+  font-style: italic;
+  font-family: $body-font-family;
+  font-size: 13px;
+
+  &:before {
+    font-family: 'Fontawesome';
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    content: '\f017';
+    padding-right: 2px;
+  }
+}
+
 /**
  * Icons
  */

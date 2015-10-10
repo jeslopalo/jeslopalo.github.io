@@ -97,12 +97,58 @@ img.paragraph-image {
   }
 }
 
-/* Author
+/* Authoring
 ------------------------------------------------------------------- */
-.author-avatar {
-  border-radius: 100%;
-}
+@import "foundation";
 
+$avatar-height: 40px;
+$avatar-width:  40px;
+
+.authoring {
+//  &, * { box-shadow: inset 0 0 0 1px red; }
+
+  position: relative;
+/*
+  height: $avatar-height + 4;
+  line-height: $avatar-height + 4;
+*/
+  margin-bottom: $spacing-unit/2;
+
+  .authoring-avatar {
+    display: inline-block;
+    height: 100%;
+    width: $avatar-width + 10;
+
+    margin-right: $avatar-width / 10;
+
+    img {
+      display: inline;
+      vertical-align: baseline;
+      margin: 0;
+      border-radius: $avatar-height/2;
+
+      padding: 4px;
+    }
+  }
+
+  .authoring-info {
+    height: $avatar-height;
+    width: 300px;
+  }
+
+  .authoring-author {
+    @extend %clearfix;
+
+    color: $primary-color;
+    font-size: 14px;
+    font-weight: $font-weight-bold;
+  }
+
+  .authoring-time {
+    @extend %timeinfo;
+//    font-size: 13px;
+  }
+}
 
 /* Pages
 ------------------------------------------------------------------- */

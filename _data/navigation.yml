@@ -11,8 +11,8 @@
   url: "/blog/"
   side: right
 
-- title: "About"
-  url: "/about/"
+- title: "Sobre mi"
+  url: "/sobre-mi/"
   side: right
 
 #- title: Blog

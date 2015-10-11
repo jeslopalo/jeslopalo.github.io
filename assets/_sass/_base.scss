@@ -98,6 +98,22 @@ blockquote {
 }
 
 /**
+ * Hyphens
+ */
+p, blockquote {
+  text-align: justify;
+  text-rendering: optimizelegibility
+;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+
+  word-wrap: break-word;
+}
+
+/**
  * Wrapper
  */
 .wrapper {

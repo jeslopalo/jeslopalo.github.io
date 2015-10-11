@@ -97,12 +97,53 @@ img.paragraph-image {
   }
 }
 
-/* Author
+/* Authoring
 ------------------------------------------------------------------- */
-.author-avatar {
-  border-radius: 100%;
-}
+@import "foundation";
 
+$avatar-height: 40px;
+$avatar-width:  $avatar-height;
+
+.authoring {
+  margin-bottom: $spacing-unit/2;
+
+  .authoring-avatar {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    height: $avatar-height + 9;
+    width: $avatar-width;
+
+    img {
+      position: absolute;
+      top: 50%;
+      margin-top: -($avatar-height/2);
+
+      border-radius: $avatar-height/2;
+    }
+  }
+
+  .authoring-info {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 4px;
+  }
+
+  .authoring-author {
+    color: $primary-color;
+    font-weight: $font-weight-bold;
+
+    font-size: 14px;
+    height: 16px;
+
+    margin-top: 5px;
+  }
+
+  .authoring-time {
+    @extend %timeinfo;
+  }
+}
 
 /* Pages
 ------------------------------------------------------------------- */

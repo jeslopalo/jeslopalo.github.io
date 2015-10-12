@@ -13,7 +13,7 @@ Soy **Jesús** y llevo por aquí desde [1980][birthyear].
 
 Junto a *Cristina*, soy padre de *Bruno* y *Carmen*, sin duda **el proyecto más complejo y apasionante en el que jamás haya participado**. Desde hace un tiempo vivimos en [Las Rozas de Madrid][rozas-map].
 
-Estudié Ingeniería Informática en la [EPS de la Universidad Autónoma de Madrid][eps-uam] entre 1999 y 2005, siguiendo la que era mi vocación desde muy pequeño. Desde entonces **trabajo desarrollando software para diferentes empresas**. Actualmente lo hago para el [Colegio de Registradores][corpme] en el departamento de desarrollo web.
+Estudié Ingeniería Informática en la [EPS de la Universidad Autónoma de Madrid][eps-uam] entre 1999 y 2005, siguiendo la que era mi vocación desde muy pequeño. Desde entonces **trabajo desarrollando software** para diferentes empresas. Actualmente lo hago para el [Colegio de Registradores][corpme] en el departamento de desarrollo web.
 
 La especialización nunca fue lo mío, así que terminé dedicándome tanto al desarrollo del frontend como del backend. Algunos ahora lo llaman _Full Stack Developer_, aunque sospecho que no es más que otro nombre *atractivo* para algo que ya existía.
 

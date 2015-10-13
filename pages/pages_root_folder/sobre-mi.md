@@ -2,7 +2,7 @@
 layout: page
 subheadline: Sobre mí
 title: Jesús López
-teaser: since 1980
+teaser: ☆ since 1980 ☆
 date:   2015-10-11 18:02:01+02:00
 author: null
 permalink: /sobre-mi/

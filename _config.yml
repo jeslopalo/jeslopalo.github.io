@@ -72,8 +72,8 @@ defaults:
       type: "pages"
     values:
       language: es
-      masthead:
-        image: "/assets/images/header/lego-1500x500.jpeg"
+      image:
+        masthead: "/assets/images/header/lego-1500x500.jpeg"
       show_meta: false 	    # Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
@@ -84,8 +84,8 @@ defaults:
       type: "posts"
     values:
       language: es
-      masthead:
-        image: "/assets/images/header/lego-1500x500.jpeg"
+      image:
+        masthead: "/assets/images/header/lego-1500x500.jpeg"
       show_meta: true       # Show metadata for all posts
       # permalink: "/blog/:year/:month/:day/:title/" # not supported by github pages
       # sidebar:            # Possible values › left, right › by default there will be no sidebar

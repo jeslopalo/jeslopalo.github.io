@@ -16,25 +16,30 @@
 
 {% include favicon.html %}
 
-<!-- Facebook Optimization -->
-<meta property="og:locale" content="{% if site.og_locale == nil %}en_EN{% else %}{{ site.og_locale }}{% endif %}" />
-{% if site.og_type %}<meta property="og:type" content="website" />{% endif %}
-<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
-{% if page.meta_description %}<meta property="og:description" content="{{ page.meta_description | strip_html | escape }}" />{% elsif page.description %}<meta property="og:description" content="{{ page.description | strip_html | escape }}"/>{% elsif site.description %}<meta property="og:description" content="{{ site.description | strip_html | escape }}" />{% endif %}
+<!-- Open Graph protocol: ogp.me -->
+<meta property="og:locale" content="{% if page.language == 'es' %}es_ES{% else %}en_EN{% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{% if page.meta_title %}{{ page.meta_title }}{% elsif page.title %}{{ page.title }}{% endif %}" />
+{% if page.meta_description %}<meta property="og:description" content="{{ page.meta_description | strip_html | strip_newlines | escape | truncate: 160 }}"/>{% elsif page.excerpt %}
+<meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | escape | truncate: 160 }}"/>{% elsif page.teaser %}
+<meta property="og:description" content="{{ page.teaser | strip_html | strip_newlines | escape | truncate: 160 }}"/>{% elsif site.description %}
+<meta property="og:description" content="{{ site.description | strip_html | strip_newlines | escape | truncate: 160 }}"/>{% endif %}
 <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 {% if site.title %}<meta property="og:site_name" content="{{ site.title }}" />{% endif %}
-{% if page.image.thumb %}<meta property="og:image" content="{{ site.urlimg }}{{ page.image.thumb }}" />{% endif %}
+<meta property="og:image" content="{% if page.image.thumb %}{{ site.url }}{{ site.baseurl }}{{ page.image.thumb }}{% elsif page.image.masthead %}{{ site.url }}{{ site.baseurl }}{{ page.image.masthead }}{% endif %}" />
 
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}"/>
 
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}"/>
 
-
 <script src="{{ '/assets/bower_components/modernizr/modernizr.js' | prepend: site.baseurl | prepend: site.url }}"></script>
 
 <!-- Google fonts -->
-<link href='http://fonts.googleapis.com/css?family=Special+Elite|Oleo+Script:700|Roboto:300,100,700|Fredericka+the+Great|Rock+Salt' rel='stylesheet' type='text/css' media="screen">
+<link href='http://fonts.googleapis.com/css?family=Special+Elite|Oleo+Script:700|Roboto:300,100,700|Fredericka+the+Great|Rock+Salt'
+      rel='stylesheet'
+      type='text/css'
+      media="screen">
 
 {% if page.noindex == true %}
 <!-- Search Engine Optimization -->

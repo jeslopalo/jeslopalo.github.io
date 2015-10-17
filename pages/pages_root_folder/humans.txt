@@ -17,7 +17,8 @@ sitemap:
 
 /* THANKS */
   Opensource community
-
+  Pictures:
+    - svpipesdesign1982 for http://imgur.com/gallery/i2tGu
 
 /* SITE */
   Last Updated: {{ site.time | date:"%Y/%m/%d" }}

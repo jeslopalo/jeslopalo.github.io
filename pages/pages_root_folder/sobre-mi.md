@@ -21,6 +21,8 @@ Sigo aprendiendo, ya sea desarrollando pequeñas librerías opensource (_como é
 
 En el terreno lúdico, escucho [música a todas horas][lastfm] y procuro no perderme ningún concierto que merezca la pena. Además [juego al baloncesto][faunaca] en un equipo con los amigos de siempre.
 
+Si tienes algo interesante que contarme (_y no es spam_), puedes hacerlo en mi dirección de correo electrónico: ![email]
+
 
 [birthyear]:       https://en.wikipedia.org/wiki/1980
 [rozas-map]:       https://www.google.es/maps/place/Las+Rozas,+Madrid/@40.5231093,-3.8996554,13z/data=!4m2!3m1!1s0xd418333d1289ef5:0x98ddf7afc6a44e3e
@@ -29,3 +31,4 @@ En el terreno lúdico, escucho [música a todas horas][lastfm] y procuro no perd
 [flash-messages]:  /projects/flash-messages/
 [lastfm]:          http://www.last.fm/user/jeslopalo
 [faunaca]:         http://www-2.munimadrid.es/dgd/GestorOperacionesDGD?tipoOperacion=cuadroResultados&nombreDistrito=RETIRO&distrito=RETIRO&nombreDeporte=BALONCESTO&deporte=BALONCESTO&busqueda=&competicion=%B7%20Juegos%20Deportivos%20Municipales%20%B7&nombreGrupo=TORNEO%20MARCA%20BCTO%20GR%205&grupo=285&nombreCategoria=SENIOR&categoria=SENIOR&sexo=Masculino&identificadorSexo=M&nombreEquipo=FAUNACA&fase=1&
+[email]:           /assets/images/email.png

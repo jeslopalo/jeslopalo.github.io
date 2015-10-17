@@ -101,9 +101,8 @@ blockquote {
  * Hyphens
  */
 p, blockquote {
-  text-align: justify;
-  text-rendering: optimizelegibility
-;
+  //  text-align: justify;
+  text-rendering: optimizelegibility;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;

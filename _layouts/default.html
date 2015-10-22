@@ -5,6 +5,9 @@ layout: compress
 <html class="no-js" lang="{% if page.language == nil %}en{% else %}{{ page.language }}{% endif %}">
     <head>
         {% include head.html %}
+        {% if jekyll.environment =="development" %}
+        <style>#navigation { border-top-color: green; }</style>
+        {% endif %}
     </head>
 
     <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">

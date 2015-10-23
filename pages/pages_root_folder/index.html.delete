@@ -1,9 +1,11 @@
----
-layout: page
-permalink: /
-title: Welcome to my personal web site
-date: 2015-09-26 00:30:30+02:00
----
+<!--
+#---
+#layout: page
+#permalink: /
+#title: Welcome to my personal web site
+#date: 2015-09-26 00:30:30+02:00
+#---
+-->
 <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a vulputate leo, vel porttitor
     orci. Cras pulvinar eget velit in volutpat. Proin tempus rhoncus elit, non cursus mi luctus a.

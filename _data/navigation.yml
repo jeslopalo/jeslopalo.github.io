@@ -11,9 +11,9 @@
   url: "/blog/"
   side: right
 
-- title: "Sobre mi"
-  url: "/sobre-mi/"
-  side: right
+#- title: "Sobre mi"
+#  url: "/sobre-mi/"
+#  side: right
 
 #- title: Blog
 #  url: "/blog/"

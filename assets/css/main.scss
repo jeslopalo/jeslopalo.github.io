@@ -23,6 +23,8 @@ $content-width:    $row-width;
 $on-palm:          600px;
 $on-laptop:        800px;
 
+// Debug mode
+//* { box-shadow: inset 0 0 0 1px red; }
 
 // Import partials
 @import

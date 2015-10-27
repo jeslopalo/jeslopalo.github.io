@@ -2,6 +2,9 @@
 layout: page
 title: About
 date:   2015-08-13 21:06:36+02:00
+author: null
+image:
+    masthead: "/assets/images/header/landing.jpg"
 permalink: /en/
 format: big
 ---

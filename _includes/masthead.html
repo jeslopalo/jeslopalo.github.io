@@ -1,10 +1,10 @@
-<div class="gradient"></div>
-<div class="content-background" style="background-image: url('{{ page.image.masthead }}');"></div>
-<div class="description">
-    {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
-    <h1>{{ page.title }}</h1>
+<header class="masthead">
+    <div class="description">
+        {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
+        <h1>{{ page.title }}</h1>
 
-    {% if page.teaser %}
-    <p class="teaser" itemprop="description">{{ page.teaser }}</p>
-    {% endif %}
-</div>
+        {% if page.teaser %}
+        <p class="teaser" itemprop="description">{{ page.teaser }}</p>
+        {% endif %}
+    </div>
+</header>

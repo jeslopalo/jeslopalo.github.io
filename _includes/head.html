@@ -46,3 +46,14 @@
 <meta name="robots" content="noindex"/>{% endif %}
 
 <link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt"/>
+
+<style>
+body {
+      background:
+            linear-gradient(to bottom right, rgba(0, 0, 0, .6), rgba(0, 0, 0, 1)),
+            url('{{ page.image.masthead }}') center center no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+}
+{% if jekyll.environment =="development" %}#navigation { border-top-color: green; }{% endif %}
+</style>

@@ -2,6 +2,12 @@
 @import "settings";
 @import "../bower_components/foundation/scss/foundation/functions";
 
+/* General
+------------------------------------------------------------------- */
+body, html {
+  height: 100%;
+}
+
 /* Masthead
 ------------------------------------------------------------------- */
 @import "masthead";
@@ -9,12 +15,6 @@
 /* Navigation
 ------------------------------------------------------------------- */
 @import "navigation";
-
-/* Main height
-------------------------------------------------------------------- */
-main {
-  min-height: 100%;
-}
 
 /* Comments
 ------------------------------------------------------------------- */
@@ -91,7 +91,7 @@ img.paragraph-image {
 
   li {
     list-style: none;
-    margin-left: 0px;
+    margin-left: 0;
 
     font-size: 13px;
   }
@@ -102,7 +102,7 @@ img.paragraph-image {
 @import "foundation";
 
 $avatar-height: 40px;
-$avatar-width:  $avatar-height;
+$avatar-width: $avatar-height;
 
 .authoring {
   margin-bottom: $spacing-unit/2;

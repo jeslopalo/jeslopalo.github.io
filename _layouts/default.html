@@ -9,7 +9,7 @@ layout: compress
 
     <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
 
-        {% unless page.skip_boilerplate %}
+        {% unless page.skip_navigation %}
             {% include navigation.html position="sticky" %}
         {% endunless %}
 
@@ -17,11 +17,11 @@ layout: compress
             {{ content }}
         </main>
 
-        {% unless page.skip_boilerplate %}
+        {% unless page.skip_footer %}
         <footer id="footer-content" role="contentinfo">
             {% include footer.html %}
         </footer>
-        {% include footer.scripts.html %}
         {% endunless %}
+        {% include footer.scripts.html %}
     </body>
 </html>

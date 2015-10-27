@@ -1,55 +1,18 @@
 @import "../_sass/mixins";
 
 .masthead {
-  position: relative;
-  z-index: 0;
-
   padding: 150px 0 100px;
+  min-height: 50vh;
   width: 100%;
 
-  display: table;
-  background: black;
+  display: block;
 
-  .gradient {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-
-    min-height: 100%;
-    min-width: 100%;
-
-    display: block;
-    opacity: 0;
-    background-image: linear-gradient(transparent, black);
-  }
-
-  .content-background {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-
-    min-height: 100%;
-    min-width: 100%;
-
-    display: block;
-    opacity: 0.3;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: fixed;
-
-    @include background-size(100% auto);
-    @include media-query($xlarge-breakpoint)  { @include background-size(2100px auto); }
-    @include media-query($large-breakpoint)   { @include background-size(1600px auto); }
-    @include media-query($medium-breakpoint)  { @include background-size(1300px auto); }
+  body.big & {
+    min-height: 100vh;
   }
 
   .description {
-    position: relative;
-    display: table-cell;
     vertical-align: middle;
-    z-index: 10;
 
     h1 {
       font-size: 50px;

@@ -1,8 +1,9 @@
+@import "colors.settings";
+
 /* Posts
 ------------------------------------------------------------------- */
 
 .post {
-  margin-bottom: $spacing-unit * 2;
 
   h2 {
     font-size: 32px;
@@ -30,7 +31,9 @@
 }
 
 .post-content {
-  padding: $spacing-unit/2 0;
+  min-height: 50vh;
+  padding: $spacing-unit 0 $spacing-unit*2;
+  background-color: $theme-background;
 }
 
 /* Posts list

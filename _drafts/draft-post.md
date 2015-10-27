@@ -13,7 +13,7 @@ language: es
 author: jeslopalo
 permalink: /draft/
 categories: draft
-comments: true
+comments: false
 sitemap:
  exclude: false
 #published: false

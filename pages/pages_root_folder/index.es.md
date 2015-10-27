@@ -6,6 +6,7 @@ teaser: ☆ since 1980 ☆
 date:   2015-10-11 18:02:01+02:00
 author: null
 permalink: /
+format: big
 ---
 ![Jesús López Alonso](http://www.gravatar.com/avatar/750fbbb5263ee71cba06346646c90fe7.jpg?s=180 "Jesús López Alonso"){: .paragraph-image .right .th}
 

@@ -18,7 +18,7 @@
         }
         li {
           @include background-transition(1s);
-          background-color: transparentize($grey-color-dark, .05);
+          background-color: transparentize($grey-color-dark, .1);
         }
         li.active, li a:hover, li a:active {
           background-color: $grey-color-dark;
@@ -28,8 +28,7 @@
   }
 
   &.transparent {
-    position: fixed;
-    z-index: 1;
+    background-color: rgba(0,0,0,.3);
     @include background-transition(.5s);
 
     .top-bar .top-bar-section {
@@ -58,8 +57,4 @@
       }
     }
   }
-}
-
-body.f-topbar-fixed {
-  padding-top: 0;
 }

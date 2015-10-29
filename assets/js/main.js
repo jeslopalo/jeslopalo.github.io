@@ -3,7 +3,8 @@ $(document).foundation();
 
 function animateNavbar() {
 
-    var masthead = $('.masthead').add('.masthead-home');
+    var masthead = $('.masthead');
+    var scrollTopThreshold= 80;
 
     if(masthead.length == 0) {
         setOpacity(true);
@@ -11,9 +12,9 @@ function animateNavbar() {
     }
     else{
         $(window).scroll(function() {
-            setOpacity( $(window).scrollTop() > 80 );
+            setOpacity( $(window).scrollTop() > scrollTopThreshold );
         });
-        setOpacity( $(window).scrollTop() > 80 );
+        setOpacity( $(window).scrollTop() > scrollTopThreshold );
     }
 
 }

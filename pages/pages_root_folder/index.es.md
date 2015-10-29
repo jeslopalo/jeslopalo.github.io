@@ -1,6 +1,6 @@
 ---
 layout: page
-subheadline: Sobre mí
+subheadline: Bienvenido a mi espacio
 title: Jesús López
 teaser: ☆ since 1980 ☆
 date:   2015-10-11 18:02:01+02:00
@@ -10,8 +10,6 @@ image:
 permalink: /
 format: big
 ---
-![Jesús López Alonso](http://www.gravatar.com/avatar/750fbbb5263ee71cba06346646c90fe7.jpg?s=180 "Jesús López Alonso"){: .paragraph-image .right .th}
-
 Soy **Jesús** y llevo por aquí desde [1980][birthyear].
 
 Junto a *Cristina*, soy padre de *Bruno* y *Carmen*, sin duda **el proyecto más complejo y apasionante en el que jamás haya participado**. Desde hace un tiempo vivimos en [Las Rozas de Madrid][rozas-map].

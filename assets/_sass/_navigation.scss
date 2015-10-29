@@ -28,8 +28,7 @@
   }
 
   &.transparent {
-    position: fixed;
-    z-index: 1;
+    background-color: rgba(0,0,0,.3);
     @include background-transition(.5s);
 
     .top-bar .top-bar-section {

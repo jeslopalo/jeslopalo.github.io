@@ -3,7 +3,7 @@ $(document).foundation();
 
 function animateNavbar() {
 
-    var masthead = $('.masthead').add('.masthead-home');
+    var masthead = $('.masthead');
 
     if(masthead.length == 0) {
         setOpacity(true);

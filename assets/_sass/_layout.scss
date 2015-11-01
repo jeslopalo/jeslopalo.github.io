@@ -8,6 +8,27 @@ body, html {
   height: 100%;
 }
 
+/* Background
+------------------------------------------------------------------- */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  -webkit-backface-visibility: hidden;
+
+  height: 100%;
+  width: 100%;
+
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  html.no-touch & {
+    background-attachment: fixed !important;
+  }
+}
+
 /* Masthead
 ------------------------------------------------------------------- */
 @import "masthead";

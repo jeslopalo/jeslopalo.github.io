@@ -48,11 +48,23 @@
 <link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt"/>
 
 <style>
-body {
+#background {
+      min-height: 100%;
+      min-width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      -webkit-backface-visibility: hidden;
+
       background:
             linear-gradient(rgba(23, 22, 23, 0.6), rgba(23, 22, 23, 0.6)),
-            url('{{ page.image.masthead }}') center center no-repeat;
+            url('{{ page.image.masthead }}');
+      background-position: center center;
+      background-repeat: no-repeat;
       background-size: cover;
+}
+html.no-touch #background {
       background-attachment: fixed;
 }
 {% if jekyll.environment =="development" %}#navigation { border-top-color: green; }{% endif %}

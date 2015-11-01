@@ -1,8 +1,9 @@
 @import "../_sass/mixins";
 
 .masthead {
-  padding: 150px 0 100px;
-  min-height: 50vh;
+  padding: 75px 0 50px;
+  // min-height: calc(38.2vh - 3.5rem); //Golden ratio (3.5rem - navigation)
+  min-height: 38vh;
   width: 100%;
 
   display: block;

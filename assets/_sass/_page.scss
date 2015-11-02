@@ -1,9 +1,9 @@
 @import "colors.settings";
 
-/* Pages
+/* Pages, Posts
 ------------------------------------------------------------------- */
 
-.page {
+.page, .post {
 
   h2 {
     font-size: 32px;
@@ -28,10 +28,43 @@
       font-size: 18px;
     }
   }
+
+  .page-content, .post-content {
+    min-height: 50vh;
+    padding: $spacing-unit 0 $spacing-unit*2;
+    background-color: $theme-background;
+  }
 }
 
-.page-content {
-  min-height: 50vh;
-  padding: $spacing-unit 0 $spacing-unit*2;
-  background-color: $theme-background;
+/* Posts list
+------------------------------------------------------------------- */
+
+.post-category {
+  font-size: $small-font-size;
+  font-weight: 400;
+  color: $theme-orange;
+  font-style: italic;
+
+  background-color: darken($theme-background, 5%);
+  border-radius: 3px;
+  padding: 3px 6px;
+}
+
+.post-list {
+  margin-top: $spacing-unit;
+  margin-left: 0;
+  list-style: none;
+
+  > li {
+    margin-bottom: $spacing-unit;
+  }
+}
+
+.post-list-element-time {
+  @extend %timeinfo;
+}
+
+.post-link {
+  display: block;
+  font-size: 24px;
 }

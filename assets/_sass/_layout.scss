@@ -28,7 +28,7 @@ body, html {
     background-attachment: fixed !important;
   }
 
-  @include transition-all(1s);
+  @include transition-all(.5s);
 }
 
 #background.blurred {

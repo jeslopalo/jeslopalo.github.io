@@ -4,7 +4,7 @@ $(document).foundation();
 function animateNavbar() {
 
     var masthead = $('.masthead');
-    var scrollTopThreshold= 80;
+    var scrollTopThreshold= 60;
 
     if(masthead.length == 0) {
         setOpacity(true);
@@ -12,13 +12,26 @@ function animateNavbar() {
     }
     else{
         $(window).scroll(function() {
-            setOpacity( $(window).scrollTop() > scrollTopThreshold );
+            var scrolled = $(window).scrollTop() > scrollTopThreshold;
+
+            setOpacity(scrolled);
+            blurMasthead(scrolled)
         });
-        setOpacity( $(window).scrollTop() > scrollTopThreshold );
+        var scrolled = $(window).scrollTop() > scrollTopThreshold;
+
+        setOpacity(scrolled);
+        blurMasthead(scrolled)
     }
 
 }
 
+function blurMasthead(blur) {
+    if (blur) {
+        $("#background").addClass("blurred");
+    } else {
+        $("#background").removeClass("blurred");
+    }
+}
 
 function setOpacity(opaque) {
     if (opaque) {

@@ -49,3 +49,9 @@
   -o-filter: blur($size);
   filter: blur($size);
 }
+
+@mixin transform-scale($width: 1, $height: 1) {
+  -webkit-transform: scale($width, $height); /* Ch <36, Saf 5.1+, iOS, An =<4.4.4 */
+  -ms-transform: scale($width, $height); /* IE 9 */
+  transform: scale($width, $height); /* IE 10, Fx 16+, Op 12.1+ */
+}

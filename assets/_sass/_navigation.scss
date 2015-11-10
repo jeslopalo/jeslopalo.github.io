@@ -7,7 +7,7 @@
 
   .top-bar.expanded {
     .title-area {
-      @include background-transition(.5s);
+      @include transition-background(.5s);
 
       background-color: $theme-orange;
     }
@@ -17,7 +17,7 @@
           background-color: lighten($grey-color-dark, 2%);
         }
         li {
-          @include background-transition(1s);
+          @include transition-background(1s);
           background-color: transparentize($grey-color-dark, .1);
         }
         li.active, li a:hover, li a:active {
@@ -29,7 +29,7 @@
 
   &.transparent {
     background-color: rgba(0,0,0,.3);
-    @include background-transition(.5s);
+    @include transition-background(.5s);
 
     .top-bar .top-bar-section {
       ul li {
@@ -42,17 +42,17 @@
 
   &.opaque {
     background-color: $theme-orange;
-    @include background-transition(.5s);
+    @include transition-background(.5s);
 
     .top-bar .top-bar-section {
       ul li {
         &.active a {
           background-color: $grey-color-dark;
-          @include background-transition(.9s);
+          @include transition-background(.9s);
         }
         & a:hover, & a:active {
           background-color: $theme-darkgray;
-          @include background-transition(.9s);
+          @include transition-background(.9s);
         }
       }
     }

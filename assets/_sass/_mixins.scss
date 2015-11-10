@@ -12,14 +12,25 @@
 }
 
 // Using background transitions
-// @include background-transition(1s);
-$transition-duration: .5s;
-@mixin background-transition($transition-duration) {
-  -webkit-transition: background $transition-duration ease-out;
-  -moz-transition: background $transition-duration ease-out;
-  -o-transition: background $transition-duration ease-out;
-  transition: background $transition-duration ease-out;
+// @include transition-background(1s);
+@mixin transition-background($duration: .5s) {
+  -webkit-transition: background $duration ease-out;
+  -moz-transition: background $duration ease-out;
+  -ms-transition: background $duration ease-out;
+  -o-transition: background $duration ease-out;
+  transition: background $duration ease-out;
 }
+
+// Using all transitions
+// @include transition-all(1s);
+@mixin transition-all($duration: .5s) {
+  -webkit-transition: all $duration ease-in-out;
+  -moz-transition: all $duration ease-in-out;
+  -ms-transition: all $duration ease-in-out;
+  -o-transition: all $duration ease-in-out;
+  transition: all $duration ease-in-out;
+}
+
 
 // Using background size
 // @include background-size();
@@ -28,4 +39,13 @@ $transition-duration: .5s;
   -moz-background-size: $size;
   -o-background-size: $size;
   background-size: $size;
+}
+
+@mixin filter-blur($size: 5px) {
+
+  -webkit-filter: blur($size);
+  -moz-filter: blur($size);
+  -ms-filter: blur($size);
+  -o-filter: blur($size);
+  filter: blur($size);
 }

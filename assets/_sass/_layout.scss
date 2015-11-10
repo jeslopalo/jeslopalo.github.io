@@ -27,6 +27,12 @@ body, html {
   html.no-touch & {
     background-attachment: fixed !important;
   }
+
+  @include transition-all(1s);
+}
+
+#background.blurred {
+  @include filter-blur(5px);
 }
 
 /* Masthead

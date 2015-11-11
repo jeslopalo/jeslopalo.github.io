@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -e
+
+if [ "$#" != 1 ]; then
+    echo "usage: bump_version.sh [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease]\n"
+    exit 1
+fi
+
+version="$1"
+
+echo "Bumping version to $version\n"
+npm --no-git-tag-version version $version
+
+PACKAGE_FILE=package.json
+git add $PACKAGE_FILE
+git commit -m "Bump version in $PACKAGE_FILE"
+
+exit 0

@@ -43,15 +43,31 @@ function commitLink(pushEvent, commit) {
     return "<a href='" + url + "'>" + commit.sha.substring(0, 6) + "</a>"
 }
 
+function moreCommitsLink(pushEvent) {
+    var size= pushEvent.payload.commits.length;
+    var url= "https://github.com/" + pushEvent.repo.name + "/compare/" + pushEvent.payload.before.substring(0, 10) + "..." + pushEvent.payload.commits[size - 1].sha.substring(0, 10);
+    var count= size - COMMOT_LIMIT;
+
+    return "<a href='" + url + "'>" + count + " more commit &gt;&gt;</a>";
+}
+
+var COMMOT_LIMIT= 2;
 function composeMessage(pushEvent) {
 
     var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
     message+= "<div><span class='prompt'>" + repositoryLink(pushEvent) + " $ </span>git log --oneline</div>";
 
     message+= "<ul id='commits'>";
-    $.each(pushEvent.payload.commits, function(index, commit) {
-        message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span>&nbsp;<span title='" + _.escape(commit.message) + "'>" + _.escape(trim(commit.message, 50)) + "</span></li>";
-    });
+    $.each(pushEvent.payload.commits,
+        function(index, commit) {
+            if(index < COMMOT_LIMIT) {
+                message+= "<li><span class='sha'>" + commitLink(pushEvent, commit) + "</span>&nbsp;<span title='" + _.escape(commit.message) + "'>" + _.escape(trim(commit.message, 50)) + "</span></li>";
+            }
+        }
+    );
+    if( pushEvent.payload.commits.length > COMMOT_LIMIT ) {
+        message+= "<li>" + moreCommitsLink(pushEvent) + "</li>";
+    }
     message+="</ul>";
     return message;
 }

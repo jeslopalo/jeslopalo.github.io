@@ -43,18 +43,21 @@ function commitLink(pushEvent, commit) {
     return "<a href='" + url + "'>" + commit.sha.substring(0, 6) + "</a>"
 }
 
-function moreCommitsLink(pushEvent) {
+function pushedCommitsUrl(pushEvent) {
     var size= pushEvent.payload.commits.length;
-    var url= "https://github.com/" + pushEvent.repo.name + "/compare/" + pushEvent.payload.before.substring(0, 10) + "..." + pushEvent.payload.commits[size - 1].sha.substring(0, 10);
-    var count= size - COMMOT_LIMIT;
+    return "https://github.com/" + pushEvent.repo.name + "/compare/" + pushEvent.payload.before.substring(0, 10) + "..." + pushEvent.payload.commits[size - 1].sha.substring(0, 10);
+}
 
-    return "<a href='" + url + "'>" + count + " more commit &gt;&gt;</a>";
+function moreCommitsLink(pushEvent) {
+    var count= pushEvent.payload.commits.length - COMMOT_LIMIT;
+
+    return "<a href='" + pushedCommitsUrl(pushEvent) + "'>" + count + " more commit &gt;&gt;</a>";
 }
 
 var COMMOT_LIMIT= 2;
 function composeMessage(pushEvent) {
 
-    var message= "<time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time>";
+    var message= "<a href='" + pushedCommitsUrl(pushEvent) + "'><time class='timeago' datetime='" + pushEvent.created_at + "'>" + pushEvent.created_at + "</time></a>";
     message+= "<div><span class='prompt'>" + repositoryLink(pushEvent) + " $ </span>git log --oneline</div>";
 
     message+= "<ul id='commits'>";

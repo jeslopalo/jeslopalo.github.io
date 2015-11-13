@@ -43,12 +43,15 @@ function commitLink(pushEvent, commit) {
     return "<a href='" + url + "'>" + commit.sha.substring(0, 6) + "</a>"
 }
 
-function pushedCommitsLink(pushEvent) {
-    var size= pushEvent.payload.commits.length;
-    var url= "https://github.com/" + pushEvent.repo.name + "/compare/" + pushEvent.payload.before.substring(0, 10) + "..." + pushEvent.payload.commits[size - 1].sha.substring(0, 10);
-    var count= size - COMMOT_LIMIT;
+function pushedCommitsUrl(pushEvent) {
+    var size= pushEvent.size;
+    return "https://github.com/" + pushEvent.repo.name + "/compare/" + pushEvent.payload.before.substring(0, 10) + "..." + pushEvent.payload.commits[size - 1].sha.substring(0, 10);
+}
 
-    return "<a href='" + url + "'>" + count + " more commit &gt;&gt;</a>";
+function moreCommitsLink(pushEvent) {
+    var count= pushEvent.size - COMMOT_LIMIT;
+
+    return "<a href='" + pushedCommitsUrl(pushEvent) + "'>" + count + " more commit &gt;&gt;</a>";
 }
 
 var COMMOT_LIMIT= 2;
@@ -66,7 +69,7 @@ function composeMessage(pushEvent) {
         }
     );
     if( pushEvent.payload.commits.length > COMMOT_LIMIT ) {
-        message+= "<li>" + pushedCommitsLink(pushEvent) + "</li>";
+        message+= "<li>" + moreCommitsLink(pushEvent) + "</li>";
     }
     message+="</ul>";
     return message;

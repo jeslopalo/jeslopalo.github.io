@@ -28,7 +28,7 @@ body, html {
     background-attachment: fixed !important;
   }
 
-  @include transform-scale(1.1, 1.1);
+  @include transform-scale(1.01, 1.01);
   @include transition-all(.5s);
 }
 

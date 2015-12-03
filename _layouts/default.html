@@ -9,11 +9,12 @@ layout: compress
 
     <body id="top-of-page" class="{{ page.format }}" data-time="{{ site.time | date_to_xmlschema }}">
 
-        <div id="background"></div>
         {% unless page.skip_navigation %}
             {% include navigation.html position="sticky" %}
         {% endunless %}
+
         <main role="main">
+            <div id="background"></div>
             {{ content }}
         </main>
 

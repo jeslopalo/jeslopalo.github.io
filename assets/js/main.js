@@ -4,7 +4,7 @@ $(document).foundation();
 function animateNavbar() {
 
     var masthead = $('.masthead');
-    var scrollTopThreshold= 60;
+    var scrollTopThreshold= 30;
 
     if(masthead.length == 0) {
         setOpacity(true);

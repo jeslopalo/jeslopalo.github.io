@@ -103,6 +103,9 @@ $(function() {
     calculateBackgroundHeight();
     animateNavbar();
     upToTopButton();
-    githubLastCommit("jeslopalo", "#github-last-push");
-    activateTimeAgo();
+
+    _.defer(function() {
+        githubLastCommit("jeslopalo", "#github-last-push");
+        activateTimeAgo();
+    });
 });

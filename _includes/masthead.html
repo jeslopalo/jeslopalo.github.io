@@ -7,4 +7,10 @@
         <p class="teaser" itemprop="description">{{ page.teaser }}</p>
         {% endif %}
     </div>
+
+    {% if page.format contains 'big' %}
+    <div id="down-to-content">
+        <a href="#content"><i class="fa fa-chevron-down"></i></a>
+    </div>
+    {% endif %}
 </header>

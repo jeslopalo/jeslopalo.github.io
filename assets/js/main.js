@@ -119,6 +119,7 @@ $(function() {
 
     _.defer(function() {
         githubLastCommit("jeslopalo", "#github-last-push");
+        twitterLastTweet("644878478307893249", "twitter-last-tweet");
         activateTimeAgo();
     });
 });

@@ -1,16 +1,17 @@
 
-$(function() {
-    var config1 = {
-        "id": '644878478307893249',
-        "domId": 'twitter-last-tweet',
+function twitterLastTweet(id, domId) {
+    var config = {
+        "id": id,
+        "domId": domId,
         "maxTweets": 1,
         "enableLinks": true,
         "showUser": false,
         "customCallback": handleLastTweet,
         "dateFunction": dateFormatter
     };
-    twitterFetcher.fetch(config1);
-});
+
+    twitterFetcher.fetch(config);
+}
 
 function handleLastTweet(tweets) {
     if(tweets.length == 1) {

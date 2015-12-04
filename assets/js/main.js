@@ -1,5 +1,8 @@
 $(document).foundation();
 
+function throttle(func) {
+    return _.throttle(func, 300);
+}
 
 function animateNavbar() {
 
@@ -11,18 +14,19 @@ function animateNavbar() {
         $('main').animate({ 'padding-top': '80px' }, 500);
     }
     else{
-        $(window).scroll(function() {
+
+        var throttledScroll= throttle(function() {
             var scrolled = $(window).scrollTop() > scrollTopThreshold;
 
             setOpacity(scrolled);
             blurMasthead(scrolled)
         });
-        var scrolled = $(window).scrollTop() > scrollTopThreshold;
+        $(window).scroll(throttledScroll);
 
+        var scrolled = $(window).scrollTop() > scrollTopThreshold;
         setOpacity(scrolled);
         blurMasthead(scrolled)
     }
-
 }
 
 function blurMasthead(blur) {
@@ -36,7 +40,6 @@ function blurMasthead(blur) {
 function setOpacity(opaque) {
     if (opaque) {
         $('#navigation').addClass('opaque').removeClass('transparent');
-
     } else {
         $('#navigation').removeClass('opaque').addClass('transparent');
     }
@@ -55,13 +58,15 @@ function upToTopButton() {
 
     // fade in #up-to-top
     $(function () {
-        $(window).scroll(function () {
+
+        var throttledScroll = throttle(function () {
             if ($(this).scrollTop() > scrollThreshold) {
                 $('#up-to-top').fadeIn();
             } else {
                 $('#up-to-top').fadeOut();
             }
         });
+        $(window).scroll(throttledScroll);
 
         // scroll body to 0px on click
         $('#up-to-top').click(function () {
@@ -101,7 +106,7 @@ function calculateBackgroundHeight() {
     // Fix background image jump on mobile
     if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         $background.css({'top': 'auto', 'bottom': 0});
-        $w.resize(sizeBackground);
+        $w.resize(throttle(sizeBackground));
         sizeBackground();
     }
 

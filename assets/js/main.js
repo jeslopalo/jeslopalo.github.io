@@ -75,6 +75,17 @@ function upToTopButton() {
     $(window).scroll();
 }
 
+function downToContentButton() {
+    $("#down-to-content a").click(function() {
+        var navigationHeight= $("#navigation").height();
+        var position= $("#content").offset().top - navigationHeight;
+
+        $('body,html').animate({
+            scrollTop: position > 0 ? position : 0
+        }, 800);
+        return false;
+    });
+}
 
 //
 function activateTimeAgo() {
@@ -102,7 +113,9 @@ function calculateBackgroundHeight() {
 $(function() {
     calculateBackgroundHeight();
     animateNavbar();
+
     upToTopButton();
+    downToContentButton();
 
     _.defer(function() {
         githubLastCommit("jeslopalo", "#github-last-push");

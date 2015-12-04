@@ -95,8 +95,8 @@ function activateTimeAgo() {
 
 
 function calculateBackgroundHeight() {
-    var $w = $(window),
-        $background = $('#background');
+    var $w = $(window);
+    var $background = $('#background');
 
     // Fix background image jump on mobile
     if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {

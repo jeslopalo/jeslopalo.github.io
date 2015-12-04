@@ -1,5 +1,8 @@
 $(document).foundation();
 
+function throttle(func) {
+    return _.throttle(func, 300);
+}
 
 function animateNavbar() {
 
@@ -11,18 +14,19 @@ function animateNavbar() {
         $('main').animate({ 'padding-top': '80px' }, 500);
     }
     else{
-        $(window).scroll(function() {
+
+        var throttledScroll= throttle(function() {
             var scrolled = $(window).scrollTop() > scrollTopThreshold;
 
             setOpacity(scrolled);
             blurMasthead(scrolled)
         });
-        var scrolled = $(window).scrollTop() > scrollTopThreshold;
+        $(window).scroll(throttledScroll);
 
+        var scrolled = $(window).scrollTop() > scrollTopThreshold;
         setOpacity(scrolled);
         blurMasthead(scrolled)
     }
-
 }
 
 function blurMasthead(blur) {
@@ -36,7 +40,6 @@ function blurMasthead(blur) {
 function setOpacity(opaque) {
     if (opaque) {
         $('#navigation').addClass('opaque').removeClass('transparent');
-
     } else {
         $('#navigation').removeClass('opaque').addClass('transparent');
     }
@@ -55,13 +58,15 @@ function upToTopButton() {
 
     // fade in #up-to-top
     $(function () {
-        $(window).scroll(function () {
+
+        var throttledScroll = throttle(function () {
             if ($(this).scrollTop() > scrollThreshold) {
                 $('#up-to-top').fadeIn();
             } else {
                 $('#up-to-top').fadeOut();
             }
         });
+        $(window).scroll(throttledScroll);
 
         // scroll body to 0px on click
         $('#up-to-top').click(function () {
@@ -75,6 +80,17 @@ function upToTopButton() {
     $(window).scroll();
 }
 
+function downToContentButton() {
+    $("#down-to-content a").click(function() {
+        var navigationHeight= $("#navigation").height();
+        var position= $("#content").offset().top - navigationHeight;
+
+        $('body,html').animate({
+            scrollTop: position > 0 ? position : 0
+        }, 800);
+        return false;
+    });
+}
 
 //
 function activateTimeAgo() {
@@ -84,13 +100,13 @@ function activateTimeAgo() {
 
 
 function calculateBackgroundHeight() {
-    var $w = $(window),
-        $background = $('#background');
+    var $w = $(window);
+    var $background = $('#background');
 
     // Fix background image jump on mobile
     if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
         $background.css({'top': 'auto', 'bottom': 0});
-        $w.resize(sizeBackground);
+        $w.resize(throttle(sizeBackground));
         sizeBackground();
     }
 
@@ -102,7 +118,13 @@ function calculateBackgroundHeight() {
 $(function() {
     calculateBackgroundHeight();
     animateNavbar();
+
     upToTopButton();
-    githubLastCommit("jeslopalo", "#github-last-push");
-    activateTimeAgo();
+    downToContentButton();
+
+    _.defer(function() {
+        githubLastCommit("jeslopalo", "#github-last-push");
+        twitterLastTweet("644878478307893249", "twitter-last-tweet");
+        activateTimeAgo();
+    });
 });

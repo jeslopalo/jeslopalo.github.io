@@ -80,6 +80,22 @@ $up-to-top-icon-size: rem-calc(20);
   }
 }
 
+/* Jump to content
+------------------------------------------------------------------- */
+$down-to-content-icon-size: 30px;
+
+#down-to-content {
+  padding-bottom: $spacing-unit/2;
+  width: 100%;
+  text-align: center;
+
+  a {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: $down-to-content-icon-size;
+  }
+}
+
 /* Text images
 ------------------------------------------------------------------- */
 $paragraph-image-padding: 13px;

@@ -5,16 +5,24 @@
   min-height: calc(30vh - 60px);
   width: 100%;
 
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
+
+  -webkit-flex-flow: column nowrap;
+  flex-flow:         column nowrap;
+
+  -webkit-justify-content: space-between;
+  justify-content:         space-between;
+
+  -webkit-align-items: center;
+  align-items:         center;
 
   body.big & {
     min-height: calc(100vh - 60px);
   }
 
   .description {
+
     padding: 0 $spacing-unit;
     width: 100%;
     vertical-align: middle;

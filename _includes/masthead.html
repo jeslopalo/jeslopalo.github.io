@@ -1,5 +1,11 @@
 <header class="masthead">
     <div class="description">
+        {% if page.format contains 'big' %}
+        <div id="me">
+            <img src="/assets/images/me.jpg" />
+        </div>
+        {% endif %}
+
         {% if page.subheadline %}<p class="subheadline">{{ page.subheadline }}</p>{% endif %}
         <h1>{{ page.title }}</h1>
 

@@ -115,12 +115,17 @@ function calculateBackgroundHeight() {
     }
 }
 
+function startMotionUI() {
+    $(function() { $("main").addClass("is-animating"); });
+}
+
 $(function() {
     calculateBackgroundHeight();
     animateNavbar();
 
     upToTopButton();
     downToContentButton();
+    startMotionUI();
 
     _.defer(function() {
         githubLastCommit("jeslopalo", "#github-last-push");

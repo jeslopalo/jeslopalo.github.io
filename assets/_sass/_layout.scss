@@ -1,6 +1,7 @@
 @import "colors.settings";
 @import "settings";
 @import "../bower_components/foundation/scss/foundation/functions";
+@import "../bower_components/motion-ui/motion-ui";
 
 /* General
 ------------------------------------------------------------------- */
@@ -93,6 +94,14 @@ $down-to-content-icon-size: 30px;
     font-weight: bold;
     font-size: $down-to-content-icon-size;
   }
+}
+
+@include mui-series(1s) {
+  #me    {
+    @include mui-queue(2s, 0s, fade, spin(180deg));
+  }
+
+  #down-to-content { @include mui-queue(1s, 2s, fade); }
 }
 
 /* Text images

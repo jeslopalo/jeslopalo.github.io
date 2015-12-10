@@ -105,7 +105,6 @@ function calculateBackgroundHeight() {
 
     // Fix background image jump on mobile
     if ((/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
-        $background.css({'top': 'auto', 'bottom': 0});
         $w.resize(throttle(sizeBackground));
         sizeBackground();
     }

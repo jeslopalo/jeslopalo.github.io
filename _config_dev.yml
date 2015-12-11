@@ -19,3 +19,6 @@ sass:
 
 # Disable when not in production
 google_analytics_tracking_id:
+
+# Disable when not in production
+metricool_tracking_id:

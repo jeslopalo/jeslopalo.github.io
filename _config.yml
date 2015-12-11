@@ -102,3 +102,15 @@ defaults:
 # used in _includes/footer_scripts
 
 google_analytics_tracking_id: UA-67501983-1
+
+
+
+#                       __       _                  __
+#       ____ ___  ___  / /______(_)________  ____  / /
+#      / __ `__ \/ _ \/ __/ ___/ / ___/ __ \/ __ \/ /
+#     / / / / / /  __/ /_/ /  / / /__/ /_/ / /_/ / /
+#    /_/ /_/ /_/\___/\__/_/  /_/\___/\____/\____/_/
+#
+# https://metricool.com
+
+metricool_tracking_id: 7efe9e82a9f4b5c0aecdbf1463703f52

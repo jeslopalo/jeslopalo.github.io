@@ -30,7 +30,7 @@ body, html {
   }
 
   @include transform-scale(1.01, 1.01);
-  @include transition-all(.5s);
+  @include transition-all(1s);
 }
 
 #background.blurred {

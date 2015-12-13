@@ -1,0 +1,264 @@
+{
+  "work": [
+    {
+      "company": "Colegio de Registradores",
+      "position": "Software developer",
+      "website": "",
+      "startDate": "2009-03-01",
+      "summary": "At the Colegio de Registradores I'm developing a new platform to send short messages (SMS) using digital signature certificates.",
+      "highlights": []
+    },
+    {
+      "company": "Ensos",
+      "position": "Website developer",
+      "website": "",
+      "startDate": "2008-12-01",
+      "summary": "Developing the company's website (http://ensos.net) and doing the search engine optimization (SEO)",
+      "highlights": [],
+      "endDate": "2009-03-01"
+    },
+    {
+      "company": "CleanTech Consulting",
+      "position": "Website developer",
+      "website": "",
+      "startDate": "2008-09-01",
+      "summary": "Developing the company's website (http://ctconsulting.es) and doing the search engine optimization (SEO)",
+      "highlights": [],
+      "endDate": "2008-12-01"
+    },
+    {
+      "company": "Ono",
+      "position": "Software developer",
+      "website": "",
+      "startDate": "2007-06-01",
+      "summary": "",
+      "highlights": [],
+      "endDate": "2008-08-01"
+    },
+    {
+      "company": "Aubay Isalia",
+      "position": "Software developer",
+      "website": "",
+      "startDate": "2005-10-01",
+      "summary": "",
+      "highlights": [],
+      "endDate": "2008-08-01"
+    },
+    {
+      "company": "Digibis sl",
+      "position": "Software developer internship",
+      "website": "",
+      "startDate": "2004-12-01",
+      "summary": "I worked as an intern developer. Mainly writing management software for documentary and bibliographical funds.",
+      "highlights": [],
+      "endDate": "2005-08-01"
+    }
+  ],
+  "education": [
+    {
+      "institution": "IES PADRE PIQUER",
+      "area": "",
+      "studyType": "Bachelor of Technology (B.Tech.)",
+      "startDate": "1994-01-01",
+      "gpa": "",
+      "courses": [],
+      "endDate": "1999-01-01"
+    },
+    {
+      "institution": "Instituto Novatech",
+      "area": "",
+      "studyType": "Master",
+      "startDate": "2005-01-01",
+      "gpa": "",
+      "courses": [],
+      "endDate": "2005-01-01"
+    },
+    {
+      "institution": "Universidad Autónoma de Madrid",
+      "area": "",
+      "studyType": "Master's degree",
+      "startDate": "1999-01-01",
+      "gpa": "",
+      "courses": [],
+      "endDate": "2005-01-01"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Java EE",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Software Development",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Java",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Agile Methodologies",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Analysis",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Test Driven Development",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Domain Driven Design",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Software Design Patterns",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Extreme Programming",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Continuous Integration",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "SEO",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Maven archetypes",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "UML",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Linux",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Web Development",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Spring Framework",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "CSS3",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "HTML 5",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "JavaScript",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Arquitectura orientada a servicios",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Desarrollo guiado por pruebas",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Integración",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Servicios web",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Continuous Delivery",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Open Source Software",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Java Enterprise Edition",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Web Services",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Maven",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "SOA",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "MySQL",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Integration",
+      "level": "",
+      "keywords": []
+    },
+    {
+      "name": "Scrum",
+      "level": "",
+      "keywords": []
+    }
+  ],
+  "languages": [
+    {
+      "language": "Español",
+      "fluency": "Native or bilingual"
+    },
+    {
+      "language": "Inglés",
+      "fluency": "Professional working"
+    }
+  ],
+  "references": [
+    {
+      "name": "Daniel Astillero",
+      "reference": "He's a great technician and a nice person. He was always arranged to help."
+    }
+  ]
+}

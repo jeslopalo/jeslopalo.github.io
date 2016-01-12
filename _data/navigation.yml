@@ -7,9 +7,9 @@
   url: "/projects/flash-messages/"
   side: right
 
-- title: Blog
-  url: "/blog/"
-  side: right
+#- title: Blog
+#  url: "/blog/"
+#  side: right
 
 #- title: "Sobre mi"
 #  url: "/sobre-mi/"

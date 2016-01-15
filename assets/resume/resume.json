@@ -1,19 +1,52 @@
 {
+  "basics": {
+    "name": "Jesús López",
+    "label": "Software developer",
+    "picture": "http://sandbox.es/assets/images/me.jpg",
+    "email": "jesus@sandbox.es",
+    "phone": "(+34) 626472430",
+    "website": "http://sandbox.es",
+    "summary": "He desarrollado software desde el 2004 en diferentes tipos de empresas, ejerciendo varios roles dentro de los equipos de desarrollo. Aún hoy sigo considerándome un aprendiz con ganas de seguir evolucionado en las técnicas, tecnologías, paradigmas y lenguajes existentes.  Normalmente participo en el desarrollo de cualquiera de las capas de una aplicación web. Haciéndome responsable de una funcionalidad de principio a fin, desde el análisis previo de los requisitos, pasando por la experiencia de usuario en la interfaz web, hasta la ejecución del proceso en el backend.   Procuro entender el negocio de la aplicación en la que estoy trabajando, para así poder modelar un dominio rico (ie. Domain Driven Design) que sea suficientemente expresivo y facilitar que otro desarrollador entienda mi trabajo y pueda continuar evolucionándolo.  Me siento alineado con los principios Ágiles pero sobre todo con las técnicas propuestas por el Extreme Programming tales cómo el Test Driven Design, la integración continua, el diseño simple, la refactorización, la entrega frecuente de valor, la propiedad colectiva del código fuente, el ritmo sostenido y sostenible, etc.  Siempre he tratado de buscar la mejor definición del flujo de desarrollo y la automatización -mediante scripting u otro tipo de software- de la mayor parte de los procesos repetitivos cómo la generación de versiones, la integración continua, el despliegue en servidores, etc, maximizando el tiempo del que disponemos los desarrolladores para la implementación de nuevas funcionalidades que aporten valor real al usuario final.  En los últimos proyectos me he responsabilizado además de colaborar en el diseño de la arquitectura del sistema y de seleccionar el stack tecnológico a adoptar. He ejercido además de soporte, asesorando al resto de miembros del equipo sobre las mejores técnicas y usos de dichas tecnologías.",
+    "location": {
+      "address": "C/Castillo de Arevalo, 13, 3ºC",
+      "postalCode": "28232",
+      "city": "Las Rozas de Madrid",
+      "countryCode": "ES",
+      "region": "Madrid"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "jeslopalo",
+        "url": "https://twitter.com/jeslopalo"
+      },
+      {
+        "network": "Github",
+        "username": "jeslopalo",
+        "url": "https://github.com/jeslopalo"
+      }
+    ]
+  },
   "work": [
     {
       "company": "Colegio de Registradores",
       "position": "Software developer",
-      "website": "",
-      "startDate": "2009-03-01",
-      "summary": "At the Colegio de Registradores I'm developing a new platform to send short messages (SMS) using digital signature certificates.",
+      "website": "http://www.registradores.org/",
+      "startDate": "2009-03-23",
+      "summary": "En el Colegio de Registradores existen multitud de aplicaciones desarrolladas por varios equipos de desarrollo. Mi labor en el Colegio de Registradores pasa fundamentalmente por desarrollar nuevas aplicaciones, a veces siendo el único desarrollador y en otras ocasiones participando en grupos más amplios.
+      Con el tiempo me he ido responsabilizando de definir arquitecturas, de proponer nuevas practicas de desarrollo, nuevas tecnologías y de automatizar los procesos rutinarios. Mi objetivo ha sido facilitar el trabajo de mis compañeros desarrolladores y mejorar de ésta manera la calidad de las aplicaciones desarrolladas y de la experiencia de nuestros usuarios.",
       "highlights": []
     },
     {
       "company": "Ensos",
       "position": "Website developer",
-      "website": "",
+      "website": "http://ensos.net",
       "startDate": "2008-12-01",
-      "summary": "Developing the company's website (http://ensos.net) and doing the search engine optimization (SEO)",
+      "summary": "Desarrollo de una página web para ensos (ensos.net). Ensos es una empresa que realiza proyectos energéticos sostenibles y necesita un sitio web para poder ofrecer información a sus posibles clientes.
+
+      Para maximizar la capacidad de atracción de nuevos clientes, ensos necesita tener un buen posicionamiento en buscadores. Es por esto que se desarrolla un sitio sencillo pero teniendo especial cuidado de los contenidos expuestos y de que estos ayuden al posicionamiento SEO.
+
+      Cómo freelance me coordino directamente con el cliente para analizar y diseñar una solución a sus necesidades.",
       "highlights": [],
       "endDate": "2009-03-01"
     },

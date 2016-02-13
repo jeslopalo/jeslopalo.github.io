@@ -28,10 +28,11 @@ exclude:
     - node_modules
 
 markdown: kramdown
+
 kramdown:
   input: GFM
+  syntax_highlighter: rouge
 
-highlighter: pygments
 
 #      _____
 #     / ___/____ ___________

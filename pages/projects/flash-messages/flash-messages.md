@@ -43,7 +43,7 @@ Let's start!
 ##### Bill Of Materials (BOM)
 *flash-messages* artifacts are in **Maven Central** and includes a BOM ([Bill Of Materials](http://kcy.me/15g1b)) to facilitate the use of its modules.
 
-{% highlight xml %}
+```xml
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -55,11 +55,12 @@ Let's start!
         </dependency>
     </dependencies>
 </dependencyManagement>
-{% endhighlight %}
+```
 
 ##### Artifacts
 After importing the *BOM* in your `pom.xml` you can easily declare the modules.
-{% highlight xml %}
+
+```xml
 <dependencies>
     <!-- ... -->
     <dependency>
@@ -76,7 +77,7 @@ After importing the *BOM* in your `pom.xml` you can easily declare the modules.
     </dependency>
     <!-- ... -->
 </dependencies>
-{% endhighlight %}
+```
 
 #### Download
 You can download the latest version directly from GitHub:
@@ -88,11 +89,11 @@ You can download the latest version directly from GitHub:
 #### Building from sources
 You can build the latest version directly from source. Just run:
 
-{% highlight zsh %}
+```zsh
 $ git clone https://github.com/jeslopalo/flash-messages.git
 $ cd flash-messages
 $ mvn clean package
-{% endhighlight %}
+```
 
 ### Configuration
 *flash-messages* is configured using **spring** [JavaConfig](http://kcy.me/15fuu). It has been tested with versions greater or equal than **3.2.6.RELEASE**.
@@ -100,7 +101,7 @@ $ mvn clean package
 #### Default configuration
 In order to obtain the default configuration, just add ```@EnableFlashMessages``` in a ```@Configuration``` class (the same with ```@EnableWebMvc``` should be enough).
 
-{% highlight java %}
+```java
 import es.sandbox.ui.messages.spring.config.annotation.EnableFlashMessages;
    
 @Configuration
@@ -116,12 +117,12 @@ public class WebMvcConfigurer {
     }
     //...
 }
-{% endhighlight %}
+```
 
 #### Custom configuration
 To modify the default behavior of *flash-messages* just extend ```FlashMessagesConfigurerAdapter``` and override those methods that you want to customize.
 
-{% highlight java %}
+```java
 import es.sandbox.ui.messages.Level;
 import es.sandbox.ui.messages.CssClassesByLevel;
 import es.sandbox.ui.messages.spring.config.annotation.EnableFlashMessages;
@@ -132,7 +133,7 @@ import es.sandbox.ui.messages.spring.config.annotation.FlashMessagesConfigurerAd
 public class CustomFlashMessagesConfigurer extends FlashMessagesConfigurerAdapter {
 
     /**
-     * Sets the styles of flash-messages to be compatible 
+     * Sets the styles of flash-messages to be compatible
      * with twitter bootstrap alerts
      */
      @Override
@@ -140,14 +141,14 @@ public class CustomFlashMessagesConfigurer extends FlashMessagesConfigurerAdapte
         cssClasses.put(Level.ERROR, "alert alert-danger");
      }
 }
-{% endhighlight %}
+```
 
 The main elements that can be configured or customized are:  _levels of messages_, the _css classes applied to the levels_, the _strategy to resolve i18n messages_ or _modify the scope where messages are stored_.
 
 ### Writing messages
 In order to write messages, just declare an argument of type ```Flash``` in the handler method (or in a ```@ExceptionHandler``` method), then you can add messages to the different levels.
 
-{% highlight java %}
+```java
 @RequestMapping(value="/target", method= RequestMethod.POST)
 String post(Flash flash, @ModelAttribute FormBackingBean form, BindingResult bindingResult) {
     if (bindingResult.hasErrors()) {        
@@ -169,26 +170,15 @@ String handle(ServiceException exception, Flash flash) {
     flash.error("messages.service-exception");
     return "somewhere";
 }
-{% endhighlight %}
+```
 
 ### Painting messages
 Finally, you must to include the ```<flash:messages />``` taglib in your views (or better in your decorator template).
 
-~~~ html
-<%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
-
-<!-- ... -->
-<flash:messages />
-<!-- ... -->
-~~~~
-
-
 ```html
-
 <%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
 
 <!-- ... -->
 <flash:messages />
 <!-- ... -->
-
 ```

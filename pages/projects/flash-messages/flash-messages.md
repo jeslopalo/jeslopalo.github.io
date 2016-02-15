@@ -42,6 +42,7 @@ Let's start!
 
 ##### Bill Of Materials (BOM)
 *flash-messages* artifacts are in **Maven Central** and includes a BOM ([Bill Of Materials](http://kcy.me/15g1b)) to facilitate the use of its modules.
+
 {% highlight xml %}
 <dependencyManagement>
     <dependencies>
@@ -60,7 +61,7 @@ Let's start!
 After importing the *BOM* in your `pom.xml` you can easily declare the modules.
 {% highlight xml %}
 <dependencies>
-    ...
+    <!-- ... -->
     <dependency>
         <groupId>es.sandbox.ui.messages</groupId>
         <artifactId>flash-messages-core</artifactId>
@@ -73,7 +74,7 @@ After importing the *BOM* in your `pom.xml` you can easily declare the modules.
         <groupId>es.sandbox.ui.messages</groupId>
         <artifactId>flash-messages-taglibs</artifactId>
     </dependency>
-    ...
+    <!-- ... -->
 </dependencies>
 {% endhighlight %}
 
@@ -86,7 +87,8 @@ You can download the latest version directly from GitHub:
 
 #### Building from sources
 You can build the latest version directly from source. Just run:
-{% highlight bash %}
+
+{% highlight zsh %}
 $ git clone https://github.com/jeslopalo/flash-messages.git
 $ cd flash-messages
 $ mvn clean package
@@ -97,6 +99,7 @@ $ mvn clean package
 
 #### Default configuration
 In order to obtain the default configuration, just add ```@EnableFlashMessages``` in a ```@Configuration``` class (the same with ```@EnableWebMvc``` should be enough).
+
 {% highlight java %}
 import es.sandbox.ui.messages.spring.config.annotation.EnableFlashMessages;
    
@@ -104,19 +107,20 @@ import es.sandbox.ui.messages.spring.config.annotation.EnableFlashMessages;
 @EnableFlashMessages
 @EnableWebMvc
 public class WebMvcConfigurer {
-    ...
+    //...
     @Bean
     public MessageSource messageSource() {      
         ReloadableResourceBundleMessageSource messageSource= new ReloadableResourceBundleMessageSource();
         messageSource.setBasenames("WEB-INF/i18n/messages");        
         return messageSource;
     }
-    ...
+    //...
 }
 {% endhighlight %}
 
 #### Custom configuration
 To modify the default behavior of *flash-messages* just extend ```FlashMessagesConfigurerAdapter``` and override those methods that you want to customize.
+
 {% highlight java %}
 import es.sandbox.ui.messages.Level;
 import es.sandbox.ui.messages.CssClassesByLevel;
@@ -169,11 +173,22 @@ String handle(ServiceException exception, Flash flash) {
 
 ### Painting messages
 Finally, you must to include the ```<flash:messages />``` taglib in your views (or better in your decorator template).
-{% highlight jsp %}
+
+~~~ html
 <%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
 
-...
+<!-- ... -->
 <flash:messages />
-...
+<!-- ... -->
+~~~~
 
-{% endhighlight %}
+
+```html
+
+<%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
+
+<!-- ... -->
+<flash:messages />
+<!-- ... -->
+
+```

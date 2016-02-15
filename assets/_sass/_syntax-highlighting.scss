@@ -24,7 +24,7 @@
 .highlight .gh { color: #f6f3e8; font-weight: bold} /* Generic.Heading */
 .highlight .gi { color: #e2e2e5} /* Generic.Inserted */
 .highlight .go { color: #808080; background-color: #303030 } /* Generic.Output */
-.highlight .gp { color: #e2e2e5} /* Generic.Prompt */
+.highlight .gp { color: #808080} /* Generic.Prompt */
 .highlight .gs { color: #e2e2e5} /* Generic.Strong */
 .highlight .gu { color: #f6f3e8; font-weight: bold} /* Generic.Subheading */
 .highlight .gt { color: #e2e2e5} /* Generic.Traceback */
@@ -38,7 +38,7 @@
 .highlight .m { color: #ff9800} /* Literal.Number */
 .highlight .s { color: #b1d631; font-style: italic} /* Literal.String */
 .highlight .na { color: #ffffff; font-weight: bold} /* Name.Attribute */
-.highlight .nb { color: #e2e2e5} /* Name.Builtin */
+.highlight .nb { color: #b1d631} /* Name.Builtin */
 .highlight .nc { color: #e2e2e5} /* Name.Class */
 .highlight .no { color: #ff9800} /* Name.Constant */
 .highlight .nd { color: #e2e2e5} /* Name.Decorator */
@@ -74,7 +74,7 @@
 .highlight .vi { color: #b1d631} /* Name.Variable.Instance */
 .highlight .il { color: #ff9800} /* Literal.Number.Integer.Long */
 
-.highlight {
+figure.highlight, div.highlighter-rouge {
     @extend %vertical-rhythm;
 
     background: $highlight-code-background;

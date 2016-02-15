@@ -174,11 +174,21 @@ String handle(ServiceException exception, Flash flash) {
 ### Painting messages
 Finally, you must to include the ```<flash:messages />``` taglib in your views (or better in your decorator template).
 
-{% highlight xml %}
+~~~ html
+<%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
+
+<!-- ... -->
+<flash:messages />
+<!-- ... -->
+~~~~
+
+
+```html
+
 <%@ taglib prefix="flash" uri="http://sandbox.es/tags/flash-messages" %>
 
 <!-- ... -->
 <flash:messages />
 <!-- ... -->
 
-{% endhighlight %}
+```

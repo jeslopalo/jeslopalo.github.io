@@ -74,7 +74,7 @@
 .highlight .vi { color: #b1d631} /* Name.Variable.Instance */
 .highlight .il { color: #ff9800} /* Literal.Number.Integer.Long */
 
-.highlight {
+figure.highlight, div.highlighter-rouge {
     @extend %vertical-rhythm;
 
     background: $highlight-code-background;

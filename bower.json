@@ -6,7 +6,7 @@
     "jquery-timeago": "timeago#~1.4.2",
     "modernizr": "~2.8.3",
     "motion-ui": "~1.1.1",
-    "twitter-fetcher": "~13.1.0",
+    "twitter-fetcher": "^15.0.0",
     "underscore": "~1.8.3"
   }
 }

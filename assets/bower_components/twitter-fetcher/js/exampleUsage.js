@@ -49,7 +49,7 @@
  *     to manipulate them yourself before outputting. If you specify
  *     this parameter you must output data yourself!
  * @param object.showInteraction [boolean] Set false if you don't want links
- *     for reply, retweet and favourite to show.'<'
+ *     for reply, retweet and favourite to show.
  * @param object.showImages [boolean] Set true if you want images from tweet
  *     to show.
  * @param object.linksInNewWindow [boolean] Set false if you don't want links
@@ -59,6 +59,9 @@
  *     is "en" (English).
  * @param object.showPermalinks [boolean] Set false if you don't want time
  *     to be permalinked.
+ * @param object.dataOnly [boolean] Set true if you want the argument passed
+ *     to the customCallback to be an Array of Objects containing data
+ *     instead of an Array of HTML Strings
  */
 
 // ##### Simple example 1 #####
@@ -204,6 +207,7 @@ twitterFetcher.fetch(config6);
 // ##### CommonJS example (e.g. Browserify) #####
 // The result of this example is identical to example 1, but it's meant for
 // usage through Browserify or compatible bundler.
+/*
 var fetcher = require('twitter-fetcher'); //debowerify may be needed
 var config7 = {
   "id": '345170787868762112',
@@ -212,11 +216,12 @@ var config7 = {
   "enableLinks": true
 };
 fetcher.fetch(config7);
-
+*/
 
 // ##### AMD example (e.g. Require.js) #####
 // The result of this example is identical to example 1, but it's meant for
 // usage with Require.js or similar loader.
+/*
 require(['twitter-fetcher'], function (fetcher) {
   var config7 = {
     "id": '345170787868762112',
@@ -226,3 +231,33 @@ require(['twitter-fetcher'], function (fetcher) {
   };
   fetcher.fetch(config7);
 });
+*/
+
+
+// ##### Advanced example 3 #####
+// An advance example to get data in Objects, instead of HTML Strings,
+// to populate a template for example.
+
+var config8 = {
+  "id": '502160051226681344',
+  "dataOnly": true,
+  "customCallback": populateTpl
+};
+
+twitterFetcher.fetch(config8);
+
+function populateTpl(tweets){
+  var element = document.getElementById('example8');
+  var html = '<ul>';
+  for (var i = 0, lgth = tweets.length; i < lgth ; i++) {
+    var tweetObject = tweets[i];
+    html += '<li>'
+      + (tweetObject.image ? '<div class="tweet-img"><img src="'+tweetObject.image+'" /></div>' : '')
+      + '<p class="tweet-content">' + tweetObject.tweet + '</p>'
+      + '<p class="tweet-infos">Posted on the ' + tweetObject.time + ', by ' + tweetObject.author + '</p>'
+      + '<p class="tweet-link"><a href="' + tweetObject.permalinkURL + '">Link</a></p>'
+    + '</li>';
+  }
+  html += '</ul>';
+  element.innerHTML = html;
+}

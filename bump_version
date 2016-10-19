@@ -3,7 +3,7 @@
 set -e
 
 if [ "$#" != 1 ]; then
-    echo "usage: bump_version.sh [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease]\n"
+    echo "usage: bump_version [<newversion> | major | minor | patch]\n"
     exit 1
 fi
 

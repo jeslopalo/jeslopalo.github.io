@@ -11,6 +11,18 @@ $ bundle install
 $ bundle update
 ```
 
+### Updating bower
+
+```sh
+$ bower update --force --save
+```
+
+If bower needs to be updated:
+
+```sh
+$ npm install -g bower
+```
+
 ### Run Jekyll
 
 To run the server:
@@ -25,4 +37,6 @@ To stop the server, press Ctrl+c:
 $ ^C
 ```
 
-### 
+### Viewing the result
+
+Go to your favourite browser and visit [the site url in localhost](127.0.0.1:4000)

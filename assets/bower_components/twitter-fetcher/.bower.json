@@ -28,7 +28,7 @@
     "tag": "15.0.1",
     "commit": "c97fff9719478a15804fdf26bfb2e0730caa83bd"
   },
-  "_source": "git://github.com/jasonmayes/Twitter-Post-Fetcher.git",
+  "_source": "https://github.com/jasonmayes/Twitter-Post-Fetcher.git",
   "_target": "^15.0.0",
   "_originalSource": "twitter-fetcher"
 }

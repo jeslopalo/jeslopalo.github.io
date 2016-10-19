@@ -47,7 +47,7 @@ Go to your favourite browser and visit [the site url in localhost](127.0.0.1:400
 
 ```sh
 $ ./bump_version
-usage: bump_version [<newversion> | major | minor | patch]
+usage: bump_version [ <newversion> | major | minor | patch ]
 ```
 
 Given a version number _MAJOR_._MINOR_._PATCH_:

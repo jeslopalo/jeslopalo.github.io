@@ -1,3 +1,9 @@
+### v1.2.1 (2016-10-21) - Remove 'cursive' font-family in headings
+
+  * [bfd06bb] Substitute 'cursive' font-family as an alternative for headings
+  * [5ebfe2a] Bump version in package.json
+
+
 ### v1.2.0 (2016-10-19) - Minor tweaks and documentation
 
   * [500f93c] Update gem dependencies in Gemfile.lock
@@ -8,6 +14,8 @@
   * [c6d9198] Modify flash-messages version
   * [9f52186] Update bump version instructions
   * [bde20ad] Minor tweak
+  * [41d7aaa] Update CHANGELOG.md with 1.2.0 changes
+  * [9da0c92] Bump version in package.json
 
 
 ### v1.1.2 (2016-03-20) - Fix 'twitter activity' section

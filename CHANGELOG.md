@@ -1,7 +1,20 @@
+### v1.3.0 (2016-10-29) - Update flash-messages documentation
+
+  * [f81435c] Remove an old html page template
+  * [eca5613] Remove unncessary front matter from main.scss
+  * [5c00efd] Unpublish english version of index
+  * [b1c5dee] Revert "Remove unncessary front matter from main.scss"
+  * [7d2bb5f] Fix not valid front matter
+  * [bb6b1a5] Change sitemap inclusion condition
+  * [e2760db] Modify flash-messages documentation
+  * [2100f40] Bump version in package.json
+
+
 ### v1.2.1 (2016-10-21) - Remove 'cursive' font-family in headings
 
   * [bfd06bb] Substitute 'cursive' font-family as an alternative for headings
   * [5ebfe2a] Bump version in package.json
+  * [579b4a4] Update CHANGELOG.md with 1.2.1 changes
 
 
 ### v1.2.0 (2016-10-19) - Minor tweaks and documentation

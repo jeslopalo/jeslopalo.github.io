@@ -1,3 +1,10 @@
+### v1.4.0 (2017-01-04) - New redirect layout
+
+  * [54d74de] Add redirected layout for 301 redirects
+  * [75f728a] Add redirect from /flash-messages to /projects/flash-messages
+  * [76c7bd8] Bump version in package.json
+
+
 ### v1.3.0 (2016-10-29) - Update flash-messages documentation
 
   * [f81435c] Remove an old html page template
@@ -8,6 +15,7 @@
   * [bb6b1a5] Change sitemap inclusion condition
   * [e2760db] Modify flash-messages documentation
   * [2100f40] Bump version in package.json
+  * [6c0ce62] Update CHANGELOG.md with 1.3.0 changes
 
 
 ### v1.2.1 (2016-10-21) - Remove 'cursive' font-family in headings

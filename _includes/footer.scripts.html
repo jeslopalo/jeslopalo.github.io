@@ -6,6 +6,7 @@
 <script src="{{ '/assets/bower_components/motion-ui/dist/motion-ui.min.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/bower_components/twitter-fetcher/js/twitterFetcher_min.js' | prepend: site.baseurl }}"></script>
 
+{% if page.script %}<script src="{{ page.script }}"></script>{% endif %}
 <script src="{{ '/assets/js/twitter.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/github.js' | prepend: site.baseurl }}"></script>
 <script src="{{ '/assets/js/main.js' | prepend: site.baseurl }}"></script>

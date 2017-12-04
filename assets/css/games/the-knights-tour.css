@@ -1,0 +1,106 @@
+.masthead {
+    padding: 5px 0 0;
+    min-height: calc(14vh - 60px);
+}
+
+.masthead .description {
+    padding: 0 20px;
+}
+
+.masthead .description h1 {
+    font-size: 1.3em;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+.wrapper {
+    max-width: none;
+    width: 95%;
+}
+
+#gameBoard {
+    border: 1px solid black;
+    table-layout: fixed;
+    margin: auto;
+}
+
+#gameBoard .row:before, #gameBoard .row:after {
+    content: normal;
+    display: table;
+}
+
+#gameBoard td.cell {
+    background-color: white;
+
+    height: 1cm !important;
+    width: 1cm !important;
+    padding: 0;
+    border: 1px solid gainsboro;
+    font-size: 1em;
+    color: black;
+    text-align: center;
+}
+
+#gameBoard td.cell.candidate:hover, #gameBoard td.cell.last:hover {
+    cursor: pointer;
+}
+
+#gameBoard td.cell.selected {
+    background-color: beige;
+}
+
+#gameBoard td.cell.last {
+    background-color: orange;
+}
+
+#gameBoard td.cell.candidate {
+    background-color: aquamarine;
+}
+
+#canvas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+#board {
+    order: 0;
+    flex: 7 1 auto;
+    align-self: flex-start;
+}
+
+#controls {
+    order: 0;
+    flex: 0 0 300px;
+    align-self: auto;
+}
+
+#controls > * {
+    padding: .2em;
+    margin-left: 20px;
+}
+
+#controls input {
+    display: inline;
+    width: 4em;
+}
+
+#controls #clean {
+    margin-left: .5em;
+    padding: 8px 1em;
+}
+
+#message {
+    height: 3em;
+    padding: 1em 0px;
+}
+
+.winner {
+    font-weight: bold;
+    color: green;
+}
+
+.loser {
+    color: red;
+}

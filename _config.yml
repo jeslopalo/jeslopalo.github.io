@@ -10,6 +10,12 @@ author: jeslopalo
 
 timezone: Europe/Madrid
 
+plugins:
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
+
 services:
   disqus_shortname: sandboxes
 
@@ -30,6 +36,7 @@ exclude:
 markdown: kramdown
 kramdown:
   input: GFM
+  hard_wrap: false
   syntax_highlighter: rouge
 
 

@@ -8,6 +8,8 @@
 url: ''
 host: 0.0.0.0
 
+incremental: true
+
 sass:
   # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
   style: expanded

@@ -10,7 +10,7 @@ author: jeslopalo
 
 timezone: Europe/Madrid
 
-gems:
+plugins:
   - jekyll-redirect-from
 
 whitelist:

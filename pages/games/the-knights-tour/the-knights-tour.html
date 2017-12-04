@@ -1,0 +1,30 @@
+---
+layout: game
+title: "The knight's tour"
+author: null
+permalink: "/games/the-knights-tour/"
+script: "/assets/js/games/the-knights-tour.js"
+stylesheet: "/assets/css/games/the-knights-tour.css"
+image:
+    masthead: "/assets/images/header/the-knights-tour.png"
+---
+<section>
+    <div id="canvas">
+        <div id="board"></div>
+        <div id="controls">
+            <div id="message"></div>
+            <div>
+                <a href="#5x5">5x5</a>
+                <a href="#10x10">10x10</a>
+                <a href="#15x15">15x15</a>
+            </div>
+            <form>
+                <div>
+                    <input type="number" id="rows" placeholder="filas" min="1" step="1" max="15">
+                    <input type="number" id="columns" placeholder="columnas" min="1" step="1" max="15">
+                    <button id="clean">New game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

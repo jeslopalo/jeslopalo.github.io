@@ -118,7 +118,7 @@ function Cell(row, column) {
 
 function Board(canvas, container, dimensions) {
     const MIN_CELL_LENGTH = 38;
-    const MAX_CELL_LENGTH = 100;
+    const MAX_CELL_LENGTH = 120;
 
     this.$canvas = $(canvas);
     this.$board = $(container);

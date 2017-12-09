@@ -74,6 +74,8 @@ table#gameBoard {
     margin: 10px auto;
     border: 1px solid black;
     table-layout: fixed;
+
+    border-collapse: collapse;
 }
 
 #gameBoard tr {
@@ -86,13 +88,14 @@ table#gameBoard {
 }
 
 #gameBoard td.cell {
-    background-color: white;
     padding: 0;
-    border: 1px solid gainsboro;
+    margin: 0;
     font-size: 18px;
     font-weight: bold;
-    color: black;
     text-align: center;
+    background-color: white;
+    border: 1px solid darkgrey;
+    color: black;
 }
 
 #gameBoard td.cell.candidate:hover,

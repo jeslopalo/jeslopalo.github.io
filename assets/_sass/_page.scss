@@ -3,7 +3,7 @@
 /* Pages, Posts
 ------------------------------------------------------------------- */
 
-.page, .post {
+.page, .post, .game {
 
   h2 {
     font-size: 32px;
@@ -34,21 +34,27 @@
     padding: $spacing-unit 0 $spacing-unit*2;
     background-color: $theme-background;
   }
+
+  .game-content {
+    min-height: 63vh;
+    padding: 0;
+    background-color: $theme-background;
+  }
 }
 
 /* Posts list
 ------------------------------------------------------------------- */
 
 .post-category {
-  font-size: $small-font-size;
-  font-weight: 400;
-  color: $theme-orange;
-  font-style: italic;
+   font-size: $small-font-size;
+   font-weight: 400;
+   color: $theme-orange;
+   font-style: italic;
 
-  background-color: darken($theme-background, 5%);
-  border-radius: 3px;
-  padding: 3px 6px;
-}
+   background-color: darken($theme-background, 5%);
+   border-radius: 3px;
+   padding: 3px 6px;
+ }
 
 .post-list {
   margin-top: $spacing-unit;

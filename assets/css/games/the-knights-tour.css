@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .masthead {
     padding: 5px 0 0;
     min-height: calc(14vh - 60px);
@@ -15,46 +17,7 @@
 
 .wrapper {
     max-width: none;
-    width: 95%;
-}
-
-#gameBoard {
-    border: 1px solid black;
-    table-layout: fixed;
-    margin: auto;
-}
-
-#gameBoard .row:before, #gameBoard .row:after {
-    content: normal;
-    display: table;
-}
-
-#gameBoard td.cell {
-    background-color: white;
-
-    height: 1cm !important;
-    width: 1cm !important;
     padding: 0;
-    border: 1px solid gainsboro;
-    font-size: 1em;
-    color: black;
-    text-align: center;
-}
-
-#gameBoard td.cell.candidate:hover, #gameBoard td.cell.last:hover {
-    cursor: pointer;
-}
-
-#gameBoard td.cell.selected {
-    background-color: beige;
-}
-
-#gameBoard td.cell.last {
-    background-color: orange;
-}
-
-#gameBoard td.cell.candidate {
-    background-color: aquamarine;
 }
 
 #canvas {
@@ -74,26 +37,28 @@
     order: 0;
     flex: 0 0 300px;
     align-self: auto;
+
+    max-width: 300px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
 }
 
-#controls > * {
-    padding: .2em;
-    margin-left: 20px;
+#controls #starters li:first-child {
+    margin-left: 0;
 }
 
-#controls input {
-    display: inline;
-    width: 4em;
+#controls #starters li:last-child {
+    margin-right: 0;
 }
 
-#controls #clean {
-    margin-left: .5em;
-    padding: 8px 1em;
+#controls .columns {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #message {
-    height: 3em;
-    padding: 1em 0px;
+    padding-top: 10px;
+    height: 2rem;
 }
 
 .winner {
@@ -104,3 +69,62 @@
 .loser {
     color: red;
 }
+
+table#gameBoard {
+    margin: 10px auto;
+    border: 1px solid black;
+    table-layout: fixed;
+}
+
+#gameBoard tr {
+    height: 1cm !important;
+}
+
+#gameBoard tr:before, #gameBoard tr:after {
+    content: normal;
+    display: table;
+}
+
+#gameBoard td.cell {
+    background-color: white;
+    padding: 0;
+    border: 1px solid gainsboro;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}
+
+#gameBoard td.cell.candidate:hover,
+#gameBoard td.cell.last:hover {
+    cursor: pointer;
+}
+
+#gameBoard td.cell.selected {
+    background-color: beige;
+}
+
+#gameBoard td.cell.last {
+    background-color: orange;
+}
+
+#gameBoard td.cell.candidate {
+    background-color: aquamarine;
+}
+
+.fullscreen {
+    padding: 1em 2em;
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen #controls {
+    /*display: none;*/
+}
+
+a.fullscreen-activator {
+    float: right;
+    font-size: 1.1em;
+    margin: 0 10px 10px 0;
+}
+

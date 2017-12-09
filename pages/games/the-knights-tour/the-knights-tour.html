@@ -7,24 +7,61 @@ script: "/assets/js/games/the-knights-tour.js"
 stylesheet: "/assets/css/games/the-knights-tour.css"
 image:
     masthead: "/assets/images/header/the-knights-tour.png"
+include_fullscreen: true
 ---
 <section>
     <div id="canvas">
-        <div id="board"></div>
-        <div id="controls">
-            <div id="message"></div>
+        <div id="board">
+            <div id="message" class="text-center"></div>
+            <div id="table"></div>
             <div>
-                <a href="#5x5">5x5</a>
-                <a href="#10x10">10x10</a>
-                <a href="#15x15">15x15</a>
+                <a href="#" class="fullscreen-activator tiny secondary button">
+                    <span><i class="fa fa-expand"></i></span>
+                </a>
             </div>
-            <form>
-                <div>
-                    <input type="number" id="rows" placeholder="filas" min="1" step="1" max="15">
-                    <input type="number" id="columns" placeholder="columnas" min="1" step="1" max="15">
-                    <button id="clean">New game</button>
-                </div>
-            </form>
         </div>
+        <div id="controls">
+            <form>
+                <ul id="starters" class="button-group radius even-3">
+                    <li><a class="tiny secondary button" href="#5x5">5x5</a></li>
+                    <li><a class="tiny secondary button" href="#10x10">10x10</a></li>
+                    <li><a class="tiny secondary button" href="#15x15">15x15</a></li>
+                </ul>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div class="row collapse">
+                            <div class="small-4 columns">
+                                <input type="number" id="rows" placeholder="rows" min="1" step="1" max="15">
+                            </div>
+                            <div class="small-4 columns">
+                                <input type="number" id="columns" placeholder="columns" min="1" step="1" max="15">
+                            </div>
+                            <div class="small-4 columns">
+                                <button class="button postfix" id="clean">New game</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <label>hints</label>
+
+                        <div class="switch">
+                            <input id="switch_hints" type="checkbox" checked="checked">
+                            <label for="switch_hints"></label>
+                        </div>
+                    </div>
+                    <div class="small-4 columns end">
+                        <label>fullscreen</label>
+
+                        <div class="switch">
+                            <input id="switch_fullscreen" type="checkbox" class="fullscreen-activator">
+                            <label for="switch_fullscreen"></label>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+    </div>
     </div>
 </section>

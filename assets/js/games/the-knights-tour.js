@@ -95,7 +95,7 @@ function Cell(row, column) {
         return this._value;
     };
 
-    this.update = function ($tableCell) {
+    this.update = function ($tableCell, board) {
         this._selected ? $tableCell.addClass("selected") : $tableCell.removeClass("selected");
         var background = "";
         var color = "";
@@ -103,8 +103,11 @@ function Cell(row, column) {
             background = "rgb(" + (255 - this._value) + "," + (255 - this._value) + "," + (230 - this._value) + ")";
             color = "rgb(" + (15 + this._value) + "," + (15 + this._value) + "," + (30 + this._value) + ")";
         }
+        var cellLength = board.cellLength();
         $tableCell.css('background-color', background);
         $tableCell.css('color', color);
+        $tableCell.css("width", cellLength + 'px')
+        $tableCell.css("height", cellLength + 'px');
         $tableCell.text(this._value);
     };
 
@@ -113,17 +116,20 @@ function Cell(row, column) {
     };
 }
 
-function Board(dimensions) {
-    this.$board;
+function Board(canvas, container, dimensions) {
+    const MIN_CELL_LENGTH = 38;
+    const MAX_CELL_LENGTH = 120;
+
+    this.$canvas = $(canvas);
+    this.$board = $(container);
 
     this.dimensions = dimensions;
     this.movements = new Stack();
     this.counter = new Counter();
     this.finished = false;
 
-    this.initialize = function (selector) {
-        this.$board = $(selector);
-        this.$board.html(createGameBoard(this, this.dimensions));
+    this.initialize = function () {
+        this.$board.html(createGameBoard(this));
         return this;
     };
 
@@ -133,8 +139,18 @@ function Board(dimensions) {
         $("#message").text("");
         this.counter.reset();
         this.movements.clear()
-        this.$board.html(createGameBoard(this, this.dimensions));
+        this.$board.html(createGameBoard(this));
         return this;
+    };
+
+    this.cellLength = function () {
+        var viewport_width = $(window).width();
+        var viewport_height = $(window).height();
+
+        var min_total_length =
+            Math.min(viewport_height, viewport_width) - (screenfull.isFullscreen ? 100 : 200);
+
+        return Math.max(Math.min(Math.floor(min_total_length / this.dimensions.rows), MAX_CELL_LENGTH), MIN_CELL_LENGTH);
     };
 
     this.click = function (element) {
@@ -202,11 +218,12 @@ function Board(dimensions) {
             $currentTableCell.addClass("last");
         }
 
+        board = this;
         this.$board.find(".cell").each(function () {
             var $tableCell = $(this);
             var cell = $tableCell.data("cell");
 
-            cell.update($tableCell);
+            cell.update($tableCell, board);
         });
 
         candidates(this, currentCell).forEach(function (candidate) {
@@ -257,23 +274,29 @@ function Board(dimensions) {
         });
     }
 
-    function createGameBoard(board, dimensions) {
+    function createGameBoard(board) {
 
+        var dimensions = board.dimensions;
         var table = $('<table></table>')
-            .attr({id: "gameBoard", class: "table table-hover"});
+            .attr({
+                id: "gameBoard",
+                "data-rows": dimensions.rows,
+                "data-columns": dimensions.columns
+            });
 
         for (var i = 1; i <= dimensions.rows; i++) {
-            var row = $('<tr></tr>')
-                .attr({class: ["row"].join(' ')})
-                .appendTo(table);
+            var row = $('<tr></tr>').appendTo(table);
 
             for (var j = 1; j <= dimensions.columns; j++) {
                 var cell = new Cell(i, j);
+                var cellLength = board.cellLength();
 
                 $('<td></td>')
                     .data("cell", cell)
                     .attr("data-coordinates", cell.coordinates())
                     .addClass("cell")
+                    .css("width", cellLength + 'px')
+                    .css("height", cellLength + 'px')
                     .click(function () {
                         board.click($(this));
                         board.checkWinner();
@@ -341,7 +364,7 @@ function Dimensions() {
 $(function () {
 
     var dimensions = new Dimensions().readHash().writeHash().writeForm();
-    var board = new Board(dimensions).initialize("#board");
+    var board = new Board("#canvas", "#board #table", dimensions).initialize();
 
     $("#clean").click(function (e) {
         e.preventDefault();
@@ -349,8 +372,42 @@ $(function () {
         board.reinitialize(dimensions);
     });
 
+    $(window).on('resize', function () {
+        board.update();
+    });
+
     $(window).on('hashchange', function () {
         var dimensions = new Dimensions().readHash().writeHash().writeForm();
         board.reinitialize(dimensions);
     });
+
+    if (screenfull.enabled) {
+        screenfull.on('change', function (event) {
+            console.log(event);
+
+            onFullscreenChange(board);
+        });
+
+        $("input[type=checkbox].fullscreen-activator").change(function () {
+            screenfull.toggle(board.$canvas[0]);
+        });
+
+        $("a.fullscreen-activator").click(function (event) {
+            event.preventDefault();
+            screenfull.toggle(board.$canvas[0]);
+        });
+    }
 });
+
+function onFullscreenChange(board) {
+    $activator_links = $("a.fullscreen-activator");
+    $activator_checkboxes = $("input[type=checkbox].fullscreen-activator");
+
+    var isFullscreen = screenfull.isFullscreen;
+
+    board.$canvas.toggleClass("fullscreen");
+    $activator_links.find("i").toggleClass(isFullscreen ? "fa-expand fa-compress" : "fa-compress fa-expand");
+    $activator_checkboxes.prop('checked', isFullscreen);
+
+    board.update();
+}

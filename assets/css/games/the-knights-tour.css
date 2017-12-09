@@ -98,7 +98,7 @@ table#gameBoard {
     color: black;
 }
 
-#gameBoard td.cell.candidate:hover,
+.hints #gameBoard td.cell.candidate:hover,
 #gameBoard td.cell.last:hover {
     cursor: pointer;
 }
@@ -111,7 +111,7 @@ table#gameBoard {
     background-color: orange;
 }
 
-#gameBoard td.cell.candidate {
+.hints #gameBoard td.cell.candidate {
     background-color: aquamarine;
 }
 

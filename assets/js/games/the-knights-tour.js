@@ -381,6 +381,10 @@ $(function () {
         board.reinitialize(dimensions);
     });
 
+    $("input[type=checkbox].hints-activator").change(function () {
+        board.$board.toggleClass("hints");
+    });
+
     if (screenfull.enabled) {
         screenfull.on('change', function (event) {
             console.log(event);

@@ -75,7 +75,7 @@ compress_html:
 defaults:
   -
     scope:
-      path: "" 				# an empty string here means all files in the project
+      path: "pages" 		# an empty string here means all files in the project
       type: "pages"
     values:
       language: es
@@ -87,7 +87,7 @@ defaults:
       author: jeslopalo     # Default author for pages
   -
     scope:
-      path: ""
+      path: "_posts"
       type: "posts"
     values:
       language: es
@@ -98,6 +98,17 @@ defaults:
       # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts
+  -
+    scope:
+      path: "assets"
+    values:
+      sitemap:
+        exclude: true
+  -
+    scope:
+      path: "assets/images"
+    values:
+      image: true
 
 #       ___                __      __  _
 #      /   |  ____  ____ _/ /_  __/ /_(_)_________

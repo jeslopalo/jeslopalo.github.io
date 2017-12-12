@@ -15,8 +15,8 @@ permalink: /draft/
 categories: draft
 comments: false
 sitemap:
- exclude: false
-#published: false
+ exclude: true
+published: false
 ---
 The dreams of yesterday are the hopes of today and the reality of tomorrow.<!--more-->
 

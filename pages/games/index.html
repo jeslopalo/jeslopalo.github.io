@@ -1,0 +1,26 @@
+---
+layout: list
+title: "Games"
+author: null
+permalink: "/games/"
+image:
+    masthead: "/assets/images/header/outrun.png"
+---
+<ul class="items-list">
+    {% for game in site.games %}
+    <li>
+        <time class="items-list-element-time timeago" datetime="{{ game.date | date_to_xmlschema }}">{{ game.date | date:
+            "%b %-d, %Y" }}
+        </time>
+        {% include categories.inline.html categories=game.categories %}
+        <h2>
+            <a class="item-link" href="{{ game.url | prepend: site.baseurl }}">{{ game.title }}</a>
+        </h2>
+        {% if game.description %}
+            {{ game.description | markdownify }}
+        {% elsif game.teaser %}
+            {{ game.teaser | markdownify }}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

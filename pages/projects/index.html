@@ -1,0 +1,24 @@
+---
+layout: list
+title: "Projects"
+author: null
+permalink: "/projects/"
+---
+<ul class="items-list">
+    {% for project in site.projects %}
+    <li>
+        <time class="items-list-element-time timeago" datetime="{{ project.date | date_to_xmlschema }}">{{ project.date | date:
+            "%b %-d, %Y" }}
+        </time>
+        {% include categories.inline.html categories=project.categories %}
+        <h2>
+            <a class="item-link" href="{{ project.url | prepend: site.baseurl }}">{{ project.title }}</a>
+        </h2>
+        {% if project.description %}
+            {{ project.description | markdownify }}
+        {% elsif project.teaser %}
+            {{ project.teaser | markdownify }}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>

@@ -52,7 +52,7 @@ sass:
 
 
 
-# Used › default.html front-matter and comress.html
+# Used › default.html front-matter and compress.html
 # Options › http://jch.penibelst.de
 compress_html:
   clippings: all
@@ -61,6 +61,21 @@ compress_html:
   profile: false
   ignore:
     envs: [development, local]
+
+
+#                  ____          __  _
+#      _________  / / /__  _____/ /_(_)___  ____  _____
+#     / ___/ __ \/ / / _ \/ ___/ __/ / __ \/ __ \/ ___/
+#    / /__/ /_/ / / /  __/ /__/ /_/ / /_/ / / / (__  )
+#    \___/\____/_/_/\___/\___/\__/_/\____/_/ /_/____/
+#
+collections:
+  games:
+    output: true
+    permalink: /:collection/:name
+  projects:
+    output: true
+    permalink: /:collection/:name
 
 
 #
@@ -75,6 +90,28 @@ compress_html:
 defaults:
   -
     scope:
+      path: "_games"
+      type: "games"
+    values:
+      language: es
+      image:
+        masthead: ""
+      show_meta: false
+      comments: false
+      author: jeslopalo
+  -
+    scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      language: es
+      image:
+        masthead: "/assets/images/header/lego-header.jpg"
+      show_meta: false
+      comments: false
+      author: jeslopalo
+  -
+    scope:
       path: "pages" 		# an empty string here means all files in the project
       type: "pages"
     values:
@@ -84,7 +121,6 @@ defaults:
       show_meta: false 	    # Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: jeslopalo     # Default author for pages
   -
     scope:
       path: "_posts"
@@ -104,6 +140,11 @@ defaults:
     values:
       sitemap:
         exclude: true
+  -
+    scope:
+      path: "assets/images/header"
+    values:
+      masthead_image: true
   -
     scope:
       path: "assets/images"

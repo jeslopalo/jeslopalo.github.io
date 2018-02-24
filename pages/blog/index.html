@@ -1,0 +1,25 @@
+---
+layout: list
+title: "Blog posts"
+author: null
+permalink: "/blog/"
+---
+<ul class="items-list">
+    {% for post in site.posts %}
+    <li>
+        <time class="items-list-element-time timeago" datetime="{{ post.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>
+        {% include categories.inline.html categories=post.categories %}
+        <h2>
+            <a class="item-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+        {% if post.description %}
+            {{ post.description | markdownify }}
+        {% elsif post.teaser %}
+            {{ post.teaser | markdownify }}
+        {% elsif post.excerpt %}
+            {{ post.excerpt | markdownify }}
+        {% endif %}
+
+    </li>
+    {% endfor %}
+</ul>

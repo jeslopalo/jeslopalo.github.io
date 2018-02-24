@@ -3,20 +3,16 @@
   icon-class: show-for-medium-up fa fa-home
   side: right
 
-- title: Flash messages
-  url: "/projects/flash-messages/"
+- title: Projects
+  url: "/projects/"
   side: right
 
 - title: Games
-  url: "/games/the-knights-tour/"
+  url: "/games/"
   side: right
 
 #- title: Blog
 #  url: "/blog/"
-#  side: right
-
-#- title: "Sobre mi"
-#  url: "/sobre-mi/"
 #  side: right
 
 #- title: Blog

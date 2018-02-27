@@ -20,7 +20,7 @@ services:
   disqus_shortname: sandboxes
 
 # Build settings
-permalink: "/blog/:year/:month/:day/:title/"
+permalink: "/posts/:year/:month/:day/:title/"
 excerpt_separator: "<!--more-->"
 include: ['.htaccess']
 # Exclude these files from your production _site
@@ -62,6 +62,19 @@ compress_html:
   ignore:
     envs: [development, local]
 
+#       _______  _______  _______  _______ _________ _______
+#      (  ___  )(  ____ \(  ____ \(  ____ \\__   __/(  ____ \
+#      | (   ) || (    \/| (    \/| (    \/   ) (   | (    \/
+#      | (___) || (_____ | (_____ | (__       | |   | (_____
+#      |  ___  |(_____  )(_____  )|  __)      | |   (_____  )
+#      | (   ) |      ) |      ) || (         | |         ) |
+#      | )   ( |/\____) |/\____) || (____/\   | |   /\____) |
+#      |/     \|\_______)\_______)(_______/   )_(   \_______)
+#
+assets:
+  images:
+    masthead:
+      default: /assets/images/header/default/lego-header.jpg
 
 #                  ____          __  _
 #      _________  / / /__  _____/ /_(_)___  ____  _____
@@ -94,8 +107,6 @@ defaults:
       type: "games"
     values:
       language: es
-      image:
-        masthead: ""
       show_meta: false
       comments: false
       author: jeslopalo
@@ -105,8 +116,6 @@ defaults:
       type: "projects"
     values:
       language: es
-      image:
-        masthead: "/assets/images/header/lego-header.jpg"
       show_meta: false
       comments: false
       author: jeslopalo
@@ -116,8 +125,6 @@ defaults:
       type: "pages"
     values:
       language: es
-      image:
-        masthead: "/assets/images/header/lego-header.jpg"
       show_meta: false 	    # Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
@@ -127,10 +134,8 @@ defaults:
       type: "posts"
     values:
       language: es
-      image:
-        masthead: "/assets/images/header/lego-header.jpg"
       show_meta: true       # Show metadata for all posts
-      # permalink: "/blog/:year/:month/:day/:title/" # not supported by github pages
+      # permalink: "/posts/:year/:month/:day/:title/" # not supported by github pages
       # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts

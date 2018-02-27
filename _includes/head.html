@@ -48,16 +48,24 @@
 
 <link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt"/>
 
-{% assign default_masthead_name = page.title | slugify %}
+<!--
+    1.- derived from {{page.collection}}/{{page.slug}}
+    2.- derived from {{page.slug}}
+    3.- default masthead {{site.assets.images.masthead.default}}
+-->
+{% assign masthead = site.assets.images.masthead.default %}
 {% assign masthead_files = site.static_files | where: "masthead_image", true %}
-
-{% if page.image.masthead != '' %}
-    {% assign masthead = page.image.masthead %}
-{% else %}
-    {% assign masthead = '/assets/images/header/lego-header.jpg' %}
-
+{% if page.slug %}
     {% for candidate in masthead_files %}
-        {% if candidate.path contains default_masthead_name %}
+        {% if candidate.path contains page.slug %}
+            {% assign masthead = candidate.path %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if page.collection and page.slug %}
+    {% capture slug %}{{ page.collection }}/{{ page.slug }}{% endcapture %}
+    {% for candidate in masthead_files %}
+        {% if candidate.path contains page.collection/page.slug %}
             {% assign masthead = candidate.path %}
         {% endif %}
     {% endfor %}

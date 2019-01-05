@@ -28,6 +28,7 @@
 {% if site.title %}<meta property="og:site_name" content="{{ site.title }}" />{% endif %}
 <meta property="og:image" content="{% if page.image.thumb %}{{ site.url }}{{ site.baseurl }}{{ page.image.thumb }}{% elsif page.image.masthead %}{{ site.url }}{{ site.baseurl }}{{ page.image.masthead }}{% endif %}" />
 
+<link rel="stylesheet" href="{{ '/assets/bower_components/spectrum/spectrum.css' | prepend: site.baseurl }}" />
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}"/>
 {% if page.stylesheet %}<link rel="stylesheet" href="{{ page.stylesheet }}"/>{% endif %}
 

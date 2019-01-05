@@ -1,0 +1,147 @@
+---
+layout: game
+title: "Vector race"
+date:   2018-12-13 20:13:11+02:00
+author: null
+permalink: "/games/vector-race/"
+script:
+    - "/assets/bower_components/foundation/js/foundation/foundation.offcanvas.js"
+    - "/assets/js/games/geometry.js"
+    - "/assets/js/games/vector-race/circuits.js"
+    - "/assets/js/games/vector-race/main.js"
+stylesheet: "/assets/css/games/vector-race.css"
+description: |
+    **Vector race** is a funny game about driving vectors.
+    Change direction and magnitude to trace the curves as if you were driving a motorbike.
+include_fullscreen: true
+---
+<section class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="tab-bar">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">&#10230;</h1>
+            </section>
+
+            <section class="right-small">
+                <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <div>
+                <p>
+                    Riiradsf kasdofkdfm
+                    fasdfm ldf
+                </p>
+            </div>
+        </aside>
+
+        <aside class="right-off-canvas-menu">
+            <form id="controls">
+                <h3>Options</h3>
+
+                <div id="options">
+                    <div class="row">
+                        <label for="circuit">
+                            Choose a circuit
+                            <select id="circuit">
+                                <option value="ring">The Ring Circuit</option>
+                                <option value="brunolo">Brunolo Circuit</option>
+                                <option value="experiment">Experiment Circuit</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <h3>Players</h3>
+
+                <div id="players">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_1" type="checkbox" checked="checked" />
+                                        <label for="player_1"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_1" type="color" value="#AA0000"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_1" type="text" placeholder="name" value="G. Agostini"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_2" type="checkbox"/>
+                                        <label for="player_2"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_2" type="color" value="#284283"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_2" type="text" placeholder="name" value="A. Nieto"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_3" type="checkbox"/>
+                                        <label for="player_3"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_3" type="color" value="#009051"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_3" type="text" placeholder="name"
+                                           value="V. Rossi"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="row">
+                        <button id="new-game" class="tiny button postfix">New game</button>
+                    </div>
+                </div>
+            </form>
+        </aside>
+
+        <section class="main-section">
+            <div id="canvas-container">
+                <canvas id='canvas'></canvas>
+            </div>
+
+            <div id="classification-container">
+                <h3>Classification</h3>
+
+                <div id="classification"></div>
+            </div>
+        </section>
+
+        <a class="exit-off-canvas"></a>
+
+    </div>
+</section>

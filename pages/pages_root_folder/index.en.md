@@ -2,11 +2,10 @@
 layout: page
 title: About
 date:   2015-08-13 21:06:36+02:00
-author: null
-image:
-    masthead: "/assets/images/header/landing.jpg"
+author: jeslopalo
 permalink: /en/
 published: false
+slug: "index/landing"
 format: big
 ---
 ![Jesús López](http://www.gravatar.com/avatar/750fbbb5263ee71cba06346646c90fe7.jpg?s=180){: .paragraph-image .right .th}

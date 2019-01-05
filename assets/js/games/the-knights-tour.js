@@ -1,13 +1,13 @@
 function Stack() {
-    this.movements = new Array();
+    this.movements = [];
 
     this.pop = function () {
         return this.movements.pop();
-    }
+    };
 
     this.push = function (item) {
         this.movements.push(item);
-    }
+    };
 
     this.peek = function () {
         if (this.movements.length > 0) {
@@ -17,7 +17,7 @@ function Stack() {
     };
 
     this.clear = function () {
-        this.movements = new Array();
+        this.movements = [];
     };
 
     this.empty = function () {

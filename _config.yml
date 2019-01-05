@@ -20,7 +20,7 @@ services:
   disqus_shortname: sandboxes
 
 # Build settings
-permalink: "/blog/:year/:month/:day/:title/"
+permalink: "/posts/:year/:month/:day/:title/"
 excerpt_separator: "<!--more-->"
 include: ['.htaccess']
 # Exclude these files from your production _site
@@ -52,7 +52,7 @@ sass:
 
 
 
-# Used › default.html front-matter and comress.html
+# Used › default.html front-matter and compress.html
 # Options › http://jch.penibelst.de
 compress_html:
   clippings: all
@@ -61,6 +61,34 @@ compress_html:
   profile: false
   ignore:
     envs: [development, local]
+
+#       _______  _______  _______  _______ _________ _______
+#      (  ___  )(  ____ \(  ____ \(  ____ \\__   __/(  ____ \
+#      | (   ) || (    \/| (    \/| (    \/   ) (   | (    \/
+#      | (___) || (_____ | (_____ | (__       | |   | (_____
+#      |  ___  |(_____  )(_____  )|  __)      | |   (_____  )
+#      | (   ) |      ) |      ) || (         | |         ) |
+#      | )   ( |/\____) |/\____) || (____/\   | |   /\____) |
+#      |/     \|\_______)\_______)(_______/   )_(   \_______)
+#
+assets:
+  images:
+    masthead:
+      default: /assets/images/header/default/lego-header.jpg
+
+#                  ____          __  _
+#      _________  / / /__  _____/ /_(_)___  ____  _____
+#     / ___/ __ \/ / / _ \/ ___/ __/ / __ \/ __ \/ ___/
+#    / /__/ /_/ / / /  __/ /__/ /_/ / /_/ / / / (__  )
+#    \___/\____/_/_/\___/\___/\__/_/\____/_/ /_/____/
+#
+collections:
+  games:
+    output: true
+    permalink: /:collection/:name
+  projects:
+    output: true
+    permalink: /:collection/:name
 
 
 #
@@ -75,26 +103,39 @@ compress_html:
 defaults:
   -
     scope:
+      path: "_games"
+      type: "games"
+    values:
+      language: es
+      show_meta: false
+      comments: false
+      author: jeslopalo
+  -
+    scope:
+      path: "_projects"
+      type: "projects"
+    values:
+      language: es
+      show_meta: false
+      comments: false
+      author: jeslopalo
+  -
+    scope:
       path: "pages" 		# an empty string here means all files in the project
       type: "pages"
     values:
       language: es
-      image:
-        masthead: "/assets/images/header/lego-header.jpg"
       show_meta: false 	    # Hide metadata for all pages
       # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
-      author: jeslopalo     # Default author for pages
   -
     scope:
       path: "_posts"
       type: "posts"
     values:
       language: es
-      image:
-        masthead: "/assets/images/header/lego-header.jpg"
       show_meta: true       # Show metadata for all posts
-      # permalink: "/blog/:year/:month/:day/:title/" # not supported by github pages
+      # permalink: "/posts/:year/:month/:day/:title/" # not supported by github pages
       # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts
@@ -104,6 +145,11 @@ defaults:
     values:
       sitemap:
         exclude: true
+  -
+    scope:
+      path: "assets/images/header"
+    values:
+      masthead_image: true
   -
     scope:
       path: "assets/images"

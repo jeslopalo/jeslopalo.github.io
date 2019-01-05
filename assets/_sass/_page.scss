@@ -1,9 +1,9 @@
 @import "colors.settings";
 
-/* Pages, Posts
+/* Pages, Projects, Posts, Games
 ------------------------------------------------------------------- */
 
-.page, .post, .game {
+.page {
 
   h2 {
     font-size: 32px;
@@ -29,48 +29,44 @@
     }
   }
 
-  .page-content, .post-content {
+  #content, .page-content {
     min-height: 63vh;
     padding: $spacing-unit 0 $spacing-unit*2;
     background-color: $theme-background;
   }
-
-  .game-content {
-    min-height: 63vh;
-    padding: 0;
-    background-color: $theme-background;
-  }
 }
 
-/* Posts list
+/* Posts, Page, Project and Game list
 ------------------------------------------------------------------- */
 
-.post-category {
-   font-size: $small-font-size;
-   font-weight: 400;
-   color: $theme-orange;
-   font-style: italic;
+.category {
+  font-size: $small-font-size;
+  font-weight: 400;
+  color: $theme-orange;
+  font-style: italic;
 
-   background-color: darken($theme-background, 5%);
-   border-radius: 3px;
-   padding: 3px 6px;
- }
+  background-color: darken($theme-background, 5%);
+  border-radius: 3px;
+  padding: 3px 6px;
+}
 
-.post-list {
-  margin-top: $spacing-unit;
+.items-list {
   margin-left: 0;
   list-style: none;
 
   > li {
     margin-bottom: $spacing-unit;
+
+    h2 {
+      margin-bottom: 0;
+    }
   }
 }
 
-.post-list-element-time {
+.items-list-element-time {
   @extend %timeinfo;
 }
 
-.post-link {
-  display: block;
+.item-link {
   font-size: 24px;
 }

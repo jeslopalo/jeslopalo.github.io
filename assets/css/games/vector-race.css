@@ -46,13 +46,23 @@
     background: none;
 }
 
+.left-off-canvas-toggle i {
+    font-size: 1.5rem;
+    margin: 10px !important;
+    color: white;
+}
+
 .main-section {
-    padding: 15px 5px 10px 25px;
+    padding: 15px 5px 50px 25px;
 
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
+}
+
+#canvas {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #classification-container {
@@ -64,8 +74,13 @@
     margin: 0 auto;
 }
 
+#classification .classified {
+    font-weight: bold;
+    font-size: medium;
+}
+
 #controls {
-    padding: 1rem 1em 3em 1em;
+    padding: 2.5rem 1em 3em 1em;
 }
 
 #controls input[type=checkbox],
@@ -84,17 +99,9 @@
     margin-bottom: 0;
 }
 
-#canvas {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+#instructions {
+    padding: 2rem 2em 3em 1.5em;
 
-#classification .classified {
-    font-weight: bold;
-    font-size: medium;
-}
-
-.left-off-canvas-toggle i {
-    font-size: 1.5rem;
-    margin: 10px !important;
-    color: white;
+    font-size: .9rem;
+    text-align: justify;
 }

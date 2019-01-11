@@ -42,7 +42,7 @@ function TheExperimentCircuit() {
     };
 
     this.starting_line = function () {
-        var y = Math.round((settings.height / 2.7) / settings.cell_size) * settings.cell_size;
+        var y = Math.round((settings.height / 2) / settings.cell_size) * settings.cell_size;
 
         return new Line(
             new Point(margin * settings.cell_size, y),

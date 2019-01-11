@@ -189,6 +189,26 @@ function Line(point_1, point_2) {
         return false;
     };
 
+    // inspired by: https://math.stackexchange.com/a/352833
+    function increase(length, direction_point) {
+        var x_increase =
+            self.delta_x() / (Math.sqrt(Math.pow(self.delta_x(), 2) + Math.pow(self.delta_y(), 2)));
+        var y_increase =
+            self.delta_y() / (Math.sqrt(Math.pow(self.delta_x(), 2) + Math.pow(self.delta_y(), 2)));
+
+        return new Point(
+            direction_point.x() + (length * x_increase),
+            direction_point.y() + (length * y_increase)
+        );
+    }
+
+    this.increase_by_both_ends = function (length) {
+        var new_from = increase(-length, from);
+        var new_to = increase(length, to);
+
+        return new Line(new_from, new_to);
+    };
+
     this.to_s = function () {
         return "Line(" + from.to_s() + " => " + to.to_s() + ")";
     };

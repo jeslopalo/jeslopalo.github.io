@@ -8,8 +8,11 @@ function CircuitDrawer(options) {
         height: 25 * CELL_SIZE,
         width: 25 * CELL_SIZE,
         start_line_color: "rgba(250,250,250,.4)",
+        waypoint_color: "#001f3f",
+        waypoint_width: 4,
+        waypoint_tolerance_factor: 1.3,
         border_color: "#333",
-        border_width: 5,
+        border_width: 4,
         track_color: "rgba(128,128,128,1)"
     };
     var settings = $.extend({}, defaults, options || {});
@@ -18,6 +21,8 @@ function CircuitDrawer(options) {
     var starting_points = undefined;
     var track_layout;
     var circuit;
+
+    var self = this;
 
     this.initialize = function (the_context) {
 
@@ -37,7 +42,7 @@ function CircuitDrawer(options) {
     };
 
     this.number_of_start_positions = function () {
-        return this.starting_points().length;
+        return self.starting_points().length;
     };
 
     this.starting_points = function () {
@@ -49,23 +54,15 @@ function CircuitDrawer(options) {
                     bounds_exclusive: true
                 });
         }
-        return starting_points;
-    };
-
-    this.starting_point = function () {
-        if (starting_points === undefined) {
-            starting_points = circuit
-                .starting_line()
-                .points({
-                    increment: settings.cell_size,
-                    bounds_exclusive: true
-                });
-        }
-        return starting_points.pop();
+        return starting_points.slice();
     };
 
     this.finish_line = function () {
-        return circuit.starting_line();
+        var margin_tolerance = settings.cell_size * settings.waypoint_tolerance_factor;
+
+        return circuit
+            .starting_line()
+            .increase_by_both_ends(margin_tolerance);
     };
 
     this.is_on_track = function (point) {
@@ -78,6 +75,7 @@ function CircuitDrawer(options) {
     };
 
     this.draw = function () {
+        draw_finish_line(context, settings);
         draw_circuit();
         draw_start_line(context, settings);
         return this;
@@ -133,6 +131,19 @@ function CircuitDrawer(options) {
             context.lineTo(starting_line.to().x(), starting_line.to().y() - (settings.cell_size * 0.75) - v_offset);
             context.stroke();
         });
+
+        reset(context);
+    }
+
+    function draw_finish_line(context, settings) {
+        var line = self.finish_line();
+
+        context.beginPath();
+        context.lineWidth = settings.waypoint_width;
+        context.strokeStyle = settings.waypoint_color;
+        context.moveTo(line.from().x() - 0.5, line.from().y() + 0.5);
+        context.lineTo(line.to().x() - 0.5, line.to().y() + 0.5);
+        context.stroke();
 
         reset(context);
     }

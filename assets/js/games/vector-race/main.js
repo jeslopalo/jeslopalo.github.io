@@ -290,9 +290,9 @@ function Board(options) {
 
         candidate_points.forEach(function (point) {
             draw_square(point, {
-                length: settings.cell_size / 4,
-                fill_color: turn_player.options.color,
-                stroke_color: "white"
+                length: settings.cell_size / 3,
+                fill_color: "transparent",
+                stroke_color: turn_player.options.color
             });
         });
     }

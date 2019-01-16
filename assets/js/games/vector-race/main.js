@@ -8,9 +8,9 @@ function CircuitDrawer(options) {
         height: 25 * CELL_SIZE,
         width: 25 * CELL_SIZE,
         start_line_color: "rgba(250,250,250,.4)",
-        waypoint_color: "#001f3f",
+        waypoint_color: "rgba(204, 204, 153, .5)",
         waypoint_width: 4,
-        waypoint_tolerance_factor: 1.3,
+        waypoint_tolerance_factor: 2,
         border_color: "#333",
         border_width: 4,
         track_color: "rgba(128,128,128,1)"
@@ -41,10 +41,6 @@ function CircuitDrawer(options) {
         return circuit.starting_direction();
     };
 
-    this.number_of_start_positions = function () {
-        return self.starting_points().length;
-    };
-
     this.starting_points = function () {
         if (starting_points === undefined) {
             starting_points = circuit
@@ -57,13 +53,19 @@ function CircuitDrawer(options) {
         return starting_points.slice();
     };
 
+    this.waypoints = function () {
+        return circuit.waypoints().slice(0);
+    };
+
     this.finish_line = function () {
+        return add_tolerance(circuit.starting_line());
+    };
+
+    function add_tolerance(line) {
         var margin_tolerance = settings.cell_size * settings.waypoint_tolerance_factor;
 
-        return circuit
-            .starting_line()
-            .increase_by_both_ends(margin_tolerance);
-    };
+        return line.increase_by_both_ends(margin_tolerance);
+    }
 
     this.is_on_track = function (point) {
         if (context.isPointInPath(track_layout, point.x(), point.y())) {
@@ -75,7 +77,7 @@ function CircuitDrawer(options) {
     };
 
     this.draw = function () {
-        draw_finish_line(context, settings);
+        draw_waypoints(context, settings);
         draw_circuit();
         draw_start_line(context, settings);
         return this;
@@ -135,17 +137,22 @@ function CircuitDrawer(options) {
         reset(context);
     }
 
-    function draw_finish_line(context, settings) {
-        var line = self.finish_line();
+    function draw_waypoints(context, settings) {
+        if (circuit.waypoints) {
+            circuit.waypoints()
+                .map(add_tolerance)
+                .forEach(function (line) {
 
-        context.beginPath();
-        context.lineWidth = settings.waypoint_width;
-        context.strokeStyle = settings.waypoint_color;
-        context.moveTo(line.from().x() - 0.5, line.from().y() + 0.5);
-        context.lineTo(line.to().x() - 0.5, line.to().y() + 0.5);
-        context.stroke();
+                    context.beginPath();
+                    context.lineWidth = settings.waypoint_width;
+                    context.strokeStyle = settings.waypoint_color;
+                    context.moveTo(line.from().x() - 0.5, line.from().y() + 0.5);
+                    context.lineTo(line.to().x() - 0.5, line.to().y() + 0.5);
+                    context.stroke();
 
-        reset(context);
+                    reset(context);
+                });
+        }
     }
 }
 
@@ -178,9 +185,6 @@ function Board(options) {
         return this;
     };
 
-    this.number_of_start_positions = function () {
-        return circuit_drawer.number_of_start_positions();
-    };
 
     this.crosses_the_finish_line = function (player) {
 
@@ -559,6 +563,10 @@ function Player(name, options) {
         return round(max);
     };
 
+    this.find_first_movement = function (filter) {
+        return vectors().find(filter);
+    };
+
     this.for_each_movement = function (callback) {
         vectors().forEach(callback);
     };
@@ -703,18 +711,6 @@ function Game(state) {
         return players.slice(0);
     };
 
-    this.circuit_id = function () {
-        return options.circuit;
-    };
-
-    this.register = function (name, options) {
-        assert_that_is_not_over();
-        assert_that_is_not_full();
-
-        players.push(new Player(name, options));
-
-        return this;
-    };
 
     this.listen = function (event, on_event) {
         listeners.push({event: event, on_event: on_event});
@@ -727,22 +723,6 @@ function Game(state) {
             }
         });
     };
-
-    function assert_that_is_not_over() {
-        if (self.is_over()) {
-            throw new Error("Sorry but the self is over");
-        }
-    }
-
-    this.is_full = function () {
-        return players.length == board.number_of_start_positions();
-    };
-
-    function assert_that_is_not_full() {
-        if (self.is_full()) {
-            throw new Error("Sorry the circuit is full!");
-        }
-    }
 
     this.start = function () {
         notify_listeners(GameEvent.START);

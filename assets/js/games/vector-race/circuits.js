@@ -2,6 +2,7 @@ function TheExperimentCircuit() {
 
     this.id = "experiment";
 
+    var self = this;
     var settings = [];
     var track_width = 50;
     var margin = 3.1;
@@ -41,8 +42,12 @@ function TheExperimentCircuit() {
         return track_layout;
     };
 
+    function normalize(coordinate) {
+        return Math.round(coordinate / settings.cell_size) * settings.cell_size
+    }
+
     this.starting_line = function () {
-        var y = Math.round((settings.height / 2) / settings.cell_size) * settings.cell_size;
+        var y = normalize((settings.height / 2));
 
         return new Line(
             new Point(margin * settings.cell_size, y),
@@ -51,6 +56,24 @@ function TheExperimentCircuit() {
 
     this.starting_direction = function () {
         return StartingDirection.UP;
+    };
+
+    this.waypoints = function () {
+        var waypoints = [];
+
+        waypoints.push(new Line(
+            new Point(settings.width / 3, c(margin)),
+            new Point(settings.width / 3, c(margin) + track_width)
+        ));
+
+        waypoints.push(new Line(
+            new Point(settings.width / 3, 210 + c(margin)),
+            new Point((settings.width / 3) + 35, 210 + c(margin) + track_width)
+        ));
+
+        waypoints.push(self.starting_line());
+
+        return waypoints;
     };
 
     this.name = function () {
@@ -62,6 +85,7 @@ function TheRingCircuit() {
 
     this.id = "ring";
 
+    var self = this;
     var settings = [];
     var track_width = 100;
     var external_radius = 450;
@@ -95,8 +119,12 @@ function TheRingCircuit() {
         return track_layout;
     };
 
+    function normalize(coordinate) {
+        return Math.round(coordinate / settings.cell_size) * settings.cell_size
+    }
+
     this.starting_line = function () {
-        var y = Math.round((settings.height / 2) / settings.cell_size) * settings.cell_size;
+        var y = normalize(settings.height / 2);
 
         return new Line(
             new Point((settings.width / 2) - external_radius, y),
@@ -105,6 +133,29 @@ function TheRingCircuit() {
 
     this.starting_direction = function () {
         return StartingDirection.UP;
+    };
+
+    this.waypoints = function () {
+        var waypoints = [];
+
+        waypoints.push(new Line(
+            new Point(normalize(settings.width / 2), (settings.height / 2) - external_radius),
+            new Point(normalize(settings.width / 2), (settings.height / 2) - internal_radius)
+        ));
+
+        waypoints.push(new Line(
+            new Point((settings.width / 2) + internal_radius, normalize(settings.height / 2)),
+            new Point((settings.width / 2) + external_radius, normalize(settings.height / 2))
+        ));
+
+        waypoints.push(new Line(
+            new Point(normalize(settings.width / 2), (settings.height / 2) + internal_radius),
+            new Point(normalize(settings.width / 2), (settings.height / 2) + external_radius)
+        ));
+
+        waypoints.push(self.starting_line());
+
+        return waypoints;
     };
 
     this.name = function () {
@@ -116,8 +167,8 @@ function BrunoloRacingCircuit() {
 
     this.id = "brunolo";
 
+    var self = this;
     var settings = [];
-
     var xoff = 40;
     var yoff = 0;
     var scale_factor = 1;
@@ -161,8 +212,12 @@ function BrunoloRacingCircuit() {
         return track_layout;
     };
 
+    function normalize(coordinate) {
+        return Math.round(coordinate / settings.cell_size) * settings.cell_size
+    }
+
     this.starting_line = function () {
-        var y = Math.round(s(310 + yoff) / settings.cell_size) * settings.cell_size;
+        var y = normalize(s(310 + yoff));
 
         return new Line(
             new Point(s(100 + xoff), y),
@@ -171,6 +226,39 @@ function BrunoloRacingCircuit() {
 
     this.starting_direction = function () {
         return StartingDirection.UP;
+    };
+
+    this.waypoints = function () {
+        var waypoints = [];
+
+        waypoints.push(new Line(
+            new Point(s(110 + xoff), s(70 + yoff)),
+            new Point(s(210 + xoff), s(137 + yoff))
+        ));
+
+        waypoints.push(new Line(
+            new Point(s(580 + xoff), s(85 + yoff)),
+            new Point(s(510 + xoff), s(150 + yoff))
+        ));
+
+        waypoints.push(new Line(
+            new Point(s(550 + xoff), s(315 + yoff)),
+            new Point(s(485 + xoff), s(385 + yoff))
+        ));
+
+        waypoints.push(new Line(
+            new Point(s(515 + xoff), s(537 + yoff)),
+            new Point(s(515 + xoff), s(622 + yoff))
+        ));
+
+        waypoints.push(new Line(
+            new Point(s(253 + xoff), s(537 + yoff)),
+            new Point(s(253 + xoff), s(622 + yoff))
+        ));
+
+        waypoints.push(self.starting_line());
+
+        return waypoints;
     };
 
     this.name = function () {

@@ -1,7 +1,6 @@
 function PointFactory(coord_step) {
 
     this.get = function (x, y) {
-
         var point = new Point(normalize(x), normalize(y));
 
         console.log("   {x: " + x + ", y: " + y + "} => {x: " + point.x() + ", y:" + point.y() + "}");
@@ -10,7 +9,7 @@ function PointFactory(coord_step) {
 
     function normalize(coord) {
         return Math.round(coord / coord_step) * coord_step;
-    };
+    }
 }
 
 function Point(coord_x, coord_y) {
@@ -119,36 +118,54 @@ function Line(point_1, point_2) {
         return from.y() - (self.slope() * from.x())
     };
 
-    function line_definition_parameters(point1, point2) {
-        var a = point2.y() - point1.y();
-        var b = point1.x() - point2.x();
-        var c = (a * self.from().x()) + (b * point1.y());
-        return {a: a, b: b, c: c};
-    }
-
     /**
-     * line equation Ax + By = C
+     * Determine the intersection point of two line segments.
+     * Return UNDEFINED if the lines don't intersect
+     *
+     * @see line intercept math by Paul Bourke http://paulbourke.net/geometry/pointlineplane/
      *
      * @param line
      * @returns {*}
      */
     this.intersection = function (line) {
-        var self_params = line_definition_parameters(self.from(), self.to());
-        var line_params = line_definition_parameters(line.from(), line.to());
+        var x1 = self.from().x();
+        var y1 = self.from().y();
+        var x2 = self.to().x();
+        var y2 = self.to().y();
+        var x3 = line.from().x();
+        var y3 = line.from().y();
+        var x4 = line.to().x();
+        var y4 = line.to().y();
 
-        var determinant = (self_params.a * line_params.b) - (line_params.a * self_params.b);
-        if (determinant == 0) {
-            return undefined;
+        // Check if none of the lines are of length 0
+        if ((x1 === x2 && y1 === y2) || (x3 === x4 && y3 === y4)) {
+            return undefined
         }
 
-        return new Point(
-            Math.round(((line_params.b * self_params.c) - (self_params.b * line_params.c)) / determinant),
-            Math.round(((self_params.a * line_params.c) - (line_params.a * self_params.c)) / determinant));
+        var denominator = ((y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1));
+
+        // Lines are parallel
+        if (denominator === 0) {
+            return undefined
+        }
+
+        var ua = ((x4 - x3) * (y1 - y3) - (y4 - y3) * (x1 - x3)) / denominator;
+        var ub = ((x2 - x1) * (y1 - y3) - (y2 - y1) * (x1 - x3)) / denominator;
+
+        // is the intersection along the segments
+        if (ua < 0 || ua > 1 || ub < 0 || ub > 1) {
+            return undefined
+        }
+
+        // Return a object with the x and y coordinates of the intersection
+        var x = x1 + ua * (x2 - x1);
+        var y = y1 + ua * (y2 - y1);
+
+        return new Point(x, y);
     };
 
     this.intersects = function (line) {
         var intersection = self.intersection(line);
-
         return self.contains(intersection) && line.contains(intersection);
     };
 
@@ -179,12 +196,8 @@ function Line(point_1, point_2) {
 
     this.contains = function (point) {
         if (point) {
-            var contained =
-                (Math.min(from.x(), to.x()) <= point.x()) && (point.x() <= Math.max(from.x(), to.x())) &&
-                (Math.min(from.y(), to.y()) <= point.y()) && (point.y() <= Math.max(from.y(), to.y()));
-
-            console.log(this.to_s() + " contains " + point.to_s() + "? " + contained);
-            return contained;
+            return (Math.min(from.x(), to.x()) <= point.x()) && (point.x() <= Math.max(from.x(), to.x()))
+                && (Math.min(from.y(), to.y()) <= point.y()) && (point.y() <= Math.max(from.y(), to.y()));
         }
         return false;
     };

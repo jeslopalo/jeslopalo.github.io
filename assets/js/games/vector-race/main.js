@@ -54,7 +54,12 @@ function CircuitDrawer(options) {
     };
 
     this.waypoints = function () {
-        return circuit.waypoints().slice(0);
+        return circuit
+            .waypoints()
+            .map(add_tolerance)
+            .map(function (line, index) {
+                return new Waypoint(index, line);
+            });
     };
 
     this.finish_line = function () {
@@ -139,9 +144,9 @@ function CircuitDrawer(options) {
 
     function draw_waypoints(context, settings) {
         if (circuit.waypoints) {
-            circuit.waypoints()
-                .map(add_tolerance)
-                .forEach(function (line) {
+            self.waypoints()
+                .forEach(function (waypoint) {
+                    var line = waypoint.as_line();
 
                     context.beginPath();
                     context.lineWidth = settings.waypoint_width;
@@ -182,9 +187,12 @@ function Board(options) {
 
         circuit_drawer.initialize(context);
 
-        return this;
+        return self;
     };
 
+    this.waypoints = function () {
+        return circuit_drawer.waypoints();
+    };
 
     this.crosses_the_finish_line = function (player) {
 
@@ -195,6 +203,14 @@ function Board(options) {
                 circuit_drawer.starting_direction().check(last_movement.from(), last_movement.to());
         }
         return false;
+    };
+
+    this.finish_line_overtake = function (player) {
+        if (self.crosses_the_finish_line(player)) {
+            return circuit_drawer.finish_line()
+                .overtake_length(player.last_movement().as_line());
+        }
+        return -1;
     };
 
     function is_on_track(point) {
@@ -216,9 +232,11 @@ function Board(options) {
         });
 
         player.for_each_movement(function (vector) {
+
             draw_vector(vector, {
                 fill_color: player.options.color,
                 stroke_color: player.options.color,
+                body_line_width: 2,
                 head_stroke_color: "black"
             });
         });
@@ -295,8 +313,8 @@ function Board(options) {
         candidate_points.forEach(function (point) {
             draw_square(point, {
                 length: settings.cell_size / 3,
-                fill_color: "transparent",
-                stroke_color: turn_player.options.color
+                fill_color: turn_player.options.color,
+                stroke_color: "black"
             });
         });
     }
@@ -397,7 +415,7 @@ function Board(options) {
             return;
         }
 
-        var head_length = Math.max(5, Math.round(settings.cell_size * 0.4));
+        var head_length = Math.max(5, Math.round(settings.cell_size * 0.44));
 
         var from = vector.from();
         var to = vector.to();
@@ -412,7 +430,7 @@ function Board(options) {
         context.setLineDash(options.line_dash || []);
         context.strokeStyle = options.body_stroke_color || options.stroke_color;
         context.fillStyle = options.body_fill_color || options.fill_color;
-        context.lineWidth = 1;
+        context.lineWidth = options.body_line_width || 1;
         context.stroke();
         context.fill();
         context.closePath();
@@ -487,10 +505,11 @@ function Player(name, options) {
 
     this.stats = function () {
         return {
-            number_of_movements: this.number_of_movements(),
-            distance: this.distance(),
-            average_speed: this.average_speed(),
-            max_speed: this.max_speed()
+            number_of_movements: self.number_of_movements(),
+            distance: self.distance(),
+            speed: self.speed(),
+            average_speed: self.average_speed(),
+            max_speed: self.max_speed()
         };
     };
 
@@ -515,6 +534,10 @@ function Player(name, options) {
         return board.crosses_the_finish_line(self);
     };
 
+    this.finish_line_overtake = function (board) {
+        return board.finish_line_overtake(self);
+    };
+
     this.last_position = function () {
         if (self.movements.empty()) {
             return undefined;
@@ -523,7 +546,7 @@ function Player(name, options) {
     };
 
     this.last_movement = function () {
-        if (!self.at_start_position()) {
+        if (self.started() && !self.at_start_position()) {
             return new Vector(
                 self.movements.at(self.movements.length() - 2),
                 self.movements.at(self.movements.length() - 1));
@@ -551,7 +574,15 @@ function Player(name, options) {
         return round(distance());
     };
 
+    this.speed = function () {
+        var last_movement = this.last_movement();
+        return round((last_movement ? last_movement.magnitude() : 0));
+    };
+
     this.average_speed = function () {
+        if (self.movements.length() <= 1) {
+            return 0;
+        }
         return round(this.distance() / this.number_of_movements());
     };
 
@@ -564,7 +595,14 @@ function Player(name, options) {
     };
 
     this.find_first_movement = function (filter) {
-        return vectors().find(filter);
+        var vector = vectors().find(filter);
+        if (vector) {
+            return {
+                turn: vectors().findIndex(filter) + 1,
+                vector: vector
+            };
+        }
+        return undefined;
     };
 
     this.for_each_movement = function (callback) {
@@ -680,8 +718,6 @@ function Game(state) {
             return
         }
 
-        console.log("Its the turn of " + turn + "-player: " + self.turn_player().to_s());
-
         var is_a_candidate_point = function (point) {
             var candidates = board.candidate_points(self.turn_player(), players)
                 .filter(function (candidate) {
@@ -702,13 +738,93 @@ function Game(state) {
                 console.log("GREAT! " + turn_player.to_s() + " finish the race!");
                 notify_listeners(GameEvent.PLAYER_ENDS);
             }
+            //TODO it's necessary?
             next_turn();
         }
+        //TODO It's necessary?
         update();
     }
 
-    this.players = function () {
-        return players.slice(0);
+    function active_players() {
+        return players
+            .filter(function (p) {
+                return p.is_active()
+            })
+            .slice(0);
+    }
+
+    function player_position_resume(player, waypoints) {
+
+        var last_waypoint = waypoints.find(function (waypoint) {
+            var crossed = waypoint.crossed_by(player);
+            if (crossed) {
+                console.log(player.name + " has crossed the waypoint " + waypoint.order + "!");
+            }
+            return crossed;
+        });
+        return {
+            number_of_movements: player.number_of_movements(),
+            finished: player.has_finished(board),
+            finish_line_overtake: player.finish_line_overtake(board),
+            last_waypoint: last_waypoint,
+            average_speed: player.average_speed()
+        };
+    }
+
+    this.classification = function () {
+        var waypoints = board.waypoints().reverse();
+        return active_players()
+            .sort(function (player_a, player_b) {
+                var a = player_position_resume(player_a, waypoints);
+                var b = player_position_resume(player_b, waypoints);
+
+                /** If both players has been finished */
+                if (a.finished && b.finished) {
+                    if (a.number_of_movements != b.number_of_movements) {
+                        return a.number_of_movements - b.number_of_movements;
+                    }
+                    return b.finish_line_overtake - a.finish_line_overtake;
+                }
+
+                /** If a player has been finished */
+                if (a.finished != b.finished) {
+                    return a.finished ? -1 : 1;
+                }
+
+                /** If players doesn't cross any waypoint */
+                if (!a.last_waypoint && !b.last_waypoint) {
+                    if (player_b.last_movement() && player_a.last_movement()) {
+                        return b.average_speed - a.average_speed;
+                    }
+                    return 0
+                }
+
+                /** If only one has crossed a waypoint */
+                if (!a.last_waypoint != !b.last_waypoint) {
+                    return a.last_waypoint ? -1 : 1;
+                }
+
+                /** If it's not the same waypoint */
+                if (a.last_waypoint.order != b.last_waypoint.order) {
+                    return b.last_waypoint.order - a.last_waypoint.order;
+                }
+
+                var a_overtake_movement = a.last_waypoint.overtake_movement(player_a);
+                var b_overtake_movement = b.last_waypoint.overtake_movement(player_b);
+
+                /** If it's the same waypoint and turn but not in the last movement */
+                if ((a_overtake_movement.turn != player_a.number_of_movements()) ||
+                    (b_overtake_movement.turn != player_b.number_of_movements())) {
+                    return b.average_speed - a.average_speed;
+                }
+
+                /** If it's the same waypoint but not in the same turn */
+                if (a_overtake_movement.turn != b_overtake_movement.turn) {
+                    return a_overtake_movement.turn - b_overtake_movement.turn;
+                }
+
+                return b.last_waypoint.overtake_length(player_b) - a.last_waypoint.overtake_length(player_a);
+            });
     };
 
 
@@ -758,14 +874,14 @@ function Game(state) {
     };
 
     function next_turn() {
-
         if (self.is_on_going()) {
             turn = (turn + 1) % players.length;
 
             while (!players[turn].is_active() || players[turn].has_finished(board)) {
                 turn = (turn + 1) % players.length;
             }
-
+            // TODO
+            console.log("Its the turn of " + turn + "-player: " + self.turn_player().to_s());
             console.log("Ok, now it's '" + players[turn].name + "' turn!");
             return players[turn];
         }
@@ -812,6 +928,7 @@ function State(the_state) {
         if (state.players) {
             return state.players
                 .map(function (p) {
+                    //TODO remove reload and change the constructor
                     return new Player().reload(p);
                 });
         }
@@ -892,13 +1009,8 @@ function update_classification(game) {
     console.log("Updating classification...");
 
     var rank = "";
-    game.players()
-        .filter(function (player) {
-            return player.is_active();
-        })
-        .sort(function (a, b) {
-            return a.stats().number_of_movements - b.stats().number_of_movements
-        })
+    game
+        .classification()
         .forEach(function (player, index) {
             var stats = player.stats();
 
@@ -908,11 +1020,12 @@ function update_classification(game) {
                 player.options.color + ';">' + player.name +
                 '</td><td>' + stats.number_of_movements +
                 '</td><td>' + stats.distance +
+                '</td><td>' + stats.speed +
                 '</td><td>' + stats.average_speed +
                 '</td><td>' + stats.max_speed + '</td></tr>';
         });
 
-    $classification.append("<table><thead><th>pos.</th><th>player</th><th>turns</th><th>distance</th><th>avg. speed</th><th>max. speed</th></thead><tbody>" + rank + "</tbody></table>")
+    $classification.append("<table><thead><th>pos.</th><th>player</th><th>turn</th><th>distance</th><th>speed</th><th>avg. speed</th><th>max. speed</th></thead><tbody>" + rank + "</tbody></table>")
 }
 
 function play(game, state) {

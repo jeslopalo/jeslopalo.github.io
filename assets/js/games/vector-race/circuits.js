@@ -2,7 +2,6 @@ function TheExperimentCircuit() {
 
     this.id = "experiment";
 
-    var self = this;
     var settings = [];
     var track_width = 50;
     var margin = 3.1;
@@ -60,10 +59,11 @@ function TheExperimentCircuit() {
 
     this.waypoints = function () {
         var waypoints = [];
+        var offset = 1;
 
         waypoints.push(new Line(
-            new Point(settings.width / 3, c(margin)),
-            new Point(settings.width / 3, c(margin) + track_width)
+            new Point((settings.width / 3) - offset, c(margin)),
+            new Point((settings.width / 3) - offset, c(margin) + track_width)
         ));
 
         waypoints.push(new Line(
@@ -71,7 +71,10 @@ function TheExperimentCircuit() {
             new Point((settings.width / 3) + 35, 210 + c(margin) + track_width)
         ));
 
-        waypoints.push(self.starting_line());
+        waypoints.push(new Line(
+            new Point(margin * settings.cell_size, normalize((settings.height / 2)) + offset),
+            new Point((margin * settings.cell_size) + track_width, normalize((settings.height / 2)) + offset)
+        ));
 
         return waypoints;
     };
@@ -85,7 +88,6 @@ function TheRingCircuit() {
 
     this.id = "ring";
 
-    var self = this;
     var settings = [];
     var track_width = 100;
     var external_radius = 450;
@@ -137,23 +139,27 @@ function TheRingCircuit() {
 
     this.waypoints = function () {
         var waypoints = [];
+        var offset = 1;
 
         waypoints.push(new Line(
-            new Point(normalize(settings.width / 2), (settings.height / 2) - external_radius),
-            new Point(normalize(settings.width / 2), (settings.height / 2) - internal_radius)
+            new Point(normalize(settings.width / 2) - offset, (settings.height / 2) - external_radius),
+            new Point(normalize(settings.width / 2) - offset, (settings.height / 2) - internal_radius)
         ));
 
         waypoints.push(new Line(
-            new Point((settings.width / 2) + internal_radius, normalize(settings.height / 2)),
-            new Point((settings.width / 2) + external_radius, normalize(settings.height / 2))
+            new Point((settings.width / 2) + internal_radius, normalize(settings.height / 2) + offset),
+            new Point((settings.width / 2) + external_radius, normalize(settings.height / 2) + offset)
         ));
 
         waypoints.push(new Line(
-            new Point(normalize(settings.width / 2), (settings.height / 2) + internal_radius),
-            new Point(normalize(settings.width / 2), (settings.height / 2) + external_radius)
+            new Point(normalize(settings.width / 2) - offset, (settings.height / 2) + internal_radius),
+            new Point(normalize(settings.width / 2) - offset, (settings.height / 2) + external_radius)
         ));
 
-        waypoints.push(self.starting_line());
+        waypoints.push(new Line(
+                new Point((settings.width / 2) - external_radius, normalize(settings.height / 2) + offset),
+                new Point((settings.width / 2) - internal_radius, normalize(settings.height / 2) + offset))
+        );
 
         return waypoints;
     };
@@ -167,7 +173,6 @@ function BrunoloRacingCircuit() {
 
     this.id = "brunolo";
 
-    var self = this;
     var settings = [];
     var xoff = 40;
     var yoff = 0;
@@ -230,33 +235,37 @@ function BrunoloRacingCircuit() {
 
     this.waypoints = function () {
         var waypoints = [];
+        var offset = 1;
 
         waypoints.push(new Line(
-            new Point(s(110 + xoff), s(70 + yoff)),
-            new Point(s(210 + xoff), s(137 + yoff))
+                new Point(s(110 + xoff), s(70 + yoff)),
+                new Point(s(210 + xoff), s(137 + yoff)))
+        );
+
+        waypoints.push(new Line(
+                new Point(s(580 + xoff), s(85 + yoff)),
+                new Point(s(510 + xoff), s(150 + yoff)))
+        );
+
+        waypoints.push(new Line(
+                new Point(s(550 + xoff), s(315 + yoff)),
+                new Point(s(485 + xoff), s(385 + yoff)))
+        );
+
+        waypoints.push(new Line(
+                new Point(s(515 + xoff) + offset, s(537 + yoff)),
+                new Point(s(515 + xoff) + offset, s(622 + yoff)))
+        );
+
+        waypoints.push(new Line(
+            new Point(s(253 + xoff) + offset, s(537 + yoff)),
+            new Point(s(253 + xoff) + offset, s(622 + yoff))
         ));
 
         waypoints.push(new Line(
-            new Point(s(580 + xoff), s(85 + yoff)),
-            new Point(s(510 + xoff), s(150 + yoff))
+            new Point(s(100 + xoff), normalize(s(310 + yoff)) + offset),
+            new Point(s(199 + xoff), normalize(s(310 + yoff)) + offset)
         ));
-
-        waypoints.push(new Line(
-            new Point(s(550 + xoff), s(315 + yoff)),
-            new Point(s(485 + xoff), s(385 + yoff))
-        ));
-
-        waypoints.push(new Line(
-            new Point(s(515 + xoff), s(537 + yoff)),
-            new Point(s(515 + xoff), s(622 + yoff))
-        ));
-
-        waypoints.push(new Line(
-            new Point(s(253 + xoff), s(537 + yoff)),
-            new Point(s(253 + xoff), s(622 + yoff))
-        ));
-
-        waypoints.push(self.starting_line());
 
         return waypoints;
     };
@@ -295,3 +304,55 @@ var CircuitFactory = {
     brunolo: new BrunoloRacingCircuit(),
     experiment: new TheExperimentCircuit()
 };
+
+function Waypoint(order, line) {
+
+    this.order = order;
+    var cache = [];
+
+    function movement(player) {
+
+        var cached_value = cache.find(function (hit) {
+            return hit.player.name == player.name;
+        });
+
+        if (cached_value == undefined) {
+            var movement = player
+                .find_first_movement(function (m) {
+                    return m.as_line().intersects(line);
+                });
+
+            if (movement != undefined) {
+                cached_value = {
+                    player: player,
+                    movement: movement,
+                    overtake_length: line.overtake_length(movement.vector.as_line())
+                };
+                cache.push(cached_value);
+            }
+        }
+
+        return cached_value;
+    }
+
+    this.crossed_by = function (player) {
+        return movement(player) != undefined;
+    };
+
+    this.overtake_movement = function (player) {
+        return movement(player).movement;
+    };
+
+    this.overtake_length = function (player) {
+        var cached_value = movement(player);
+        return cached_value == undefined ? -1 : cached_value.overtake_length;
+    };
+
+    this.as_line = function () {
+        return line;
+    };
+
+    this.to_s = function () {
+        return "Waypoint(" + line.from().to_s() + " => " + line.to().to_s() + ")";
+    };
+}

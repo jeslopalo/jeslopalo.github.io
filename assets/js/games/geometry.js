@@ -222,12 +222,21 @@ function Line(point_1, point_2) {
         return new Line(new_from, new_to);
     };
 
+    this.overtake_length = function (line) {
+        var intersection = self.intersection(line);
+        if (intersection) {
+            return new Line(intersection, line.to()).length();
+        }
+        return -1;
+    };
+
     this.to_s = function () {
         return "Line(" + from.to_s() + " => " + to.to_s() + ")";
     };
 }
 
 function Vector(from_point, to_point) {
+    var self = this;
     var line = new Line(from_point, to_point);
 
     this.from = function () {
@@ -247,7 +256,7 @@ function Vector(from_point, to_point) {
     };
 
     this.translate_to = function (point) {
-        var to_translated = new Point(point.x() + this.delta_x(), point.y() + this.delta_y());
+        var to_translated = new Point(point.x() + self.delta_x(), point.y() + self.delta_y());
 
         return new Vector(point, to_translated);
     };

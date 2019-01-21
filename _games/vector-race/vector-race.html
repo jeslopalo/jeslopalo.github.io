@@ -183,10 +183,45 @@ include_fullscreen: true
                 <canvas id='canvas'></canvas>
             </div>
 
-            <div id="classification-container">
-                <h3>Classification</h3>
-
-                <div id="classification"></div>
+            <div id="state-container">
+                <div>
+                    <h4>Results</h4>
+                    <ul class="tabs" data-tab>
+                        <li class="tab-title active">
+                            <a href="#classification">Classification</a>
+                        </li>
+                        <li class="tab-title">
+                            <a href="#stats">Stats</a>
+                        </li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="content active" id="classification">
+                            <table role="grid">
+                                <thead>
+                                <tr>
+                                    <th width="15%">rank</th>
+                                    <th>player</th>
+                                    <th width="15%">turn</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="content" id="stats">
+                            <table role="grid">
+                                <thead>
+                                <tr>
+                                    <th>distance</th>
+                                    <th width="20%">speed</th>
+                                    <th width="20%">avg. speed</th>
+                                    <th width="20%">max. speed</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

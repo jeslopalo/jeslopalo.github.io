@@ -1004,28 +1004,32 @@ function State(the_state) {
 }
 
 function update_classification(game) {
-    var $classification = $("#classification").empty();
+    var $classification = $("#classification tbody").empty();
+    var $stats = $('#stats tbody').empty();
 
     console.log("Updating classification...");
 
-    var rank = "";
-    game
-        .classification()
+    var rank_body = "";
+    var stats_body = "";
+
+    game.classification()
         .forEach(function (player, index) {
             var stats = player.stats();
 
-            rank += '<tr><td>' +
+            rank_body += '<tr><td>' +
                 (index + 1) +
-                '</td><td class="classified" style="color:' +
-                player.options.color + ';">' + player.name +
-                '</td><td>' + stats.number_of_movements +
-                '</td><td>' + stats.distance +
-                '</td><td>' + stats.speed +
-                '</td><td>' + stats.average_speed +
-                '</td><td>' + stats.max_speed + '</td></tr>';
+                '</td><td class="classified" style="color:' + player.options.color + ';">'
+                + player.name + '</td><td>' + stats.number_of_movements + '</td></tr>';
+
+            stats_body += '<tr>' +
+                '<td style="color:' + player.options.color + ';">' + stats.distance +
+                '</td><td style="color:' + player.options.color + ';">' + stats.speed +
+                '</td><td style="color:' + player.options.color + ';">' + stats.average_speed +
+                '</td><td style="color:' + player.options.color + ';">' + stats.max_speed + '</td></tr>';
         });
 
-    $classification.append("<table><thead><th>pos.</th><th>player</th><th>turn</th><th>distance</th><th>speed</th><th>avg. speed</th><th>max. speed</th></thead><tbody>" + rank + "</tbody></table>")
+    $classification.append(rank_body);
+    $stats.append(stats_body)
 }
 
 function play(game, state) {

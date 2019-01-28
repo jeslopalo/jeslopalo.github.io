@@ -1,7 +1,7 @@
 ---
 layout: game
 title: "Vector race"
-date:   2018-12-13 20:13:11+02:00
+date:   2018-01-31 23:13:11+02:00
 author: null
 permalink: "/games/vector-race/"
 script:
@@ -91,12 +91,12 @@ include_fullscreen: true
 
         <aside class="right-off-canvas-menu">
             <form id="controls">
-                <h3>Options</h3>
+                <h3>Circuit</h3>
 
                 <div id="options">
                     <div class="row">
                         <label for="circuit">
-                            Choose a circuit
+                            <!--Choose a circuit-->
                             <select id="circuit">
                                 <option value="ring">The Ring</option>
                                 <option value="brunolo">Brunolo</option>
@@ -185,7 +185,9 @@ include_fullscreen: true
 
             <div id="state-container">
                 <div>
-                    <h4>Results</h4>
+                    <ul id="messenger"></ul>
+                </div>
+                <div>
                     <ul class="tabs" data-tab>
                         <li class="tab-title active">
                             <a href="#classification">Classification</a>

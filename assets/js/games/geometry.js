@@ -261,8 +261,8 @@ function Vector(from_point, to_point) {
         return new Vector(point, to_translated);
     };
 
-    this.magnitude = function () {
-        return line.length();
+    this.magnitude = function (round) {
+        return round ? (Math.round(line.length() * 100) / 100) : line.length();
     };
 
     this.as_line = function () {

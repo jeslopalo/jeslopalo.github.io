@@ -328,7 +328,8 @@ function Board(options) {
     function draw_canvas() {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        context.fillStyle = "#FFFFA5";
+        //context.fillStyle = "#FFFFA5";
+        context.fillStyle = "white";
         context.fill();
         context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -500,7 +501,7 @@ function Player(name, options) {
     };
 
     this.is_active = function () {
-        return this.active;
+        return self.active;
     };
 
     this.stats = function () {
@@ -672,9 +673,10 @@ function Stack() {
 
 const GameEvent = {
     START: "start",
-    PLAYER_MOVE: "player-move",
-    PLAYER_ENDS: "player-ends",
     OVER: "over",
+    PLAYER_MOVE: "player-move",
+    PLAYER_TURN: "player-turn",
+    PLAYER_ENDS: "player-ends",
     UPDATED_STATE: "updated-state"
 };
 
@@ -732,20 +734,16 @@ function Game(state) {
             var turn_player = players[turn];
 
             turn_player.move_to(point);
-            notify_listeners(GameEvent.PLAYER_MOVE);
+            notify_listeners(GameEvent.PLAYER_MOVE, turn_player);
 
             if (turn_player.has_finished(board)) {
                 console.log("GREAT! " + turn_player.to_s() + " finish the race!");
-                notify_listeners(GameEvent.PLAYER_ENDS);
+                notify_listeners(GameEvent.PLAYER_ENDS, turn_player);
             }
-            //TODO it's necessary?
-            next_turn();
         }
-        //TODO It's necessary?
-        update();
     }
 
-    function active_players() {
+    this.active_players = function () {
         return players
             .filter(function (p) {
                 return p.is_active()
@@ -773,7 +771,7 @@ function Game(state) {
 
     this.classification = function () {
         var waypoints = board.waypoints().reverse();
-        return active_players()
+        return self.active_players()
             .sort(function (player_a, player_b) {
                 var a = player_position_resume(player_a, waypoints);
                 var b = player_position_resume(player_b, waypoints);
@@ -832,10 +830,10 @@ function Game(state) {
         listeners.push({event: event, on_event: on_event});
     };
 
-    function notify_listeners(event) {
+    function notify_listeners(event, payload) {
         listeners.forEach(function (listener) {
-            if ((listener.event == event) || listener.event == GameEvent.UPDATED_STATE) {
-                listener.on_event(self);
+            if (listener.event == event) {
+                return listener.on_event(self, payload);
             }
         });
     };
@@ -880,8 +878,9 @@ function Game(state) {
             while (!players[turn].is_active() || players[turn].has_finished(board)) {
                 turn = (turn + 1) % players.length;
             }
-            // TODO
-            console.log("Its the turn of " + turn + "-player: " + self.turn_player().to_s());
+
+            notify_listeners(GameEvent.PLAYER_TURN, players[turn]);
+
             console.log("Ok, now it's '" + players[turn].name + "' turn!");
             return players[turn];
         }
@@ -1032,16 +1031,62 @@ function update_classification(game) {
     $stats.append(stats_body)
 }
 
+var $messenger = $("#messenger");
+function write_message(message) {
+    $messenger
+        .append('<li>' + message + '</li>')
+        .animate({scrollTop: $messenger.prop("scrollHeight")}, 500);
+}
+function clean_messenger() {
+    $messenger.empty();
+}
+
 function play(game, state) {
 
+    var name = function (player) {
+        return '<span style="color:' + player.options.color + ';"><b> ' + player.name + '</b></span>';
+    };
+
     try {
-        //game.listen(GameEvent.START, update_classification);
-        game.listen(GameEvent.UPDATED_STATE, function (game) {
-            console.log("Updating state...");
-            state = new State(game.state()).to_hash();
+        game.listen(GameEvent.START, function (game) {
+
+            var players = game.active_players();
+            var names = function (players) {
+                return players.map(name);
+            };
+
+            clean_messenger();
+            if (players.length == 1) {
+                write_message(names(players).join() + " is the only player")
+            } else {
+                write_message("<b>" + players.length + "</b> players at the start line: " + names(players).join());
+            }
+            write_message("The race is going to start...");
+            write_message("Ready, steady, go!");
         });
-        //game.listen(GameEvent.PLAYER_ENDS, update_classification);
-        //game.listen(GameEvent.OVER, update_classification);
+
+        game.listen(GameEvent.OVER, function (game) {
+            write_message("The race is over and the winner is " + name(game.classification()[0]));
+            write_message("Try it again!");
+        });
+
+        game.listen(GameEvent.PLAYER_TURN, function (game, player) {
+            if (!player.started()) {
+                write_message("Ok, " + name(player) + ", choose your start position!");
+            }
+            else {
+                write_message(name(player) + ", it's your turn!");
+            }
+        });
+
+        game.listen(GameEvent.PLAYER_MOVE, function (game, player) {
+            state = new State(game.state()).to_hash();
+            write_message(name(player) + " has moved at a speed of <b>" + player.last_movement().magnitude(true) + "</b> pixels/turn");
+        });
+
+        game.listen(GameEvent.PLAYER_ENDS, function (game, player) {
+            write_message("Congrats, " + name(player) + " you finish the race!");
+        });
 
         return game.is_started() ? game.continue() : game.start();
 
@@ -1072,6 +1117,9 @@ function prepare_game(options) {
         if ($players.find("input[type=checkbox]:checked").length == 0) {
             return false;
         }
+
+        options.width = Math.max($(window).width() - 500, 500);
+        options.height = Math.max($(window).height() - 200, 500);
 
         state = new State({options: options}).read_form().to_hash();
         return true;

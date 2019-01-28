@@ -174,14 +174,14 @@ function BrunoloRacingCircuit() {
     this.id = "brunolo";
 
     var settings = [];
-    var xoff = 40;
+    var xoff = 0;
     var yoff = 0;
     var scale_factor = 1;
 
     this.initialize = function (options) {
         settings = options;
-        xoff = settings.width / 5;
         scale_factor = Math.min(settings.width, settings.height) / 675;
+        xoff = -90 + (settings.width / 7);
     };
 
     function scale(factor, dimension) {

@@ -22,7 +22,6 @@ meta_description: |
         {% elsif game.teaser %}
             {{ game.teaser | markdownify }}
         {% endif %}
-        <span><a href="{{ game.url | prepend: site.baseurl }}">Play it!</a></span>
     </li>
     {% endfor %}
 </ul>

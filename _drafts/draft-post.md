@@ -5,7 +5,7 @@ subheadline: WIP
 teaser: "it's not published yet"
 meta_title: The ultimate draft template
 meta_description: It should be possible to write a post starting with this draft
-#date:   2015-00-00 21:06:36+02:00
+#date:   2115-00-00 21:06:36+02:00
 language: es
 author: jeslopalo
 categories: draft

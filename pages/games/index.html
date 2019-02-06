@@ -4,12 +4,14 @@ title: "Games"
 author: null
 permalink: "/games/"
 slug: games/index
+meta_description: |
+    This is a small collection of simple games developed by me to have fun with my children.
 ---
 <ul class="items-list">
-    {% for game in site.games %}
+    {% for game in site.games reversed limit:5 %}
     <li>
-        <time class="items-list-element-time timeago" datetime="{{ game.date | date_to_xmlschema }}">{{ game.date | date:
-            "%b %-d, %Y" }}
+        <time class="items-list-element-time timeago" datetime="{{ game.date | date_to_xmlschema }}">
+            {{ game.date | date: "%b %-d, %Y" }}
         </time>
         {% include categories.inline.html categories=game.categories %}
         <h2>

@@ -24,14 +24,7 @@ permalink: "/posts/:year/:month/:day/:title/"
 excerpt_separator: "<!--more-->"
 include: ['.htaccess']
 # Exclude these files from your production _site
-exclude:
-    - .sass-cache
-    - Gemfile
-    - Gemfile.lock
-    - LICENSE
-    - README.md
-    - INSTALL.md
-    - node_modules
+exclude: [.sass-cache, Gemfile, Gemfile.lock, CHANGELOG.md, LICENSE, README.md, INSTALL.md, node_modules]
 
 markdown: kramdown
 kramdown:
@@ -126,7 +119,6 @@ defaults:
     values:
       language: es
       show_meta: false 	    # Hide metadata for all pages
-      # sidebar:    		# Possible values › left, right › by default there will be no sidebar
       comments: false
   -
     scope:
@@ -135,8 +127,6 @@ defaults:
     values:
       language: es
       show_meta: true       # Show metadata for all posts
-      # permalink: "/posts/:year/:month/:day/:title/" # not supported by github pages
-      # sidebar:            # Possible values › left, right › by default there will be no sidebar
       comments: false
       author: jeslopalo     # Default author for posts
   -

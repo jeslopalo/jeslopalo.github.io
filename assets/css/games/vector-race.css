@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+.masthead {
+    padding: 5px 0 0;
+    min-height: calc(14vh - 60px);
+}
+
+.masthead .description {
+    padding: 0 20px;
+}
+
+.masthead .description h1 {
+    font-size: 1.3em;
+    text-align: justify;
+    margin-bottom: 0;
+}
+
+#content {
+    padding: 0px 0 60px !important;
+}
+
+.wrapper {
+    max-width: none;
+    padding: 0;
+}
+
+.move-left > .inner-wrap {
+    webkit-transform: translate3d(-400px, 0, 0);
+    -moz-transform: translate3d(-400px, 0, 0);
+    -ms-transform: translate3d(-400px, 0, 0);
+    -o-transform: translate3d(-400px, 0, 0);
+    transform: translate3d(-400px, 0, 0);
+}
+
+.move-right > .inner-wrap {
+    webkit-transform: translate3d(400px, 0, 0);
+    -moz-transform: translate3d(400px, 0, 0);
+    -ms-transform: translate3d(400px, 0, 0);
+    -o-transform: translate3d(400px, 0, 0);
+    transform: translate3d(400px, 0, 0);
+}
+
+.right-off-canvas-menu,
+.left-off-canvas-menu {
+    width: 400px;
+    background: none;
+}
+
+.left-off-canvas-toggle i {
+    font-size: 1.5rem;
+    margin: 10px !important;
+    color: white;
+}
+
+.main-section {
+    padding: 15px 5px 50px 25px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+#canvas {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#state-container {
+    order: 0;
+    flex: 0 0 300px;
+    align-self: auto;
+
+    padding: 0 1rem;
+    margin: 0 2rem 0 auto;
+}
+
+#state-container > div {
+    width: 350px;
+    height: 45%;
+}
+
+#state-container th {
+    height: 4em;
+}
+
+#state-container .tabs li a, #state-container .tabs .tab-title a {
+    border-bottom: 1px solid #333;
+    text-align: center;
+
+    padding: .5rem 1rem;
+    outline : none;
+}
+
+#state-container .tabs li.active a, #state-container .tabs .tab-title.active a {
+    border-top: 1px solid #333;
+    border-right: 1px solid #333;
+    border-bottom: 0;
+    border-left: 1px solid #333;
+    background: inherit;
+}
+
+#state-container ul.tabs li {
+    width: 50%;
+}
+
+.tabs-content, .tabs-content > .content {
+    padding: 0 .5rem;
+}
+
+.tabs-content {
+    border: 1px solid #333;
+    border-top: 0;
+}
+
+ul#messenger {
+    height: 6rem;
+    overflow: auto;
+    margin-top: 1rem;
+    margin-left: 0;
+}
+
+ul#messenger li {
+    font-style: italic;
+    color: #8699a4;
+}
+
+#messenger, #classification, #stats {
+    margin: 0 auto 2rem;
+    font-size: 0.9rem;
+}
+
+ul#messenger,
+#classification table,
+#stats table {
+    width: 100%;
+}
+
+ul#messenger,
+#classification *,
+#stats * {
+    background: transparent;
+}
+
+#stats table, #stats table th,
+#classification table, #classification table th {
+    border: 0;
+}
+
+#classification .classified {
+    font-weight: bold;
+    font-size: medium;
+}
+
+#controls {
+    padding: 2.5rem 1em 3em 1em;
+}
+
+#controls input[type=checkbox],
+#controls aside input[type=text],
+#controls aside input[type=color] {
+    margin: 0;
+}
+
+#controls input[type=color] {
+    padding: 0;
+}
+
+#controls .switch {
+    line-height: 2;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#instructions {
+    padding: 2rem 2em 3em 1.5em;
+
+    font-size: .9rem;
+    text-align: justify;
+}

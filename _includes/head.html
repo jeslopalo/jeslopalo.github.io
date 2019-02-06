@@ -28,6 +28,7 @@
 {% if site.title %}<meta property="og:site_name" content="{{ site.title }}" />{% endif %}
 <meta property="og:image" content="{% if page.image.thumb %}{{ site.url }}{{ site.baseurl }}{{ page.image.thumb }}{% elsif page.image.masthead %}{{ site.url }}{{ site.baseurl }}{{ page.image.masthead }}{% endif %}" />
 
+<link rel="stylesheet" href="{{ '/assets/bower_components/spectrum/spectrum.css' | prepend: site.baseurl }}" />
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}"/>
 {% if page.stylesheet %}<link rel="stylesheet" href="{{ page.stylesheet }}"/>{% endif %}
 
@@ -48,14 +49,38 @@
 
 <link type="text/plain" rel="author" href="{{ site.url }}{{ site.baseurl }}/humans.txt"/>
 
+<!--
+    1.- derived from {{page.collection}}/{{page.slug}}
+    2.- derived from {{page.slug}}
+    3.- default masthead {{site.assets.images.masthead.default}}
+-->
+{% assign masthead = site.assets.images.masthead.default %}
+{% assign masthead_files = site.static_files | where: "masthead_image", true %}
+{% if page.slug %}
+    {% for candidate in masthead_files %}
+        {% if candidate.path contains page.slug %}
+            {% assign masthead = candidate.path %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% if page.collection and page.slug %}
+    {% capture slug %}{{ page.collection }}/{{ page.slug }}{% endcapture %}
+    {% for candidate in masthead_files %}
+        {% if candidate.path contains page.collection/page.slug %}
+            {% assign masthead = candidate.path %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 <style>
       #background {
             background:
                   linear-gradient(rgba(23, 22, 23, 0.6), rgba(23, 22, 23, 0.6)),
-                  url('{{ page.image.masthead }}'),
+                  url('{{ masthead }}'),
                   black;
       }
-{% if jekyll.environment =="development" %}
+
+{% if jekyll.environment == "development" %}
       #navigation { border-top-color: green; }
 {% endif %}
 </style>

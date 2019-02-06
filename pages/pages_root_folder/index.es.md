@@ -6,9 +6,8 @@ meta_title: jeslopalo's website
 meta_description: Bienvenido a mi espacio web. Soy desarrollador de software.
 teaser: ☆ since 1980 ☆
 date:   2015-10-11 18:02:01+02:00
-author: null
-image:
-    masthead: "/assets/images/header/landing.jpg"
+author: jeslopalo
+slug: "index/landing"
 permalink: /
 format: big
 ---

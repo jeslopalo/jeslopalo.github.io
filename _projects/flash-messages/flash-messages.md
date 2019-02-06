@@ -1,8 +1,9 @@
 ---
-layout: page
+layout: project
 title: "Flash messages"
 date:   2014-11-13 17:13:00+02:00
 teaser: "An easy way to send &amp; show <b>flash messages</b>"
+description: "*flash-messages* is an easy way to send messages after a redirection in Java web applications"
 language: en
 permalink: "/projects/flash-messages/"
 redirect_from:  /flash-messages/

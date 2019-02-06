@@ -1,0 +1,234 @@
+---
+layout: game
+title: "Vector race"
+date:   2019-02-06 21:55:13+02:00
+author: null
+permalink: "/games/vector-race/"
+script:
+    - "/assets/bower_components/foundation/js/foundation/foundation.offcanvas.js"
+    - "/assets/js/games/geometry.js"
+    - "/assets/js/games/vector-race/circuits.js"
+    - "/assets/js/games/vector-race/main.js"
+stylesheet: "/assets/css/games/vector-race.css"
+description: |
+    **Vector race** is a funny game about driving vectors.
+    Change direction and magnitude to trace the curves as if you were driving a motorbike.
+include_fullscreen: true
+---
+<section class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+        <nav class="tab-bar">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">&xmap; &xrarr; &nearr;</h1>
+            </section>
+
+            <section class="right-small">
+                <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+            </section>
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+            <div id="instructions">
+
+                <h3>Instructions</h3>
+                <p>
+                    Vector race is a funny game about driving vectors. Change direction and magnitude to trace
+                    the curves as if you were driving a motorbike.
+                </p>
+
+                <p>
+                    The rules for moving represent a motorbike with a certain <b>inertia, velocity and acceleration</b>,
+                    and the resulting line evokes how real racing motorbikes move.
+                </p>
+
+                <p>
+                    The game requires players to slow down before bends in the track, and requires some foresight
+                    and planning for successful play. The game is popular as an educational tool teaching vectors.
+                </p>
+
+                <h4>Rules</h4>
+                <p>
+                    All moves will be from one grid point to another grid point. Each grid point has eight
+                    neighbouring grid points: <b>Up, down, left, right, and the four diagonal directions</b>.
+                    Players take turns to move according to some simple rules. Each move is marked by a line from
+                    the starting point of this move to a new point.
+                </p>
+
+                <p>
+                    At the begining the player choose an starting point. Thereafter each player's first move must be
+                    to one of the three neighbours of their starting position in the race direction.
+                    On each turn after that, the player can choose to move the same number of squares in the same
+                    direction as on the previous turn; the grid point reached by this move is called the principal
+                    point for this turn. (E.g., if the previous move was two squares to the left and four squares
+                    upwards, then the principal point is found by moving another two squares to the left and
+                    four more squares upwards.) However, the player also has the choice of any of the eight neighbours
+                    of this principal point.
+                </p>
+                <p>
+                    If the player's position is off the track, the traction is lower and therefore the speed is reduced
+                    to the minimum. Only the eight adjacent neighbours can be selected.
+                </p>
+                <p>
+                    A position can only be occupied by a single player.
+                </p>
+
+                <h4>The winner</h4>
+                <p>
+                    The first player to cross the finish line wins the race. In the event that two players finish
+                    in the same round, then the winner is the one whose motorbike ends at the greatest distance beyond
+                    the finish line.
+                </p>
+                <h5>Reference</h5>
+                <ul>
+                    <li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Racetrack_(game)">Racetrack (game)</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <aside class="right-off-canvas-menu">
+            <form id="controls">
+                <h3>Circuit</h3>
+
+                <div id="options">
+                    <div class="row">
+                        <label for="circuit">
+                            <!--Choose a circuit-->
+                            <select id="circuit">
+                                <option value="brunolo">Brunolo</option>
+                                <option value="ring">The Ring</option>
+                                <option value="velodrome">Velodrome</option>
+                                <option value="experiment">Experiment</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <h3>Players</h3>
+
+                <div id="players">
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_1" type="checkbox" checked="checked"/>
+                                        <label for="player_1"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_1" type="color" value="#ff2600"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_1" type="text" placeholder="name" value="G. Agostini"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_2" type="checkbox"/>
+                                        <label for="player_2"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_2" type="color" value="#0096ff"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_2" type="text" placeholder="name" value="A. Nieto"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <div class="row collapse">
+                                <div class="small-3 columns">
+                                    <div class="switch small radius">
+                                        <input id="player_3" type="checkbox"/>
+                                        <label for="player_3"></label>
+                                    </div>
+                                </div>
+                                <div class="small-2 columns">
+                                    <input id="color_3" type="color" value="#ff2f92"/>
+                                </div>
+                                <div class="small-7 columns">
+                                    <input id="name_3" type="text" placeholder="name"
+                                           value="V. Rossi"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <div class="row">
+                        <button id="new-game" class="tiny button postfix">New game</button>
+                    </div>
+                </div>
+            </form>
+        </aside>
+
+        <section class="main-section">
+            <div id="canvas-container">
+                <canvas id='canvas'></canvas>
+            </div>
+
+            <div id="state-container">
+                <div>
+                    <ul id="messenger"></ul>
+                </div>
+                <div>
+                    <ul class="tabs" data-tab>
+                        <li class="tab-title active">
+                            <a href="#classification">Classification</a>
+                        </li>
+                        <li class="tab-title">
+                            <a href="#stats">Stats</a>
+                        </li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="content active" id="classification">
+                            <table role="grid">
+                                <thead>
+                                <tr>
+                                    <th width="15%">rank</th>
+                                    <th>player</th>
+                                    <th width="15%">turn</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="content" id="stats">
+                            <table role="grid">
+                                <thead>
+                                <tr>
+                                    <th>distance</th>
+                                    <th width="20%">speed</th>
+                                    <th width="20%">avg. speed</th>
+                                    <th width="20%">max. speed</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a class="exit-off-canvas"></a>
+
+    </div>
+</section>

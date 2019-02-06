@@ -3,7 +3,7 @@ function PointFactory(coord_step) {
     this.get = function (x, y) {
         var point = new Point(normalize(x), normalize(y));
 
-        console.log("   {x: " + x + ", y: " + y + "} => {x: " + point.x() + ", y:" + point.y() + "}");
+        //console.log("   {x: " + x + ", y: " + y + "} => {x: " + point.x() + ", y:" + point.y() + "}");
         return point;
     };
 
@@ -174,15 +174,30 @@ function Line(point_1, point_2) {
     }
 
     this.points = function (options) {
+
         var defaults = {increment: 1, bounds_exclusive: false};
         options = $.extend({}, defaults, options || {});
+
+        var points = [];
+
+        if (self.is_vertical()) {
+            var x = from.x();
+            var start_at = Math.min(from.y(), to.y()) + 1;
+            var end_at = Math.max(from.y(), to.y());
+
+            for (var y = start_at; y <= end_at; y += 1) {
+                if (Number.isInteger(y) && (y % options.increment == 0)) {
+                    points.push(new Point(x, y));
+                }
+            }
+            return points;
+        }
 
         var start_at = first_step(options.bounds_exclusive ? from.x() + 1 : from.x(), options.increment);
         var end_at = options.bounds_exclusive ? to.x() - 1 : to.x();
 
         var c = from.y() - (this.slope() * from.x());
 
-        var points = [];
         for (var i = start_at; i <= end_at; i += options.increment) {
             var y = (this.slope() * i) + c;
 

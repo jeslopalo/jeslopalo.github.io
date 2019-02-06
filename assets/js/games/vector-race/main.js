@@ -8,7 +8,7 @@ function CircuitDrawer(options) {
         height: 25 * CELL_SIZE,
         width: 25 * CELL_SIZE,
         start_line_color: "rgba(250,250,250,.4)",
-        waypoint_color: "rgba(204, 204, 153, .5)",
+        waypoint_color: "rgba(204,204,153,.3)",
         waypoint_width: 4,
         waypoint_tolerance_factor: 2,
         border_color: "#333",
@@ -115,27 +115,33 @@ function CircuitDrawer(options) {
         var starting_line = circuit.starting_line();
 
         context.beginPath();
-        context.lineWidth = 2;
+        context.lineWidth = 3;
         context.strokeStyle = settings.start_line_color;
         context.moveTo(starting_line.from().x(), starting_line.from().y());
         context.lineTo(starting_line.to().x(), starting_line.to().y());
         context.stroke();
 
-        [0, settings.cell_size].forEach(function (v_offset) {
+        [0, settings.cell_size].forEach(function (offset) {
+            var x_offset = starting_line.is_vertical() ? -(settings.cell_size * 0.25) - offset : 0;
+            var y_offset = starting_line.is_horizontal() ? -(settings.cell_size * 0.25) - offset : 0;
+
             context.beginPath();
             context.lineWidth = settings.cell_size / 2;
             context.setLineDash([settings.cell_size / 2]);
             context.lineDashOffset = 0;
-            context.moveTo(starting_line.from().x(), starting_line.from().y() - (settings.cell_size * 0.25) - v_offset);
-            context.lineTo(starting_line.to().x(), starting_line.to().y() - (settings.cell_size * 0.25) - v_offset);
+            context.moveTo(starting_line.from().x() + x_offset, starting_line.from().y() + y_offset);
+            context.lineTo(starting_line.to().x() + x_offset, starting_line.to().y() + y_offset);
             context.stroke();
+
+            x_offset = starting_line.is_vertical() ? -(settings.cell_size * 0.75) - offset : 0;
+            y_offset = starting_line.is_horizontal() ? -(settings.cell_size * 0.75) - offset : 0;
 
             context.beginPath();
             context.lineWidth = settings.cell_size / 2;
             context.setLineDash([settings.cell_size / 2]);
             context.lineDashOffset = settings.cell_size / 2;
-            context.moveTo(starting_line.from().x(), starting_line.from().y() - (settings.cell_size * 0.75) - v_offset);
-            context.lineTo(starting_line.to().x(), starting_line.to().y() - (settings.cell_size * 0.75) - v_offset);
+            context.moveTo(starting_line.from().x() + x_offset, starting_line.from().y() + y_offset);
+            context.lineTo(starting_line.to().x() + x_offset, starting_line.to().y() + y_offset);
             context.stroke();
         });
 
@@ -328,8 +334,7 @@ function Board(options) {
     function draw_canvas() {
         context.clearRect(0, 0, canvas.width, canvas.height);
 
-        //context.fillStyle = "#FFFFA5";
-        context.fillStyle = "white";
+        context.fillStyle = settings.canvas_color || "whitesmoke";
         context.fill();
         context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -1138,7 +1143,8 @@ function prepare_game(options) {
 $(function () {
 
     var options = {
-        circuit: "ring",
+        //canvas_color: "#FFFFA5",
+        circuit: "default",
         canvas_id: "canvas",
         width: Math.max($(window).width() - 500, 500),
         height: Math.max($(window).height() - 200, 500),

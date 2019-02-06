@@ -84,6 +84,206 @@ function TheExperimentCircuit() {
     };
 }
 
+function VelodromeCircuit() {
+
+    this.id = "velodrome";
+
+    var self = this;
+    var pointFactory;
+
+    var settings = [];
+    var unity, track_width, x_offset, y_offset;
+
+    var outside_radius, outside_reference, outside_long_lane_length, outside_short_lane_length;
+    var inside_radius, inside_reference, inside_long_lane_length, inside_short_lane_length;
+
+    this.initialize = function (options) {
+        settings = options;
+
+        pointFactory = new PointFactory(settings.cell_size);
+
+        unity = settings.cell_size || 10;
+
+        x_offset = (3 * unity) + 10;
+        y_offset = (3 * unity) + 10;
+        track_width = settings.track_width || (5 * unity);
+
+        outside_radius = 11 * unity;
+        outside_reference = {x: x_offset, y: y_offset};
+        outside_long_lane_length = (settings.width - (2 * (x_offset + outside_radius)));
+        outside_short_lane_length = (settings.height - (2.1 * (y_offset + outside_radius)));
+
+        inside_radius = outside_radius - track_width;
+        inside_reference = {x: x_offset + track_width, y: y_offset + track_width};
+        inside_long_lane_length = (settings.width - (2 * (x_offset + inside_radius + track_width)));
+        inside_short_lane_length = (settings.height - (2.1 * (y_offset + inside_radius + track_width)));
+    };
+
+    this.track_layout = function () {
+        var track_layout = new Path2D();
+
+        // Outside path
+
+        /* top line l -> r */
+        track_layout.moveTo(outside_reference.x + outside_radius, outside_reference.y);
+        track_layout.lineTo(outside_reference.x + outside_radius + outside_long_lane_length, outside_reference.y);
+        /* top right arc */
+        track_layout.arcTo(
+            outside_reference.x + outside_radius + outside_long_lane_length + outside_radius, outside_reference.y,
+            outside_reference.x + outside_radius + outside_long_lane_length + outside_radius, outside_reference.y + outside_radius,
+            outside_radius
+        );
+        /* right line t -> b */
+        track_layout.lineTo(
+            outside_reference.x + outside_radius + outside_long_lane_length + outside_radius,
+            outside_reference.y + outside_radius + outside_short_lane_length);
+        /* bottom right arc */
+        track_layout.arcTo(
+            outside_reference.x + outside_radius + outside_long_lane_length + outside_radius, outside_reference.y + outside_radius + outside_short_lane_length + outside_radius,
+            outside_reference.x + outside_radius + outside_long_lane_length, outside_reference.y + outside_radius + outside_short_lane_length + outside_radius,
+            outside_radius
+        );
+        /* bottom line r -> l */
+        track_layout.lineTo(
+            outside_reference.x + outside_radius,
+            outside_reference.y + outside_radius + outside_short_lane_length + outside_radius
+        );
+        /* bottom left arc */
+        track_layout.arcTo(
+            outside_reference.x, outside_reference.y + outside_radius + outside_short_lane_length + outside_radius,
+            outside_reference.x, outside_reference.y + outside_radius + outside_short_lane_length,
+            outside_radius
+        );
+        /* left line b -> t */
+        track_layout.lineTo(
+            outside_reference.x,
+            outside_reference.y + outside_radius
+        );
+        /* top left arc */
+        track_layout.arcTo(
+            outside_reference.x, outside_reference.y,
+            outside_reference.x + outside_radius, outside_reference.y,
+            outside_radius
+        );
+
+        // Inside path
+
+        /* top line r -> l */
+        track_layout.moveTo(inside_reference.x + inside_radius + inside_long_lane_length, inside_reference.y);
+        track_layout.lineTo(inside_reference.x + inside_radius, inside_reference.y);
+        /* top left arc */
+        track_layout.arcTo(
+            inside_reference.x, inside_reference.y,
+            inside_reference.x, inside_reference.y + inside_radius,
+            inside_radius
+        );
+        /* left line t -> b */
+        track_layout.lineTo(
+            inside_reference.x,
+            inside_reference.y + inside_radius + inside_short_lane_length
+        );
+        /* bottom left arc */
+        track_layout.arcTo(
+            inside_reference.x, inside_reference.y + inside_radius + inside_short_lane_length + inside_radius,
+            inside_reference.x + inside_radius, inside_reference.y + inside_radius + inside_short_lane_length + inside_radius,
+            inside_radius
+        );
+        /* bottom line l -> r */
+        track_layout.lineTo(
+            inside_reference.x + inside_radius + inside_long_lane_length,
+            inside_reference.y + inside_radius + inside_short_lane_length + inside_radius
+        );
+        /* bottom right arc */
+        track_layout.arcTo(
+            inside_reference.x + inside_radius + inside_long_lane_length + inside_radius, inside_reference.y + inside_radius + inside_short_lane_length + inside_radius,
+            inside_reference.x + inside_radius + inside_long_lane_length + inside_radius, inside_reference.y + inside_radius + inside_short_lane_length,
+            inside_radius
+        );
+        /* right line b -> t */
+        track_layout.lineTo(
+            inside_reference.x + inside_radius + inside_long_lane_length + inside_radius,
+            inside_reference.y + inside_radius);
+        /* top right arc */
+        track_layout.arcTo(
+            inside_reference.x + inside_radius + inside_long_lane_length + inside_radius, inside_reference.y,
+            inside_reference.x + inside_radius + inside_long_lane_length, inside_reference.y,
+            inside_radius
+        );
+
+        return track_layout;
+    };
+
+    //function normalize(coordinate) {
+    //    return Math.round(coordinate / settings.cell_size) * settings.cell_size
+    //}
+
+    this.starting_line = function () {
+        var x = settings.width / 2.3;
+        var y1 = y_offset + track_width + inside_radius + inside_short_lane_length + inside_radius;
+        var y2 = y1 + track_width;
+
+        return new Line(pointFactory.get(x, y1), pointFactory.get(x, y2));
+    };
+
+    this.starting_direction = function () {
+        return StartingDirection.LEFT;
+    };
+
+    this.waypoints = function () {
+        var point = pointFactory.get;
+        var waypoints = [];
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius, outside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius),
+            point(inside_reference.x + inside_radius, inside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x, outside_reference.y + outside_radius + outside_short_lane_length),
+            point(inside_reference.x, inside_reference.y + inside_radius + inside_short_lane_length)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x, outside_reference.y + outside_radius),
+            point(inside_reference.x, inside_reference.y + inside_radius)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius, outside_reference.y),
+            point(inside_reference.x + inside_radius, inside_reference.y)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius + outside_long_lane_length, outside_reference.y),
+            point(inside_reference.x + inside_radius + inside_long_lane_length, inside_reference.y)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius + outside_long_lane_length + outside_radius, outside_reference.y + outside_radius),
+            point(inside_reference.x + inside_radius + inside_long_lane_length + inside_radius, inside_reference.y + inside_radius)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius + outside_long_lane_length + outside_radius, outside_reference.y + outside_radius + outside_short_lane_length),
+            point(inside_reference.x + inside_radius + inside_long_lane_length + inside_radius, inside_reference.y + inside_radius + inside_short_lane_length)
+        ));
+
+        waypoints.push(new Line(
+            point(outside_reference.x + outside_radius + outside_long_lane_length, outside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius),
+            point(inside_reference.x + inside_radius + inside_long_lane_length, inside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius)
+        ));
+
+        waypoints.push(new Line(
+            new Point(self.starting_line().from().x() + 4, outside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius),
+            new Point(self.starting_line().to().x() + 4, inside_reference.y + track_width + inside_radius + inside_short_lane_length + inside_radius)
+        ));
+        return waypoints;
+    };
+
+    this.name = function () {
+        return "Velodrome";
+    };
+}
+
 function TheRingCircuit() {
 
     this.id = "ring";
@@ -299,7 +499,8 @@ var StartingDirection = {
 };
 
 var CircuitFactory = {
-    default: new TheRingCircuit(),
+    default: new BrunoloRacingCircuit(),
+    velodrome: new VelodromeCircuit(),
     ring: new TheRingCircuit(),
     brunolo: new BrunoloRacingCircuit(),
     experiment: new TheExperimentCircuit()

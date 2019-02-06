@@ -1,8 +1,75 @@
+### v1.8.0 (2019-02-06)
+
+  * [8b1e19a] Exclude 'assets' from sitemap
+  * [efae2a2] Add title to comment in sitemap.xml
+  * [b81163f] Unpublish example draft
+  * [cfe79c4] Introduce 'game' category and calculates masthead images
+  * [2b250fe] Calculate masthead image
+  * [fbd9894] Upgrade Gemfile.lock
+  * [5da8e71] Disable tracking in development environment
+  * [6fdf131] Change arrays declaration idiom
+  * [21e4d0d] Add first game draft
+  * [4f5603b] Add the first version of instructions
+  * [d9327f6] Add a certain tolerance in the finish line
+  * [3b715fd] Modify the styles of candidate points
+  * [4c893e5] Adds waypoints in every circuit (not in use yet)
+  * [a693179] Change players default colors
+  * [b80c6f7] Change the line intersection algorithm
+  * [56e853b] Improve classification with waypoints & overtake of finish line length
+  * [40a28ba] Add style to classification
+  * [bca5a31] Add the messenger and some minor visual tweaks
+  * [fd7b64f] Minor changes to prepare the next release
+  * [024adbc] Modify state container height
+  * [a208fdd] Add new 'velodrome' circuit
+  * [085a87b] Set 'brunolo' as default circuit
+  * [c27616f] Bump version in package.json
+  * [fbf56f6] Update CHANGELOG.md with 1.8.0 changes
+
+
+### v1.7.0 (2017-12-10) - Enable and disable game hints
+
+  * [7967209] Make possible to disable hints
+  * [302c34c] Bump version in package.json
+
+
+### v1.6.2 (2017-12-09) - Fix cell space
+
+  * [51afc5d] Adjust space in fullscreen mode
+  * [a61017d] Save space in cells
+  * [8488c6f] Bump version in package.json
+
+
+### v1.6.1 (2017-12-09) - Next "the knight's tour" version
+
+  * [4c78430] Improve game front design
+  * [a532379] Adjust the maximum cell length
+  * [0c91fdf] Bump version in package.json
+
+
+### v1.5.1 (2017-12-04) - Fix syntax highlighting of code snippets
+
+  * [5424aa0] Fix syntax highlighting of code snippets
+  * [d47d293] Bump version in package.json
+
+
+### v1.5.0 (2017-12-04) - New "the knight's tour" game
+
+  * [246d54b] Move flash-messages.redirected.md
+  * [5c31fe3] Minor changes
+  * [251143c] Substitute redirecto layout with 'jekyll-redirect-from' plugin
+  * [f34744f] Actualiza la configuración de jekyll
+  * [dd015bb] Add possibility to configure page-based scripts&styles
+  * [ca65cb4] Add a new game layout
+  * [714568d] Add 'the knight's tour' game
+  * [94e5baf] Bump version in package.json
+
+
 ### v1.4.0 (2017-01-04) - New redirect layout
 
   * [54d74de] Add redirected layout for 301 redirects
   * [75f728a] Add redirect from /flash-messages to /projects/flash-messages
   * [76c7bd8] Bump version in package.json
+  * [c5bc874] Update CHANGELOG.md with 1.4.0 changes
 
 
 ### v1.3.0 (2016-10-29) - Update flash-messages documentation
